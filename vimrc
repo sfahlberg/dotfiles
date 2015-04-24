@@ -59,9 +59,16 @@ set tabstop=2 shiftwidth=2 expandtab
 filetype plugin on
 set omnifunc=syntaxcomplete#Complete
 
+" set <leader> equal to ,
+:let mapleader = ","
+
 " NERDTree customization
 autocmd vimenter * NERDTree
 autocmd StdinReadPre * let s:std_in=1
 autocmd VimEnter * if argc() == 0 && !exists("s:std_in") | NERDTree | endif
-map <C-n> :NERDTreeToggle<CR>
-autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTreeType") && b:NERDTreeType == "primary") | q | endif
+
+let g:multi_cursor_use_default_mapping=0
+let g:multi_cursor_next_key='<leader>n'
+let g:multi_cursor_prev_key='<leader>p'
+let g:multi_cursor_skip_key='<leader>x'
+let g:multi_cursor_quit_key='<Esc>'
