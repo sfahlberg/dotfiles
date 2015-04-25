@@ -60,15 +60,14 @@ filetype plugin on
 set omnifunc=syntaxcomplete#Complete
 
 " set <leader> equal to ,
-:let mapleader = ","
+let mapleader = ","
 
-" NERDTree customization
+" Open NERDTree automatically when vim opens
 autocmd vimenter * NERDTree
+
+" Open NERDTree automatically if no files were specified
 autocmd StdinReadPre * let s:std_in=1
 autocmd VimEnter * if argc() == 0 && !exists("s:std_in") | NERDTree | endif
 
-let g:multi_cursor_use_default_mapping=0
-let g:multi_cursor_next_key='<leader>n'
-let g:multi_cursor_prev_key='<leader>p'
-let g:multi_cursor_skip_key='<leader>x'
-let g:multi_cursor_quit_key='<Esc>'
+" map NERDTreeToggle to <leader>n
+map <leader>n :NERDTreeToggle<CR>
