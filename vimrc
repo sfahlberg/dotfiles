@@ -61,12 +61,18 @@ set number
 " automatically set the shift width
 set tabstop=2 shiftwidth=2 expandtab
 
+" make control + a select everything
+map <C-a> ggVG
+
 " automatically close tags in various languages
 filetype plugin on
 set omnifunc=syntaxcomplete#Complete
 
 " set <leader> equal to ,
 let mapleader = ","
+
+vmap <leader>s <Esc><leader>sgv
+imap <leader>s <Esc><leader>s
 
 " Open NERDTree automatically when vim opens
 autocmd vimenter * NERDTree
@@ -77,3 +83,16 @@ autocmd VimEnter * if argc() == 0 && !exists("s:std_in") | NERDTree | endif
 
 " map NERDTreeToggle to <leader>n
 map <leader>n :NERDTreeToggle<CR>
+
+" default syntastic settings from doc
+set statusline+=%#warningmsg#
+set statusline+=%{SyntasticStatuslineFlag()}
+set statusline+=%*
+
+let g:syntastic_always_populate_loc_list = 1
+let g:syntastic_auto_loc_list = 1
+let g:syntastic_check_on_open = 1
+let g:syntastic_check_on_wq = 0
+
+" syntastic libraries
+let g:syntastic_javascript_checkers = ['jshint']
