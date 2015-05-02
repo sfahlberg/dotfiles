@@ -71,8 +71,10 @@ set omnifunc=syntaxcomplete#Complete
 " set <leader> equal to ,
 let mapleader = ","
 
-vmap <leader>s <Esc><leader>sgv
-imap <leader>s <Esc><leader>s
+" save with <leader>s
+nmap <leader>s :w<CR>
+vmap <leader>s <ESC>:w<CR>v
+imap <leader>s <ESC>:w<CR>i
 
 " Open NERDTree automatically when vim opens
 autocmd vimenter * NERDTree
