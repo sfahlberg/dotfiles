@@ -1,0 +1,12 @@
+[user]
+	name = Samuel Fahlberg
+	email = sam.fahlberg@gmail.com
+[core]
+	editor = vim
+	excludesfile = ~/.gitignore
+[push]
+	default = current
+[filter "hawser"]
+	clean = git hawser clean %f
+	smudge = git hawser smudge %f
+	required = true
