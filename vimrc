@@ -76,6 +76,11 @@ nmap <leader>s :w<CR>
 vmap <leader>s <ESC>:w<CR>v
 imap <leader>s <ESC>:w<CR>i
 
+" save and close with <leader>x
+nmap <leader>x :x<CR>
+vmap <leader>x <ESC>:x<CR>
+imap <leader>x <ESC>:x<CR>
+
 " Open NERDTree automatically when vim opens
 autocmd vimenter * NERDTree
 
