@@ -1,5 +1,7 @@
 export PATH="$PATH:$HOME/.rvm/bin" # Add RVM to PATH for scripting
 
+export BROWSER=google-chrome-stable
+
 alias gs='git status '
 alias ga='git add -A'
 alias gb='git branch '
