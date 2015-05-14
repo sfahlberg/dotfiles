@@ -74,7 +74,7 @@ let mapleader = ","
 " save with <leader>s
 nmap <leader>s :w<CR>
 vmap <leader>s <ESC>:w<CR>v
-imap <leader>s <ESC>:w<CR>i
+imap <leader>s <ESC>:w<CR>
 
 " save and close with <leader>x
 nmap <leader>x :x<CR>
