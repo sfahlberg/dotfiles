@@ -81,6 +81,11 @@ nmap <leader>x :x<CR>
 vmap <leader>x <ESC>:x<CR>
 imap <leader>x <ESC>:x<CR>
 
+" map jk to escape
+nmap jk <ESC>
+vmap jk <ESC>
+imap jk <ESC>
+
 " Open NERDTree automatically when vim opens
 autocmd vimenter * NERDTree
 
