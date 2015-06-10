@@ -37,6 +37,9 @@ Plugin 'scrooloose/syntastic'
 " toggle absolute and relative line numbers on insert
 Plugin 'myusuf3/numbers.vim'
 
+" autocomplete
+Plugin 'Valloric/YouCompleteMe'
+
 " All of your Plugins must be added before the following line
 call vundle#end()            " required
 filetype plugin indent on    " required
