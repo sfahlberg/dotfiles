@@ -81,12 +81,6 @@ nmap <leader>x :x<CR>
 vmap <leader>x <ESC>:x<CR>
 imap <leader>x <ESC>:x<CR>
 
-" map jk to escape
-nmap jk <ESC>
-vmap jk <ESC>
-imap jk <ESC>
-
-" Open NERDTree automatically when vim opens
 autocmd vimenter * NERDTree
 
 " Open NERDTree automatically if no files were specified
@@ -98,7 +92,7 @@ map <leader>n :NERDTreeToggle<CR>
 
 " default syntastic settings from doc
 set statusline+=%#warningmsg#
-" set statusline+=%{SyntasticStatuslineFlag()}
+set statusline+=%{SyntasticStatuslineFlag()}
 set statusline+=%*
 
 let g:syntastic_always_populate_loc_list = 1
