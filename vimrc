@@ -64,9 +64,6 @@ set number
 " automatically set the shift width
 set tabstop=2 shiftwidth=2 expandtab
 
-" make control + a select everything
-map <C-a> ggVG
-
 " automatically close tags in various languages
 filetype plugin on
 set omnifunc=syntaxcomplete#Complete
