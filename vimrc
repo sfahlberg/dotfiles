@@ -40,6 +40,9 @@ Plugin 'myusuf3/numbers.vim'
 " autocomplete
 Plugin 'Valloric/YouCompleteMe'
 
+" ruby testing
+Plugin 'skalnik/vim-vroom'
+
 " All of your Plugins must be added before the following line
 call vundle#end()            " required
 filetype plugin indent on    " required
@@ -60,6 +63,9 @@ syntax on
 
 " automatically turn line numbers on
 set number
+
+"fix copy-paste issues
+set clipboard=unnamed
 
 " automatically set the shift width
 set tabstop=2 shiftwidth=2 expandtab
