@@ -13,9 +13,6 @@ Plugin 'gmarik/Vundle.vim'
 " easy file lookup
 Plugin 'kien/ctrlp.vim'
 
-" nerd tree
-Plugin 'scrooloose/nerdtree'
-
 " quick comments
 Plugin 'vim-scripts/tComment'
 
@@ -83,15 +80,6 @@ imap <leader>s <ESC>:w<CR>
 nmap <leader>x :x<CR>
 vmap <leader>x <ESC>:x<CR>
 imap <leader>x <ESC>:x<CR>
-
-autocmd vimenter * NERDTree
-
-" Open NERDTree automatically if no files were specified
-autocmd StdinReadPre * let s:std_in=1
-autocmd VimEnter * if argc() == 0 && !exists("s:std_in") | NERDTree | endif
-
-" map NERDTreeToggle to <leader>n
-map <leader>n :NERDTreeToggle<CR>
 
 " default syntastic settings from doc
 set statusline+=%#warningmsg#
