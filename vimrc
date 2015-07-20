@@ -37,9 +37,6 @@ Plugin 'scrooloose/syntastic'
 " toggle absolute and relative line numbers on insert
 Plugin 'myusuf3/numbers.vim'
 
-" autocomplete
-Plugin 'Valloric/YouCompleteMe'
-
 " ruby testing
 Plugin 'skalnik/vim-vroom'
 
