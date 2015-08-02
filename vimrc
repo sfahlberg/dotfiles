@@ -64,6 +64,9 @@ set clipboard=unnamed
 " automatically set the shift width
 set tabstop=2 shiftwidth=2 expandtab
 
+" no wrapping
+set nowrap
+
 " automatically close tags in various languages
 filetype plugin on
 set omnifunc=syntaxcomplete#Complete
