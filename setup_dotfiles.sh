@@ -7,7 +7,7 @@
 ########## Variables
 
 dir=~/dotfiles                    # dotfiles directory
-files="zpreztorc vimrc bash_profile profile gitconfig"    # list of files/folders to symlink in homedir
+files="zpreztorc vimrc bash_profile profile gitconfig gitignore"    # list of files/folders to symlink in homedir
 
 ##########
 
