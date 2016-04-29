@@ -160,3 +160,8 @@ zstyle ':prezto:module:syntax-highlighting' styles \
 
 # Integrate with iTerm2.
 # zstyle ':prezto:module:tmux:iterm' integrate 'yes'
+
+# upload all shell scripts
+for f in ~/.shell_scripts/*; do 
+  source $f
+done
