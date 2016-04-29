@@ -1,15 +1,10 @@
 #!/bin/bash
-############################
-# .make.sh
 # This script creates symlinks from the home directory to any desired dotfiles in ~/dotfiles
-############################
 
 ########## Variables
 
 dir=~/dotfiles                    # dotfiles directory
 files="zpreztorc vimrc bash_profile profile gitconfig gitignore"    # list of files/folders to symlink in homedir
-
-##########
 
 # create symlinks from the homedir to any files in the ~/dotfiles directory specified in $files
 create_symlinks () {
