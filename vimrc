@@ -31,6 +31,9 @@ Plugin 'tpope/vim-surround'
 " syntax checking
 Plugin 'scrooloose/syntastic'
 
+" airplane status bar
+Plugin 'vim-airline/vim-airline'
+
 " toggle absolute and relative line numbers on insert
 Plugin 'myusuf3/numbers.vim'
 
@@ -70,6 +73,9 @@ set nowrap
 " automatically close tags in various languages
 filetype plugin on
 set omnifunc=syntaxcomplete#Complete
+
+"start up airplane
+set laststatus=2
 
 " set <leader> equal to ,
 let mapleader = ","
