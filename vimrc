@@ -77,7 +77,7 @@ set omnifunc=syntaxcomplete#Complete
 " start up airplane
 set laststatus=2
 
-" use airplans with tabs for buffers
+" use airplane with tabs for buffers
 let g:airline#extensions#tabline#enabled = 1
 
 " set <leader> equal to ,
