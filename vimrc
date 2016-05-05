@@ -74,8 +74,11 @@ set nowrap
 filetype plugin on
 set omnifunc=syntaxcomplete#Complete
 
-"start up airplane
+" start up airplane
 set laststatus=2
+
+" use airplans with tabs for buffers
+let g:airline#extensions#tabline#enabled = 1
 
 " set <leader> equal to ,
 let mapleader = ","
