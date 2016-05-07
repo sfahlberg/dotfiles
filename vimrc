@@ -40,6 +40,9 @@ Plugin 'myusuf3/numbers.vim'
 " ruby testing
 Plugin 'skalnik/vim-vroom'
 
+" solarized colorscheme
+Plugin 'altercation/vim-colors-solarized'
+
 " All of your Plugins must be added before the following line
 call vundle#end()            " required
 filetype plugin indent on    " required
@@ -55,8 +58,11 @@ filetype plugin indent on    " required
 " see :h vundle for more details or wiki for FAQ
 " Put your non-Plugin stuff after this line
 
-" automatically start syntax highlighting
-syntax on
+" set colorscheme
+syntax enable
+set background=dark
+let g:solarized_termcolors=256
+colorscheme solarized
 
 " automatically turn line numbers on
 set number
@@ -77,16 +83,20 @@ set omnifunc=syntaxcomplete#Complete
 " start up airplane
 set laststatus=2
 
+" save automatically when text is changed
+set updatetime=200
+au CursorHold * silent! update
+
 " use airplane with tabs for buffers
 let g:airline#extensions#tabline#enabled = 1
 
 " set <leader> equal to ,
 let mapleader = ","
 
-" save with <leader>s
-nmap <leader>s :w<CR>
-vmap <leader>s <ESC>:w<CR>v
-imap <leader>s <ESC>:w<CR>
+" save with <leader>w
+nmap <leader>w :w<CR>
+vmap <leader>w <ESC>:w<CR>v
+imap <leader>w <ESC>:w<CR>
 
 " save and close with <leader>x
 nmap <leader>x :x<CR>
