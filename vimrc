@@ -43,6 +43,9 @@ Plugin 'skalnik/vim-vroom'
 " solarized colorscheme
 Plugin 'altercation/vim-colors-solarized'
 
+" vim-vinegar for netrw
+Plugin 'tpope/vim-vinegar'
+
 " All of your Plugins must be added before the following line
 call vundle#end()            " required
 filetype plugin indent on    " required
@@ -76,6 +79,10 @@ set tabstop=2 shiftwidth=2 expandtab
 " no wrapping
 set nowrap
 
+" auto sort by last updated
+let g:netrw_sort_by = 'time'
+let g:netrw_sort_direction = 'reverse'
+
 " automatically close tags in various languages
 filetype plugin on
 set omnifunc=syntaxcomplete#Complete
@@ -92,6 +99,16 @@ let g:airline#extensions#tabline#enabled = 1
 
 " set <leader> equal to ,
 let mapleader = ","
+
+" map to explorer
+nmap <leader>e :Explore<CR>
+vmap <leader>e <ESC>:Explore<CR>
+imap <leader>e <ESC>:Explore<CR>
+
+" switch to shell
+nmap <leader>s :w<CR>:shell<CR>
+vmap <leader>s <ESC>:w<CR>:shell<CR>
+imap <leader>s <ESC>:w<CR>:shell<CR>
 
 " save with <leader>w
 nmap <leader>w :w<CR>
