@@ -59,9 +59,11 @@ filetype plugin indent on    " required
 " Put your non-Plugin stuff after this line
 
 " set colorscheme
-syntax enable
+syntax on 
+if has('mac')
+  let g:solarized_termcolors=256
+endif
 set background=dark
-" let g:solarized_termcolors=256
 colorscheme solarized
 
 " automatically turn line numbers on
