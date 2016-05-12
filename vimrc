@@ -64,7 +64,7 @@ filetype plugin indent on    " required
 " set colorscheme
 syntax enable
 set background=dark
-let g:solarized_termcolors=256
+" let g:solarized_termcolors=256
 colorscheme solarized
 
 " automatically turn line numbers on
