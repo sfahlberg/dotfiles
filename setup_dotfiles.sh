@@ -9,7 +9,6 @@ files="zpreztorc vimrc gitconfig gitignore tmux.conf"    # list of files/folders
 # create symlinks from the homedir to any files in the ~/dotfiles directory specified in $files
 create_symlinks () {
   for file in $files; do
-    echo "Creating symlink to $file in home directory."
     ln -s $dir/$file ~/.$file
   done
 }
@@ -104,8 +103,8 @@ install_tmux () {
   fi
 }
 
-install_zsh
-install_tmux
 install_vim
 install_vundle
+install_zsh
+install_tmux
 create_symlinks
