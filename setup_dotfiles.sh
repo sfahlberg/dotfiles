@@ -27,6 +27,7 @@ install_vundle () {
 install_zsh () {
   # Test to see if zshell is installed.  If it is:
   if [ -f /bin/zsh -o -f /usr/bin/zsh ]; then
+    echo 'zsh already installed'
 
     # Clone my prezto repository from GitHub only if it isn't already present
     if [[ ! -d ~/.zprezto/ ]]; then
@@ -50,11 +51,13 @@ install_zsh () {
       echo 'making zsh the default'
       chsh -s $(which zsh)
     fi
+  else
+    echo 'zsh not installed'
   fi
 }
 
 install_tmux () {
-  if which tmux &> /dev/null; then 
+  if tmux &> /dev/null; then 
     echo 'tmux already installed'
   else
     # If tmux isn't installed, get the platform
