@@ -62,9 +62,10 @@ filetype plugin indent on    " required
 " Put your non-Plugin stuff after this line
 
 " set colorscheme
-syntax on
-set t_Co=256 
-let g:solarized_termcolors=256
+syntax on 
+if has('mac')
+  let g:solarized_termcolors=256
+endif
 set background=dark
 colorscheme solarized
 
@@ -97,6 +98,9 @@ au CursorHold * silent! update
 
 " use airplane with tabs for buffers
 let g:airline#extensions#tabline#enabled = 1
+
+" fugitive make vertical
+set diffopt+=vertical
 
 " set <leader> equal to ,
 let mapleader = ","
