@@ -33,6 +33,7 @@ Plugin 'scrooloose/syntastic'
 
 " airplane status bar
 Plugin 'vim-airline/vim-airline'
+Plugin 'vim-airline/vim-airline-themes'
 
 " toggle absolute and relative line numbers on insert
 Plugin 'myusuf3/numbers.vim'
@@ -65,9 +66,12 @@ filetype plugin indent on    " required
 syntax on 
 if has('mac')
   let g:solarized_termcolors=256
+  set background=dark
+  colorscheme solarized
+elseif has('unix')
+  " use airplane with tabs for buffers
+  let g:airline#extensions#tabline#enabled = 1
 endif
-set background=dark
-colorscheme solarized
 
 " automatically turn line numbers on
 set number
@@ -91,13 +95,12 @@ set omnifunc=syntaxcomplete#Complete
 
 " start up airplane
 set laststatus=2
+let g:airline_powerline_fonts = 1
+let g:airline_theme = 'papercolor'
 
 " save automatically when text is changed
 set updatetime=200
 au CursorHold * silent! update
-
-" use airplane with tabs for buffers
-let g:airline#extensions#tabline#enabled = 1
 
 " fugitive make vertical
 set diffopt+=vertical
