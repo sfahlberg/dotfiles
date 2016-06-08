@@ -63,7 +63,7 @@ filetype plugin indent on    " required
 " Put your non-Plugin stuff after this line
 
 " set colorscheme
-syntax on 
+syntax on
 if has('mac')
   let g:solarized_termcolors=256
   set background=dark
