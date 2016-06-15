@@ -2,6 +2,6 @@
 
 cd ~
 
-git clone git@github.com:sfahlberg/dotfiles.git
+git clone https://github.com/sfahlberg/dotfiles.git
 
 bash setup_dotfiles.sh
