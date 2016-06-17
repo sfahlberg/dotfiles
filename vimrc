@@ -32,9 +32,6 @@ Plugin 'scrooloose/syntastic'
 Plugin 'vim-airline/vim-airline'
 Plugin 'vim-airline/vim-airline-themes'
 
-" toggle absolute and relative line numbers on insert
-Plugin 'myusuf3/numbers.vim'
-
 " ruby testing
 Plugin 'skalnik/vim-vroom'
 
@@ -81,6 +78,7 @@ endif
 
 " automatically turn line numbers on
 set number
+set relativenumber
 
 "fix copy-paste issues
 set clipboard=unnamed
