@@ -10,9 +10,6 @@ call vundle#begin()
 " let Vundle manage Vundle, required
 Plugin 'gmarik/Vundle.vim'
 
-" easy file lookup
-Plugin 'kien/ctrlp.vim'
-
 " quick comments
 Plugin 'vim-scripts/tComment'
 
@@ -52,6 +49,9 @@ Plugin 'rking/ag.vim'
 
 " rails.vim
 Plugin 'tpope/vim-rails'
+
+" pick
+Plugin 'thoughtbot/pick.vim'
 
 " All of your Plugins must be added before the following line
 call vundle#end()            " required
@@ -157,3 +157,12 @@ let g:syntastic_loc_list_height=3
 
 " syntastic libraries
 let g:syntastic_javascript_checkers = ['jshint']
+
+" Pick config
+nnoremap <C-p> :call PickFile()<CR>
+nnoremap <Leader>p :call PickFile()<CR>
+nnoremap <Leader>s :call PickFileSplit()<CR>
+nnoremap <Leader>v :call PickFileVerticalSplit()<CR>
+nnoremap <Leader>t :call PickFileTab()<CR>
+nnoremap <Leader>b :call PickBuffer()<CR>
+nnoremap <Leader>] :call PickTag()<CR>
