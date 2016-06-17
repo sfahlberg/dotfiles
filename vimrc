@@ -134,6 +134,11 @@ nmap <leader>x :x<CR>
 vmap <leader>x <ESC>:x<CR>
 imap <leader>x <ESC>:x<CR>
 
+" better toggling of buffers
+nmap <leader>n :bn<CR>
+nmap <leader>p :bp<CR>
+
+
 " default syntastic settings from doc
 set statusline+=%#warningmsg#
 set statusline+=%{SyntasticStatuslineFlag()}

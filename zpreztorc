@@ -56,7 +56,7 @@ zstyle ':prezto:module:editor' key-bindings 'vi'
 # Ignore submodules when they are 'dirty', 'untracked', 'all', or 'none'.
 zstyle ':prezto:module:git:status:ignore' submodules 'all'
 
-# pretty format for git log 
+# pretty format for git log
 zstyle ':prezto:module:git:log:context' format ''
 
 #
@@ -165,7 +165,7 @@ zstyle ':prezto:module:tmux:auto-start' remote 'yes'
 # zstyle ':prezto:module:tmux:iterm' integrate 'yes'
 
 # upload all shell scripts
-for f in ~/.shell_scripts/*; do 
+for f in ~/.shell_scripts/*; do
   source $f
 done
 
