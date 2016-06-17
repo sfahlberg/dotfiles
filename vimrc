@@ -114,6 +114,10 @@ set diffopt+=vertical
 " set <leader> equal to ,
 let mapleader = ","
 
+" searching
+set ignorecase
+set smartcase
+
 " map to explorer
 nmap <leader>e :Explore<CR>
 vmap <leader>e <ESC>:Explore<CR>
