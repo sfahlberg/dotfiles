@@ -170,3 +170,5 @@ for f in ~/.shell_scripts/*; do
 done
 
 eval "$(rbenv init -)"
+source ~/bb/brightbytes/.env
+export PATH=$PATH:/Applications/Postgres.app/Contents/Versions/latest/bin

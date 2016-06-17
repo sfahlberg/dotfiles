@@ -47,6 +47,12 @@ Plugin 'altercation/vim-colors-solarized'
 " vim-vinegar for netrw
 Plugin 'tpope/vim-vinegar'
 
+" ag.vim for searching files
+Plugin 'rking/ag.vim'
+
+" rails.vim
+Plugin 'tpope/vim-rails'
+
 " All of your Plugins must be added before the following line
 call vundle#end()            " required
 filetype plugin indent on    " required
@@ -137,6 +143,12 @@ let g:syntastic_always_populate_loc_list = 1
 let g:syntastic_auto_loc_list = 1
 let g:syntastic_check_on_open = 1
 let g:syntastic_check_on_wq = 0
+
+" limit errors shown
+let g:syntastic_html_tidy_ignore_errors=["proprietary attribute", "is not recognized!", "discarding unexpected", "trimming empty <", "missing </a>", "attribute name"]
+
+" set location-list window height to 3 lines
+let g:syntastic_loc_list_height=3
 
 " syntastic libraries
 let g:syntastic_javascript_checkers = ['jshint']
