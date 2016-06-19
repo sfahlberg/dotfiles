@@ -13,10 +13,10 @@ Plugin 'jiangmiao/auto-pairs'
 Plugin 'terryma/vim-multiple-cursors'
 Plugin 'tpope/vim-surround'
 
-" searching_stuff 
+" searching_stuff
 Plugin 'thoughtbot/pick.vim' "for searching files
 Plugin 'rking/ag.vim' "for searching files for words
-Plugin 'tpope/vim-vinegar' "for netrw 
+Plugin 'tpope/vim-vinegar' "for netrw
 
 " git_stuff
 Plugin 'tpope/vim-fugitive'
@@ -52,7 +52,7 @@ set ignorecase "ignores case for searching
 set smartcase "doesn't ignore case when upper case used
 
 let g:netrw_sort_by = 'time' " auto sort by last updated
-let g:netrw_sort_direction = 'reverse' " most recently updated at top 
+let g:netrw_sort_direction = 'reverse' " most recently updated at top
 
 nnoremap <C-p> :call PickFile()<CR> " pick shortcuts V
 nnoremap <Leader>s :call PickFileSplit()<CR>
