@@ -165,10 +165,6 @@ zstyle ':prezto:module:tmux:auto-start' remote 'yes'
 # zstyle ':prezto:module:tmux:iterm' integrate 'yes'
 
 # upload all shell scripts
-for f in ~/.shell_scripts/*; do
+for f in dotfiles/shell_scripts/*; do
   source $f
 done
-
-eval "$(rbenv init -)"
-source ~/bb/brightbytes/.env
-export PATH=$PATH:/Applications/Postgres.app/Contents/Versions/latest/bin
