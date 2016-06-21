@@ -165,8 +165,12 @@ zstyle ':prezto:module:tmux:auto-start' remote 'yes'
 # zstyle ':prezto:module:tmux:iterm' integrate 'yes'
 
 # upload all shell scripts
-for f in dotfiles/shell_scripts/*; do
-  source $f
-done
+
+
+if ls ~/dotfiles/shell_scripts/* 1> /dev/null 2>&1; then
+  for f in ~/dotfiles/shell_scripts/*; do
+    source $f
+  done
+fi
 
 alias vi="vim"
