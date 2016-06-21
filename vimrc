@@ -75,7 +75,7 @@ set relativenumber " relative numbers
 
 set laststatus=2 " start up airplane
 let g:airline_powerline_fonts = 1 " use fonts
-let g:airline_theme = 'papercolor'
+let g:airline_theme = 'distinguished'
 let g:airline#extensions#tabline#enabled = 1 " use airplane with tabs for buffers
 
 syntax on
