@@ -54,6 +54,7 @@ set ignorecase " ignores case for searching
 set smartcase " doesn't ignore case when upper case used
 set incsearch " automatically go to the word while searching
 set hlsearch " highlights all search matches
+nnoremap <silent> <Space> :nohlsearch<Bar>:echo<CR> " turn off highlighting on space
 
 let g:netrw_sort_by = 'time' " auto sort by last updated
 let g:netrw_sort_direction = 'reverse' " most recently updated at top
