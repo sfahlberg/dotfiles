@@ -168,3 +168,5 @@ zstyle ':prezto:module:tmux:auto-start' remote 'yes'
 for f in dotfiles/shell_scripts/*; do
   source $f
 done
+
+alias vi="vim"
