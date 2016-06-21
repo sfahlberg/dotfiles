@@ -113,6 +113,10 @@ nmap <leader>w :w<CR> " save V
 vmap <leader>w <ESC>:w<CR>v
 imap <leader>w <ESC>:w<CR>
 
+nmap <leader>q :q<CR> " quit V
+vmap <leader>q <ESC>:q<CR>
+imap <leader>q <ESC>:q<CR>
+
 nmap <leader>x :x<CR> " save & exit V
 vmap <leader>x <ESC>:x<CR>
 imap <leader>x <ESC>:x<CR>
