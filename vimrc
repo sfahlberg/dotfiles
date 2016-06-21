@@ -117,5 +117,5 @@ nmap <leader>x :x<CR> " save & exit V
 vmap <leader>x <ESC>:x<CR>
 imap <leader>x <ESC>:x<CR>
 
-nmap <leader>n :bn<CR> " buffer next
-nmap <leader>p :bp<CR> " buffer prev
+nmap <leader>. :bn<CR> " buffer next
+nmap <leader>m :bp<CR> " buffer prev
