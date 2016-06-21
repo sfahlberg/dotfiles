@@ -48,8 +48,10 @@ set omnifunc=syntaxcomplete#Complete " closes tags
 au CursorHold * silent! update " save automatically when text is changed
 
 " searching_stuff
-set ignorecase "ignores case for searching
-set smartcase "doesn't ignore case when upper case used
+set ignorecase " ignores case for searching
+set smartcase " doesn't ignore case when upper case used
+set incsearch " automatically go to the word while searching
+set hlsearch " highlights all search matches
 
 let g:netrw_sort_by = 'time' " auto sort by last updated
 let g:netrw_sort_direction = 'reverse' " most recently updated at top
