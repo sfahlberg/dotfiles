@@ -20,11 +20,13 @@ Plugin 'tpope/vim-vinegar' "for netrw
 
 " git_stuff
 Plugin 'tpope/vim-fugitive'
+Plugin 'airblade/vim-gitgutter'
 
 " make_it_look_pretty
 Plugin 'vim-airline/vim-airline'
 Plugin 'vim-airline/vim-airline-themes'
 Plugin 'altercation/vim-colors-solarized'
+Plugin 'edkolev/tmuxline.vim'
 
 " language_stuff
 Plugin 'tpope/vim-rails'
