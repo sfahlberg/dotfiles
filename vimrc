@@ -17,6 +17,7 @@ Plugin 'tpope/vim-surround'
 Plugin 'thoughtbot/pick.vim' "for searching files
 Plugin 'rking/ag.vim' "for searching files for words
 Plugin 'tpope/vim-vinegar' "for netrw
+Plugin 'henrik/vim-indexed-search' " number for search
 
 " git_stuff
 Plugin 'tpope/vim-fugitive'
