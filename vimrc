@@ -29,6 +29,7 @@ Plugin 'vim-airline/vim-airline'
 Plugin 'vim-airline/vim-airline-themes'
 Plugin 'altercation/vim-colors-solarized'
 Plugin 'edkolev/tmuxline.vim'
+Plugin 'Yggdroot/indentLine'
 
 " language_stuff
 Plugin 'tpope/vim-rails'
@@ -127,3 +128,7 @@ imap <leader>x <ESC>:x<CR>
 
 nmap <leader>. :bn<CR> " buffer next
 nmap <leader>m :bp<CR> " buffer prev
+
+map <leader><leader> <ESC>
+vmap <leader><leader> <ESC>
+imap <leader><leader> <ESC>
