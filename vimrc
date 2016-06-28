@@ -35,6 +35,7 @@ Plugin 'Yggdroot/indentLine'
 Plugin 'tpope/vim-rails'
 Plugin 'skalnik/vim-vroom'
 Plugin 'scrooloose/syntastic'
+Plugin 'tpope/vim-endwise'
 
 call vundle#end()            " required
 filetype plugin indent on    " required
