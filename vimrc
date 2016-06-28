@@ -127,8 +127,4 @@ nmap <leader>x :x<CR> " save & exit V
 vmap <leader>x <ESC>:x<CR>
 imap <leader>x <ESC>:x<CR>
 
-nmap <leader>q :bfirst<CR> " first buffer
-nmap <leader>w :bp<CR> " buffer prev
-nmap <leader>e :bn<CR> " buffer next
-nmap <leader>r :blast<CR> " last buffer
-nmap <leader>d :bd#<CR> " delete recent buffer
+nmap <leader>/ :b> " buffer
