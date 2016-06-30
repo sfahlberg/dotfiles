@@ -37,6 +37,9 @@ Plugin 'skalnik/vim-vroom'
 Plugin 'scrooloose/syntastic'
 Plugin 'tpope/vim-endwise'
 
+" testing
+Plugin 'tpope/vim-dispatch'
+
 call vundle#end()            " required
 filetype plugin indent on    " required
 
@@ -105,6 +108,9 @@ let g:syntastic_check_on_wq = 0
 let g:syntastic_html_tidy_ignore_errors=["proprietary attribute", "is not recognized!", "discarding unexpected", "trimming empty <", "missing </a>", "attribute name"] " limit errors shown
 let g:syntastic_loc_list_height=3 " set location-list window height to 3 lines
 let g:syntastic_javascript_checkers = ['jshint'] " syntastic libraries
+
+" testing
+autocmd FileType ruby let b:dispatch = 'rspec %'
 
 " shortcuts
 nmap <leader>e :Explore<CR> " switch to explorer V
