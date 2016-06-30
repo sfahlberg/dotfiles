@@ -14,9 +14,10 @@ Plugin 'terryma/vim-multiple-cursors'
 Plugin 'tpope/vim-surround'
 
 " searching_stuff
-Plugin 'thoughtbot/pick.vim' "for searching files
-Plugin 'rking/ag.vim' "for searching files for words
-Plugin 'tpope/vim-vinegar' "for netrw
+Plugin 'thoughtbot/pick.vim' " for searching files
+Plugin 'rking/ag.vim' " for searching files for words
+Plugin 'mileszs/ack.vim' " for searching files for words
+Plugin 'tpope/vim-vinegar' " for netrw
 Plugin 'henrik/vim-indexed-search' " number for search
 Plugin 'ervandew/supertab' " tab completion
 
@@ -133,4 +134,4 @@ nmap <leader>x :x<CR> " save & exit V
 vmap <leader>x <ESC>:x<CR>
 imap <leader>x <ESC>:x<CR>
 
-nmap <leader>/ :b> " buffer
+nmap <leader>m :b
