@@ -24,6 +24,7 @@ Plugin 'ervandew/supertab' " tab completion
 " git_stuff
 Plugin 'tpope/vim-fugitive'
 Plugin 'airblade/vim-gitgutter'
+Plugin 'idanarye/vim-merginal'
 
 " make_it_look_pretty
 Plugin 'vim-airline/vim-airline'
@@ -66,6 +67,10 @@ nnoremap <silent> <Space> :nohlsearch<Bar>:echo<CR> " turn off highlighting on s
 
 let g:netrw_sort_by = 'time' " auto sort by last updated
 let g:netrw_sort_direction = 'reverse' " most recently updated at top
+
+if executable('ag')
+  let g:ackprg = 'ag --vimgrep'
+endif
 
 nnoremap <C-p> :call PickFile()<CR> " pick shortcuts V
 nnoremap <Leader>s :call PickFileSplit()<CR>
