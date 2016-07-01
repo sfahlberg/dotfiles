@@ -15,7 +15,6 @@ Plugin 'tpope/vim-surround'
 
 " searching_stuff
 Plugin 'thoughtbot/pick.vim' " for searching files
-Plugin 'rking/ag.vim' " for searching files for words
 Plugin 'mileszs/ack.vim' " for searching files for words
 Plugin 'tpope/vim-vinegar' " for netrw
 Plugin 'henrik/vim-indexed-search' " number for search
@@ -73,11 +72,9 @@ if executable('ag')
 endif
 
 nnoremap <C-p> :call PickFile()<CR> " pick shortcuts V
-nnoremap <Leader>s :call PickFileSplit()<CR>
-nnoremap <Leader>v :call PickFileVerticalSplit()<CR>
-nnoremap <Leader>t :call PickFileTab()<CR>
+nnoremap <leader>v :call PickVsplitFromBuffers()<CR>
+nnoremap <leader>c :call PickSplitFromBuffers()<CR>
 nnoremap <Leader>b :call PickBuffer()<CR>
-nnoremap <Leader>] :call PickTag()<CR>
 
 " git_stuff
 set diffopt+=vertical " fugitive make vertical
