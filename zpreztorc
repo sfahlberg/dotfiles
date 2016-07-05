@@ -8,7 +8,6 @@
 #
 # General
 #
-export BROWSER=google-chrome-stable
 
 # Set case-sensitivity for completion, history lookup, etc.
 # zstyle ':prezto:*:*' case-sensitive 'yes'
@@ -37,6 +36,7 @@ zstyle ':prezto:load' pmodule \
   'git' \
   'tmux' \
   'ruby' \
+  'rails' \
   'history-substring-search'
 
 #
@@ -48,9 +48,6 @@ export VISUAL='vim'
 # Set the key mapping style to 'emacs' or 'vi'.
 zstyle ':prezto:module:editor' key-bindings 'vi'
 
-# Auto convert .... to ../..
-# zstyle ':prezto:module:editor' dot-expansion 'yes'
-
 #
 # Git
 
@@ -61,31 +58,17 @@ zstyle ':prezto:module:git:status:ignore' submodules 'all'
 zstyle ':prezto:module:git:log:context' format ''
 
 #
-# GNU Utility
-#
-
-# Set the command prefix on non-GNU systems.
-# zstyle ':prezto:module:gnu-utility' prefix 'g'
-
-#
 # History Substring Search
 #
 
 # Set the query found color.
-# zstyle ':prezto:module:history-substring-search:color' found ''
+zstyle ':prezto:module:history-substring-search:color' found ''
 
 # Set the query not found color.
-# zstyle ':prezto:module:history-substring-search:color' not-found ''
+zstyle ':prezto:module:history-substring-search:color' not-found ''
 
 # Set the search globbing flags.
-# zstyle ':prezto:module:history-substring-search' globbing-flags ''
-
-#
-# Pacman
-#
-
-# Set the Pacman frontend.
-# zstyle ':prezto:module:pacman' frontend 'yaourt'
+zstyle ':prezto:module:history-substring-search' globbing-flags ''
 
 #
 # Prompt
@@ -101,24 +84,7 @@ zstyle ':prezto:module:prompt' theme 'sorin'
 #
 
 # Auto switch the Ruby version on directory change.
-# zstyle ':prezto:module:ruby:chruby' auto-switch 'yes'
-
-#
-# Screen
-#
-
-# Auto start a session when Zsh is launched in a local terminal.
-# zstyle ':prezto:module:screen:auto-start' local 'yes'
-
-# Auto start a session when Zsh is launched in a SSH connection.
-# zstyle ':prezto:module:screen:auto-start' remote 'yes'
-
-#
-# SSH
-#
-
-# Set the SSH identities to load into the agent.
-# zstyle ':prezto:module:ssh:load' identities 'id_rsa' 'id_rsa2' 'id_github'
+zstyle ':prezto:module:ruby:rbenv' auto-switch 'yes'
 
 #
 # Syntax Highlighting
@@ -140,19 +106,6 @@ zstyle ':prezto:module:syntax-highlighting' styles \
   'function' 'bg=blue'
 
 #
-# Terminal
-#
-
-# Auto set the tab and window titles.
-# zstyle ':prezto:module:terminal' auto-title 'yes'
-
-# Set the window title format.
-# zstyle ':prezto:module:terminal:window-title' format '%n@%m: %s'
-
-# Set the tab title format.
-# zstyle ':prezto:module:terminal:tab-title' format '%m: %s'
-
-#
 # Tmux
 #
 
@@ -167,7 +120,6 @@ zstyle ':prezto:module:tmux:auto-start' remote 'yes'
 
 # upload all shell scripts
 
-
 if ls ~/dotfiles/shell_scripts/* 1> /dev/null 2>&1; then
   for f in ~/dotfiles/shell_scripts/*; do
     source $f
@@ -175,3 +127,4 @@ if ls ~/dotfiles/shell_scripts/* 1> /dev/null 2>&1; then
 fi
 
 alias vi="vim"
+export BROWSER=google-chrome-stable
