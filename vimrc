@@ -72,8 +72,8 @@ if executable('ag')
 endif
 
 nnoremap <C-p> :call PickFile()<CR> " pick shortcuts V
-nnoremap <leader>v :call PickVsplitFromBuffers()<CR>
-nnoremap <leader>c :call PickSplitFromBuffers()<CR>
+nnoremap <leader>v :call PickBufferCommand('vsplit')<CR>
+nnoremap <leader>c :call PickBufferCommand('split')<CR>
 nnoremap <Leader>b :call PickBuffer()<CR>
 
 " git_stuff
