@@ -12,6 +12,7 @@ Plugin 'vim-scripts/tComment'
 Plugin 'jiangmiao/auto-pairs'
 Plugin 'terryma/vim-multiple-cursors'
 Plugin 'tpope/vim-surround'
+Plugin 'chrisbra/Recover.vim' " so I get a diff when there's a swap file
 
 " searching_stuff
 Plugin 'thoughtbot/pick.vim' " for searching files
