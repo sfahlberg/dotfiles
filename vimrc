@@ -72,6 +72,9 @@ if executable('ag')
   let g:ackprg = 'ag --vimgrep'
 endif
 
+cnoreabbrev Ack Ack!
+nnoremap <Leader>a :Ack!<Space>
+
 nnoremap <C-p> :call PickFile()<CR> " pick shortcuts V
 nnoremap <leader>v :call PickBufferCommand('vsplit')<CR>
 nnoremap <leader>c :call PickBufferCommand('split')<CR>
