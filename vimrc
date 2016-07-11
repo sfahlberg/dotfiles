@@ -48,7 +48,9 @@ filetype plugin indent on    " required
 " general_stuff
 set updatetime=200 " update everything every 750 milliseconds
 let mapleader = "," " set <leader> equal to ,
-" set clipboard=unnamed "fix copy-paste issues
+set clipboard=unnamed "fix copy-paste issues
+set wildmode=longest,list,full " autocomplete for colon commandline
+set wildmenu
 
 " editing_stuff
 set tabstop=2 shiftwidth=2 expandtab " automatically set the shift width
@@ -57,6 +59,8 @@ filetype plugin on " automatically close tags in various languages
 set omnifunc=syntaxcomplete#Complete " closes tags
 
 au CursorHold * silent! update " save automatically when text is changed
+
+set backspace=2 " make backspace work like most other apps
 
 " searching_stuff
 set ignorecase " ignores case for searching
