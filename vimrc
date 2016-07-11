@@ -47,10 +47,13 @@ filetype plugin indent on    " required
 
 " general_stuff
 set updatetime=200 " update everything every 750 milliseconds
+
 let mapleader = "," " set <leader> equal to ,
+
 set clipboard=unnamed "fix copy-paste issues
-set wildmode=longest,list,full " autocomplete for colon commandline
-set wildmenu
+
+set wildmode=longest,list,full " set wildmenu options
+set wildmenu " see list for potential autocomplete options
 
 " editing_stuff
 set tabstop=2 shiftwidth=2 expandtab " automatically set the shift width
