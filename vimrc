@@ -55,6 +55,9 @@ set clipboard=unnamed "fix copy-paste issues
 set wildmode=longest,list,full " set wildmenu options
 set wildmenu " see list for potential autocomplete options
 
+set splitright " open new splits on the right
+set splitbelow " open new splits below
+
 " editing_stuff
 set tabstop=2 shiftwidth=2 expandtab " automatically set the shift width
 
@@ -85,8 +88,11 @@ nnoremap <Leader>a :Ack!<Space>
 
 nnoremap <C-p> :call PickFile()<CR> " pick shortcuts V
 nnoremap <leader>v :call PickBufferCommand('vsplit')<CR>
+nnoremap <leader>V :call PickFileVerticalSplit()<CR>
 nnoremap <leader>c :call PickBufferCommand('split')<CR>
+nnoremap <leader>C :call PickFileSplit()<CR>
 nnoremap <Leader>b :call PickBuffer()<CR>
+let g:pick_height = 10
 
 " git_stuff
 set diffopt+=vertical " fugitive make vertical
