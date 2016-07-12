@@ -90,12 +90,12 @@ install_linux_and_mac_packages () {
   if [[ $platform == 'Linux' ]]; then
     download_linux_packages
   elif [[ $platform == 'Darwin' ]]; then
+    install_homebrew
     download_mac_packages
     install_powerline_fonts
   fi
 }
 
-install_homebrew
 install_prezto
 set_zsh_as_default
 install_linux_and_mac_packages
