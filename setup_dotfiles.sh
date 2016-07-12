@@ -1,17 +1,13 @@
 #!/bin/bash
-# This script creates symlinks from the home directory to any desired dotfiles in ~/dotfiles
 
-########## Variables
-
-dir=~/dotfiles                    # dotfiles directory
-files="zpreztorc vimrc gitconfig gitignore tmux.conf"    # list of files/folders to symlink in homedir
-packages_mac="vim tmux zsh pick the_silver_searcher"
-packages_linux="vim tmux zsh pick silversearcher-ag"
+files="zpreztorc vimrc gitconfig gitignore tmux.conf" # list of files/folders to symlink in homedir
+packages_mac="vim tmux zsh pick the_silver_searcher" # packages for mac
+packages_linux="vim tmux zsh pick silversearcher-ag" # packages for linux
 
 # create symlinks from the homedir to any files in the ~/dotfiles directory specified in $files
 create_symlinks () {
   for file in $files; do
-    ln -s $dir/$file ~/.$file
+    ln -s ~/dotfiles/$file ~/.$file
   done
 }
 
