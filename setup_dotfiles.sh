@@ -5,6 +5,8 @@
 
 dir=~/dotfiles                    # dotfiles directory
 files="zpreztorc vimrc gitconfig gitignore tmux.conf"    # list of files/folders to symlink in homedir
+packages_mac="vim tmux zsh pick the_silver_searcher"
+packages_linux="vim tmux zsh pick silversearcher-ag"
 
 # create symlinks from the homedir to any files in the ~/dotfiles directory specified in $files
 create_symlinks () {
@@ -13,20 +15,11 @@ create_symlinks () {
   done
 }
 
-install_vim () {
-  if which vim &> /dev/null; then 
-    echo 'vim already installed'
+install_homebrew () {
+  if which brew &> /dev/null; then
+    echo 'brew already installed'
   else
-    platform=$(uname);
-    echo $platform
-    if [[ $platform == 'Linux' ]]; then
-      echo 'installing vim on Linux'
-      sudo apt-get install vim 
-      # If the platform is OS X, tell the user to install zsh :)
-    elif [[ $platform == 'Darwin' ]]; then
-      echo 'installing vim on Mac'
-      brew install vim 
-    fi
+    /usr/bin/ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
   fi
 }
 
@@ -41,25 +34,7 @@ install_vundle () {
   fi
 }
 
-install_zsh () {
-  # Test to see if zshell is installed.  If it is:
-  if [ -f /bin/zsh -o -f /usr/bin/zsh ]; then
-    echo 'zsh already installed'
-  else
-    echo 'installing zsh'
-
-    platform=$(uname);
-    echo $platform
-    if [[ $platform == 'Linux' ]]; then
-      echo 'installing zsh on Linux'
-      sudo apt-get install zsh
-      # If the platform is OS X, tell the user to install zsh :)
-    elif [[ $platform == 'Darwin' ]]; then
-      echo 'installing zsh on Mac'
-      brew install zsh 
-    fi
-  fi
-
+install_prezto () {
   # Clone my prezto repository from GitHub only if it isn't already present
   if [[ ! -d ~/.zprezto/ ]]; then
     echo 'cloning prezto'
@@ -76,35 +51,57 @@ install_zsh () {
   else
     echo 'prezto already installed'
   fi
+}
 
-  # Set the default shell to zsh if it isn't currently set to zsh
-  if [[ ! $(echo $SHELL) == $(which zsh) ]]; then
+set_zsh_as_default () {
+  if [[ $(echo $SHELL) == $(which zsh) ]]; then
     echo 'making zsh the default'
     chsh -s $(which zsh)
-  fi
-}
-
-install_tmux () {
-  if which tmux &> /dev/null; then 
-    echo 'tmux already installed'
   else
-    # If tmux isn't installed, get the platform
-    platform=$(uname);
-    # If the platform is Linux, try an apt-get to install zsh and then recurse
-    echo $platform
-    if [[ $platform == 'Linux' ]]; then
-      echo 'installing tmux on Linux'
-      apt-get install tmux
-      # If the platform is OS X, tell the user to install zsh :)
-    elif [[ $platform == 'Darwin' ]]; then
-      echo 'installing tmux on Mac'
-      brew install tmux
-    fi
+    echo 'zsh already the default'
   fi
 }
 
-install_vim
-install_vundle
-install_zsh
-install_tmux
+download_linux_packages () {
+  echo 'Linux detected'
+  for package in $packages_linux; do
+    echo 'installing: $package'
+    sudo apt-get install $package
+  done
+}
+
+download_mac_packages () {
+  echo 'Mac detected'
+  for package in $packages_mac; do
+    echo "installing: $package"
+    brew install $package
+  done
+}
+
+install_powerline_fonts () {
+  if [[ ! -d ~/.fonts/ ]]; then
+    echo 'install powerline fonts'
+    git clone https://github.com/powerline/fonts.git ~/.fonts
+    cd ~/.fonts
+    ./install.sh
+  else
+    echo 'powerline fonts already installed'
+  fi
+}
+
+install_linux_and_mac_packages () {
+  platform=$(uname);
+  if [[ $platform == 'Linux' ]]; then
+    download_linux_packages
+  elif [[ $platform == 'Darwin' ]]; then
+    download_mac_packages
+    install_powerline_fonts
+  fi
+}
+
+install_homebrew
+install_prezto
+set_zsh_as_default
+install_linux_and_mac_packages
+install_vundle # needs vim installed from packages above
 create_symlinks
