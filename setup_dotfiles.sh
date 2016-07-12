@@ -28,10 +28,10 @@ install_vundle () {
     echo 'cloning vundle'
     mkdir ~/.vim/bundle
     git clone https://github.com/VundleVim/Vundle.vim.git ~/.vim/bundle/Vundle.vim
-    vim +PluginInstall +qall
   else
     echo 'vundle already installed'
   fi
+  vim +PluginInstall +qall
 }
 
 install_prezto () {
