@@ -85,6 +85,7 @@ endif
 
 cnoreabbrev Ack Ack!
 nnoremap <Leader>a :Ack!<Space>
+vnoremap <Leader>a y:Ack! '<C-r>"'
 
 nnoremap <C-p> :call PickFile()<CR> " pick shortcuts V
 nnoremap <leader>v :call PickBufferCommand('vsplit')<CR>
