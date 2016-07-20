@@ -35,9 +35,9 @@ Plugin 'Yggdroot/indentLine'
 
 " language_stuff
 Plugin 'tpope/vim-rails'
-Plugin 'skalnik/vim-vroom'
 Plugin 'scrooloose/syntastic'
 Plugin 'tpope/vim-endwise'
+Plugin 'vim-ruby/vim-ruby'
 
 " testing
 Plugin 'tpope/vim-dispatch'
