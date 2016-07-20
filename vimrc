@@ -133,6 +133,8 @@ let g:syntastic_javascript_checkers = ['jshint'] " syntastic libraries
 
 " testing
 autocmd FileType ruby let b:dispatch = 'rspec %'
+nmap <leader>t :execute ':Dispatch rspec %:' . line('.')<CR>
+nmap <leader>T :Dispatch<CR>
 
 " shortcuts
 nmap <leader>e :Explore<CR> " switch to explorer V
