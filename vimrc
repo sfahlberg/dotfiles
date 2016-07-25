@@ -133,8 +133,8 @@ let g:syntastic_loc_list_height=3 " set location-list window height to 3 lines
 let g:syntastic_javascript_checkers = ['jshint'] " syntastic libraries
 
 " testing
-autocmd FileType ruby let b:dispatch = 'rspec %'
-nmap <leader>t :execute ':Dispatch rspec %:' . line('.')<CR>
+autocmd FileType ruby let b:dispatch = 'bundle exec rspec %'
+nmap <leader>t :execute ':Dispatch bundle exec rspec %:' . line('.')<CR>
 nmap <leader>T :Dispatch<CR>
 
 " shortcuts
