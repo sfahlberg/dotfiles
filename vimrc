@@ -87,6 +87,8 @@ cnoreabbrev Ack Ack!
 nnoremap <Leader>a :Ack!<Space>
 vnoremap <Leader>a y:Ack! '<C-r>"'
 
+vnoremap / y/<C-r>"<CR>
+
 nnoremap <C-p> :call PickFile()<CR> " pick shortcuts V
 nnoremap <leader>v :call PickBufferCommand('vsplit')<CR>
 nnoremap <leader>V :call PickFileVerticalSplit()<CR>
