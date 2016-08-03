@@ -78,6 +78,7 @@ nnoremap <silent> <Space> :nohlsearch<Bar>:echo<CR> " turn off highlighting on s
 let g:netrw_sort_by = 'time' " auto sort by last updated
 let g:netrw_sort_direction = 'reverse' " most recently updated at top
 let g:netrw_bufsettings = 'numbers' " settings for netrw, add numbers
+autocmd FileType netrw setl bufhidden=wipe " remove unwanted netrw buffers
 
 if executable('ag')
   let g:ackprg = 'ag --vimgrep'
