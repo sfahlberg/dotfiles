@@ -13,6 +13,7 @@ Plugin 'jiangmiao/auto-pairs'
 Plugin 'terryma/vim-multiple-cursors'
 Plugin 'tpope/vim-surround'
 Plugin 'chrisbra/Recover.vim' " so I get a diff when there's a swap file
+Plugin 'alvan/vim-closetag' " close html tags
 
 " searching_stuff
 Plugin 'thoughtbot/pick.vim' " for searching files
@@ -68,7 +69,8 @@ au CursorHold * silent! update " save automatically when text is changed
 
 set backspace=2 " make backspace work like most other apps
 
-" searching_stuff
+let g:closetag_filenames = "*.html,*.erb,*.html.erb"
+
 set ignorecase " ignores case for searching
 set smartcase " doesn't ignore case when upper case used
 set incsearch " automatically go to the word while searching
@@ -134,6 +136,8 @@ let g:syntastic_check_on_wq = 0
 let g:syntastic_html_tidy_ignore_errors=["proprietary attribute", "is not recognized!", "discarding unexpected", "trimming empty <", "missing </a>", "attribute name"] " limit errors shown
 let g:syntastic_loc_list_height=3 " set location-list window height to 3 lines
 let g:syntastic_javascript_checkers = ['jshint'] " syntastic libraries
+
+runtime macros/matchit.vim " setup extended matching with %, especially for html
 
 " testing
 autocmd FileType ruby let b:dispatch = 'bundle exec rspec %'
