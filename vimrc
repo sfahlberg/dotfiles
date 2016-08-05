@@ -69,8 +69,9 @@ au CursorHold * silent! update " save automatically when text is changed
 
 set backspace=2 " make backspace work like most other apps
 
-let g:closetag_filenames = "*.html,*.erb,*.html.erb"
+let g:closetag_filenames = "*.html,*.erb" " closetags for html and erb files
 
+" searching_stuff
 set ignorecase " ignores case for searching
 set smartcase " doesn't ignore case when upper case used
 set incsearch " automatically go to the word while searching
