@@ -59,6 +59,9 @@ set wildmenu " see list for potential autocomplete options
 set splitright " open new splits on the right
 set splitbelow " open new splits below
 
+set textwidth=72 " set wrap width
+set formatoptions+=t " set format options to use textwidth
+
 " editing_stuff
 set tabstop=2 shiftwidth=2 expandtab " automatically set the shift width
 
