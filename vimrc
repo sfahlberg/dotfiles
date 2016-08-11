@@ -106,7 +106,7 @@ let g:pick_height = 10
 
 " git_stuff
 set diffopt+=vertical " fugitive make vertical
-cnoreabbrev Gpull Gpull --rebase
+cnoreabbrev Gpull execute ':Gpull --rebase origin ' . fugitive#head(7)
 
 " make_it_look_pretty
 set nowrap " no wrapping
