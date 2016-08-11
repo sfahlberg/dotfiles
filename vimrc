@@ -147,7 +147,7 @@ let g:closetag_filenames = "*.html,*.erb" " closetags for html and erb files
 
 " testing
 autocmd FileType ruby let b:dispatch = 'bundle exec rspec %'
-nmap <leader>t :execute ':Dispatch bundle exec rspec %:' . line('.')<CR>
+nmap <leader>t :execute ':Dispatch zeus rspec %:' . line('.')<CR>
 nmap <leader>T :Dispatch<CR>
 
 " shortcuts
