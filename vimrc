@@ -88,9 +88,11 @@ if executable('ag')
   let g:ackprg = 'ag --vimgrep'
 endif
 
+set shellpipe=> " make vim stop outputting ack search results to terminal
+
 cnoreabbrev Ack Ack!
 nnoremap <Leader>a :Ack!<Space>
-vnoremap <Leader>a y:Ack! '<C-r>"'
+vnoremap <Leader>a y:Ack! '<C-r>"'<CR>
 
 vnoremap / y/<C-r>"<CR>
 
