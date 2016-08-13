@@ -174,4 +174,4 @@ nmap <leader>x :x<CR> " save & exit V
 vmap <leader>x <ESC>:x<CR>
 imap <leader>x <ESC>:x<CR>
 
-nmap <leader>m :b
+map <leader>so :so ~/.vimrc<CR>
