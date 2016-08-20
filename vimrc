@@ -39,6 +39,7 @@ Plugin 'scrooloose/syntastic'
 Plugin 'tpope/vim-endwise'
 Plugin 'vim-ruby/vim-ruby'
 Plugin 'alvan/vim-closetag' " close html tags
+Plugin 'elzr/vim-json' " json syntax and highlighting
 
 " testing
 Plugin 'tpope/vim-dispatch'
@@ -147,6 +148,8 @@ let g:syntastic_javascript_checkers = ['jshint'] " syntastic libraries
 runtime macros/matchit.vim " setup extended matching with %, especially for html
 
 let g:closetag_filenames = "*.html,*.erb" " closetags for html and erb files
+
+let g:vim_json_syntax_conceal = 0 " stop auto concealing for json in vim
 
 " testing
 autocmd FileType ruby let b:dispatch = 'bundle exec rspec %'
