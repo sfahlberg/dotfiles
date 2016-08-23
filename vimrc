@@ -153,7 +153,7 @@ let g:vim_json_syntax_conceal = 0 " stop auto concealing for json in vim
 
 " testing
 autocmd FileType ruby let b:dispatch = 'bundle exec rspec %'
-nmap <leader>t :execute ':Dispatch zeus rspec %:' . line('.')<CR>
+nmap <leader>t :execute ':Dispatch rspec %:' . line('.')<CR>
 nmap <leader>T :Dispatch<CR>
 
 " shortcuts
