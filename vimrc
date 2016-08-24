@@ -156,6 +156,9 @@ autocmd FileType ruby let b:dispatch = 'bundle exec rspec %'
 nmap <leader>t :execute ':Dispatch rspec %:' . line('.')<CR>
 nmap <leader>T :Dispatch<CR>
 
+nmap <leader>ts :execute ':Dispatch JS_DRIVER=selenium rspec %:' . line('.')<CR>
+nmap <leader>Ts :Dispatch JS_DRIVER=selenium rspec %<CR>
+
 " shortcuts
 nmap <leader>e :Explore<CR> " switch to explorer V
 vmap <leader>e <ESC>:Explore<CR>
