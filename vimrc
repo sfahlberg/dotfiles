@@ -110,7 +110,17 @@ set diffopt+=vertical " fugitive make vertical
 
 cnoreabbrev Gpull execute ':Gpull --rebase origin ' . fugitive#head(7)
 
-map <leader>m :Merginal<CR>
+map <leader>gm :Merginal<CR>
+
+map <leader>gp :Gpush<CR>
+map <leader>gpf :Gpush --force<CR>
+map <leader>gfr :Gpull<CR>
+map <leader>gri :Git rebase -i HEAD~
+
+map <leader>gws :Gstatus<CR>
+
+map <leader>gs :! git stash<CR>
+map <leader>gsp :! git stash pop<CR>
 
 " make_it_look_pretty
 set nowrap " no wrapping
