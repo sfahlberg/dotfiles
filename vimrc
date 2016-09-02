@@ -191,3 +191,7 @@ vmap <leader>x <ESC>:x<CR>
 imap <leader>x <ESC>:x<CR>
 
 map <leader>so :so ~/.vimrc<CR>
+
+nmap <BS> :b#<CR>
+nmap <S-Tab> :bp<CR>
+nmap <Tab> :bn<CR>
