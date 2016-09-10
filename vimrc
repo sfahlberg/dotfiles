@@ -110,6 +110,9 @@ set diffopt+=vertical " fugitive make vertical
 
 cnoreabbrev Gpull execute ':Gpull --rebase origin ' . fugitive#head(7)
 
+autocmd BufFilePost Merginal:* setlocal relativenumber " numbers on merginal buffers V
+autocmd BufFilePost Merginal:* setlocal number
+
 map <leader>gm :Merginal<CR>
 
 map <leader>gp :Gpush<CR>
