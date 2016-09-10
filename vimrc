@@ -148,12 +148,15 @@ set statusline+=%*
 
 let g:syntastic_always_populate_loc_list = 1
 let g:syntastic_auto_loc_list = 1
-let g:syntastic_check_on_open = 1
+let g:syntastic_check_on_open = 0
 let g:syntastic_check_on_wq = 0
 
 let g:syntastic_html_tidy_ignore_errors=["proprietary attribute", "is not recognized!", "discarding unexpected", "trimming empty <", "missing </a>", "attribute name"] " limit errors shown
 let g:syntastic_loc_list_height=3 " set location-list window height to 3 lines
-let g:syntastic_javascript_checkers = ['jshint'] " syntastic libraries
+let g:syntastic_javascript_checkers = ['jshint']
+let g:syntastic_ruby_checkers = ['rubocop']
+let g:syntastic_ruby_exec = '/Users/sam/.rbenv/shims/ruby'
+let g:syntastic_ruby_rubocop_exec = '/Users/sam/.rbenv/shims/rubocop'
 
 runtime macros/matchit.vim " setup extended matching with %, especially for html
 
