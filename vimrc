@@ -169,11 +169,11 @@ let g:vim_json_syntax_conceal = 0 " stop auto concealing for json in vim
 
 " testing
 autocmd FileType ruby let b:dispatch = 'bundle exec rspec %'
-nmap <leader>t :execute ':Dispatch rspec %:' . line('.')<CR>
+nmap <leader>t :execute ':Dispatch bundle exec rspec %:' . line('.')<CR>
 nmap <leader>T :Dispatch<CR>
 
-nmap <leader>ts :execute ':Dispatch JS_DRIVER=selenium rspec %:' . line('.')<CR>
-nmap <leader>Ts :Dispatch JS_DRIVER=selenium rspec %<CR>
+nmap <leader>ts :execute ':Dispatch JS_DRIVER=selenium bundle exec rspec %:' . line('.')<CR>
+nmap <leader>Ts :Dispatch JS_DRIVER=selenium bundle exec rspec %<CR>
 
 " shortcuts
 nmap <leader>e :Explore<CR> " switch to explorer V
