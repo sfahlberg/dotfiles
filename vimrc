@@ -20,6 +20,7 @@ Plugin 'mileszs/ack.vim' " for searching files for words
 Plugin 'tpope/vim-vinegar' " for netrw
 Plugin 'henrik/vim-indexed-search' " number for search
 Plugin 'ervandew/supertab' " tab completion
+Plugin 'ton/vim-bufsurf' " recent buffer
 
 " git_stuff
 Plugin 'tpope/vim-fugitive'
@@ -204,6 +205,8 @@ imap <leader>x <ESC>:x<CR>
 
 map <leader>so :so ~/.vimrc<CR>
 
-nmap <BS> :b#<CR>
+nmap <BS> :BufSurfBack<CR>
+nmap \ :BufSurfForward<CR>
+
 nmap <S-Tab> :bp<CR>
 nmap <Tab> :bn<CR>
