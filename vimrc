@@ -17,10 +17,12 @@ Plugin 'chrisbra/Recover.vim' " so I get a diff when there's a swap file
 " searching_stuff
 Plugin 'thoughtbot/pick.vim' " for searching files
 Plugin 'mileszs/ack.vim' " for searching files for words
-Plugin 'tpope/vim-vinegar' " for netrw
-Plugin 'henrik/vim-indexed-search' " number for search
+Plugin 'henrik/vim-indexed-search' " number for / search
 Plugin 'ervandew/supertab' " tab completion
+
+" navigation
 Plugin 'ton/vim-bufsurf' " recent buffer
+Plugin 'tpope/vim-vinegar' " for netrw
 
 " git_stuff
 Plugin 'tpope/vim-fugitive'
@@ -85,11 +87,6 @@ set incsearch " automatically go to the word while searching
 set hlsearch " highlights all search matches
 nnoremap <silent> <Space> :nohlsearch<Bar>:echo<CR> " turn off highlighting on space
 
-let g:netrw_sort_by = 'time' " auto sort by last updated
-let g:netrw_sort_direction = 'reverse' " most recently updated at top
-let g:netrw_bufsettings = 'numbers' " settings for netrw, add numbers
-autocmd FileType netrw setl bufhidden=wipe " remove unwanted netrw buffers
-
 if executable('ag')
   let g:ackprg = 'ag --vimgrep'
 endif
@@ -109,6 +106,18 @@ nnoremap <leader>c :call PickBufferCommand('split')<CR>
 nnoremap <leader>C :call PickFileSplit()<CR>
 nnoremap <Leader>b :call PickBuffer()<CR>
 let g:pick_height = 10
+
+" navigation
+nmap <BS> :BufSurfBack<CR>
+nmap \ :BufSurfForward<CR>
+
+nmap <S-Tab> :bp<CR>
+nmap <Tab> :bn<CR>
+
+let g:netrw_sort_by = 'time' " auto sort by last updated
+let g:netrw_sort_direction = 'reverse' " most recently updated at top
+let g:netrw_bufsettings = 'numbers' " settings for netrw, add numbers
+autocmd FileType netrw setl bufhidden=wipe " remove unwanted netrw buffers
 
 " git_stuff
 set diffopt+=vertical " fugitive make vertical
@@ -205,8 +214,3 @@ imap <leader>x <ESC>:x<CR>
 
 map <leader>so :so ~/.vimrc<CR>
 
-nmap <BS> :BufSurfBack<CR>
-nmap \ :BufSurfForward<CR>
-
-nmap <S-Tab> :bp<CR>
-nmap <Tab> :bn<CR>
