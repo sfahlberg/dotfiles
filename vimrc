@@ -52,8 +52,6 @@ call vundle#end()            " required
 filetype plugin indent on    " required
 
 " general_stuff
-set updatetime=200 " update everything every 750 milliseconds
-
 let mapleader = "," " set <leader> equal to ,
 
 set clipboard=unnamed "fix copy-paste issues
