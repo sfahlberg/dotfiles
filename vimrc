@@ -44,6 +44,7 @@ Plugin 'vim-ruby/vim-ruby'
 Plugin 'alvan/vim-closetag' " close html tags
 Plugin 'elzr/vim-json' " json syntax and highlighting
 Plugin 'pangloss/vim-javascript' " js syntax highlighting
+Plugin 'fatih/vim-go' " go plugin
 
 " testing
 Plugin 'tpope/vim-dispatch'
@@ -144,16 +145,23 @@ set relativenumber " relative numbers
 
 set laststatus=2 " start up airplane
 let g:airline_powerline_fonts = 1 " use fonts
-let g:airline_theme = 'distinguished'
 let g:airline#extensions#tabline#enabled = 1 " use airplane with tabs for buffers
 let g:airline#extensions#tabline#fnamemod=':t'
 
 syntax on
-if has('mac')
-  let g:solarized_termcolors=256
+
+let g:solarized_termcolors=256
+colorscheme solarized
+
+let hour = strftime("%H")
+if 6 <= hour && hour < 18 " set light during the day
+  set background=light
+  let g:airline_theme = 'zenburn'
+  let g:tmuxline_theme = 'zenburn'
+else
   set background=dark
-  colorscheme solarized
-elseif has('unix')
+  let g:airline_theme = 'distinguished'
+  let g:tmuxline_theme = 'distinguished'
 endif
 
 " language_stuff
@@ -168,7 +176,7 @@ let g:syntastic_check_on_wq = 0
 
 let g:syntastic_html_tidy_ignore_errors=["proprietary attribute", "is not recognized!", "discarding unexpected", "trimming empty <", "missing </a>", "attribute name"] " limit errors shown
 let g:syntastic_loc_list_height=3 " set location-list window height to 3 lines
-let g:syntastic_javascript_checkers = ['jshint']
+let g:syntastic_javascript_checkers = ['eslint', 'jshint']
 let g:syntastic_ruby_checkers = ['rubocop']
 let g:syntastic_ruby_exec = '/Users/sam/.rbenv/shims/ruby'
 let g:syntastic_ruby_rubocop_exec = '/Users/sam/.rbenv/shims/rubocop'
