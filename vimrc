@@ -24,6 +24,7 @@ Plugin 'ervandew/supertab' " tab completion
 " navigation
 Plugin 'ton/vim-bufsurf' " recent buffer
 Plugin 'tpope/vim-vinegar' " for netrw
+Plugin 'scrooloose/nerdtree'
 
 " git_stuff
 Plugin 'tpope/vim-fugitive'
@@ -132,6 +133,8 @@ let g:netrw_sort_direction = 'reverse' " most recently updated at top
 let g:netrw_bufsettings = 'numbers' " settings for netrw, add numbers
 let g:netrw_liststyle=3     " tree view
 autocmd FileType netrw setl bufhidden=wipe " remove netrw buffers
+
+map <leader>n :NERDTreeToggle<CR>
 
 " git_stuff
 set diffopt+=vertical " fugitive make vertical
