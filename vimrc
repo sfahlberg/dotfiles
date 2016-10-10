@@ -94,6 +94,9 @@ autocmd BufWritePre * :call TrimWhiteSpace() " Removes trailing spaces
 nnoremap <Leader>/ :%s/
 vnoremap <Leader>/ y:%s/'<C-r>"'/
 
+setlocal spell spelllang=en_us " spell checking
+set complete+=kspell " word completion
+
 " searching_stuff
 set ignorecase " ignores case for searching
 set smartcase " doesn't ignore case when upper case used
