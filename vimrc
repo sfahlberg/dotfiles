@@ -14,6 +14,7 @@ Plugin 'terryma/vim-multiple-cursors'
 Plugin 'tpope/vim-surround'
 Plugin 'chrisbra/Recover.vim' " so I get a diff when there's a swap file
 Plugin 'dyng/ctrlsf.vim' " find and replace in multiple files
+Plugin 'sickill/vim-pasta' " context aware pasting
 
 " searching_stuff
 Plugin 'thoughtbot/pick.vim' " for searching files
@@ -47,7 +48,6 @@ Plugin 'alvan/vim-closetag' " close html tags
 Plugin 'elzr/vim-json' " json syntax and highlighting
 Plugin 'pangloss/vim-javascript' " js syntax highlighting
 Plugin 'fatih/vim-go' " go plugin
-Plugin 'rizzatti/dash.vim' " documentation
 
 " testing
 Plugin 'tpope/vim-dispatch'
