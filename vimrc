@@ -47,6 +47,7 @@ Plugin 'alvan/vim-closetag' " close html tags
 Plugin 'elzr/vim-json' " json syntax and highlighting
 Plugin 'pangloss/vim-javascript' " js syntax highlighting
 Plugin 'fatih/vim-go' " go plugin
+Plugin 'rizzatti/dash.vim' " documentation
 
 " testing
 Plugin 'tpope/vim-dispatch'
