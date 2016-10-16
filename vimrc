@@ -116,6 +116,7 @@ nmap <Tab> :bn<CR>
 let g:netrw_sort_by = 'time' " auto sort by last updated
 let g:netrw_sort_direction = 'reverse' " most recently updated at top
 let g:netrw_bufsettings = 'numbers' " settings for netrw, add numbers
+let g:netrw_liststyle=3     " tree view
 autocmd FileType netrw setl bufhidden=wipe " remove unwanted netrw buffers
 
 " git_stuff
