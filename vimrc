@@ -66,6 +66,11 @@ set splitbelow " open new splits below
 set textwidth=72 " set wrap width
 set formatoptions+=t " set format options to use textwidth
 
+augroup vimrc_autocmds " change color if you go over this limit
+  autocmd BufEnter * highlight OverLength ctermbg=darkgrey guibg=#592929
+  autocmd BufEnter * match OverLength /\%74v.*/
+augroup END
+
 " editing_stuff
 set tabstop=2 shiftwidth=2 expandtab " automatically set the shift width
 
