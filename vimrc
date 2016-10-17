@@ -86,28 +86,31 @@ au CursorHold * silent! update " save automatically when text is changed
 set backspace=2 " make backspace work like most other apps
 
 function! TrimWhiteSpace()
-    %s/\s\+$//e
+  %s/\s\+$//e
 endfunction
 autocmd BufWritePre * :call TrimWhiteSpace() " Removes trailing spaces
+
+nnoremap <Leader>/ :%s/
+vnoremap <Leader>/ y:%s/'<C-r>"'/
 
 " searching_stuff
 set ignorecase " ignores case for searching
 set smartcase " doesn't ignore case when upper case used
 set incsearch " automatically go to the word while searching
 set hlsearch " highlights all search matches
-nnoremap <silent> <Space> :nohlsearch<Bar>:echo<CR> " turn off highlighting on space
+nnoremap <silent> <Space> :nohlsearch<Bar>:echo<CR> " turn off highlight
 
 if executable('ag')
   let g:ackprg = 'ag --vimgrep'
 endif
 
-set shellpipe=> " make vim stop outputting ack search results to terminal
+set shellpipe=> " stop outputting ack search results to terminal
 
 cnoreabbrev Ack Ack!
 nnoremap <Leader>a :Ack!<Space>
 vnoremap <Leader>a y:Ack! '<C-r>"'<CR>
 
-vnoremap / y/<C-r>"<CR>
+vnoremap / <ESC>*
 
 nnoremap <C-p> :call PickFile()<CR> " pick shortcuts V
 nnoremap <leader>v :call PickBufferCommand('vsplit')<CR>
@@ -128,14 +131,14 @@ let g:netrw_sort_by = 'time' " auto sort by last updated
 let g:netrw_sort_direction = 'reverse' " most recently updated at top
 let g:netrw_bufsettings = 'numbers' " settings for netrw, add numbers
 let g:netrw_liststyle=3     " tree view
-autocmd FileType netrw setl bufhidden=wipe " remove unwanted netrw buffers
+autocmd FileType netrw setl bufhidden=wipe " remove netrw buffers
 
 " git_stuff
 set diffopt+=vertical " fugitive make vertical
 
 cnoreabbrev Gpull execute ':Gpull --rebase origin ' . fugitive#head(7)
 
-autocmd BufFilePost Merginal:* setlocal relativenumber " numbers on merginal buffers V
+autocmd BufFilePost Merginal:* setlocal relativenumber " buffers #s V
 autocmd BufFilePost Merginal:* setlocal number
 
 map <leader>gm :Merginal<CR>
@@ -157,7 +160,7 @@ set relativenumber " relative numbers
 
 set laststatus=2 " start up airplane
 let g:airline_powerline_fonts = 1 " use fonts
-let g:airline#extensions#tabline#enabled = 1 " use airplane with tabs for buffers
+let g:airline#extensions#tabline#enabled = 1 " airplane buffer tabs
 let g:airline#extensions#tabline#fnamemod=':t'
 
 syntax on
@@ -187,19 +190,19 @@ let g:syntastic_check_on_open = 0
 let g:syntastic_check_on_wq = 0
 
 let g:syntastic_html_tidy_ignore_errors=["proprietary attribute", "is not recognized!", "discarding unexpected", "trimming empty <", "missing </a>", "attribute name"] " limit errors shown
-let g:syntastic_loc_list_height=3 " set location-list window height to 3 lines
+let g:syntastic_loc_list_height=3 " set  window height to 3 lines
 let g:syntastic_javascript_checkers = ['eslint', 'jshint']
 let g:syntastic_ruby_checkers = ['rubocop']
 let g:syntastic_ruby_exec = '/Users/sam/.rbenv/shims/ruby'
 let g:syntastic_ruby_rubocop_exec = '/Users/sam/.rbenv/shims/rubocop'
 
-runtime macros/matchit.vim " setup extended matching with %, especially for html
+runtime macros/matchit.vim " setup extended matching with %, eg html
 
-let g:closetag_filenames = "*.html,*.erb" " closetags for html and erb files
+let g:closetag_filenames = "*.html,*.erb" " closetags for html and erb
 
 let g:vim_json_syntax_conceal = 0 " stop auto concealing for json in vim
 
-let g:javascript_plugin_jsdoc = 1 " js syntax highlighting for plugin: pangloss/vim-javascript
+let g:javascript_plugin_jsdoc = 1 " js syntax highlighting for plugin
 
 " testing
 autocmd FileType ruby let b:dispatch = 'bundle exec rspec %'
