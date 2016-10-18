@@ -1,8 +1,8 @@
 # dotfiles
 
-cd ~
 
 ```
+cd ~
 git clone https://github.com/sfahlberg/dotfiles.git
 cd dotfiles
 bash setup_dotfiles.sh
