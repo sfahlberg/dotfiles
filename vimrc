@@ -47,6 +47,7 @@ Plugin 'vim-ruby/vim-ruby'
 Plugin 'alvan/vim-closetag' " close html tags
 Plugin 'elzr/vim-json' " json syntax and highlighting
 Plugin 'pangloss/vim-javascript' " js syntax highlighting
+Plugin 'mxw/vim-jsx' " javascript
 Plugin 'fatih/vim-go' " go plugin
 
 " testing
@@ -195,17 +196,19 @@ let g:syntastic_always_populate_loc_list = 1
 let g:syntastic_auto_loc_list = 1
 let g:syntastic_check_on_open = 0
 let g:syntastic_check_on_wq = 0
+let g:syntastic_loc_list_height=3 " set  window height to 3 lines
 
 let g:syntastic_html_tidy_ignore_errors=["proprietary attribute", "is not recognized!", "discarding unexpected", "trimming empty <", "missing </a>", "attribute name"] " limit errors shown
-let g:syntastic_loc_list_height=3 " set  window height to 3 lines
-let g:syntastic_javascript_checkers = ['eslint', 'jshint']
+
+let g:syntastic_javascript_checkers = ['eslint']
+
 let g:syntastic_ruby_checkers = ['rubocop']
 let g:syntastic_ruby_exec = '/Users/sam/.rbenv/shims/ruby'
 let g:syntastic_ruby_rubocop_exec = '/Users/sam/.rbenv/shims/rubocop'
 
 runtime macros/matchit.vim " setup extended matching with %, eg html
 
-let g:closetag_filenames = "*.html,*.erb" " closetags for html and erb
+let g:closetag_filenames = "*.html,*.erb,*.jsx" " closetags for html, jsx and erb
 
 let g:vim_json_syntax_conceal = 0 " stop auto concealing for json in vim
 
