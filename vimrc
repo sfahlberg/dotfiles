@@ -102,6 +102,11 @@ vnoremap <Leader>/ y:%s/'<C-r>"'/
 setlocal spell spelllang=en_us " spell checking
 set complete+=kspell " word completion
 
+                          " the below abbreviation helps me remember
+                          " the syntax is for copying the current file
+                          " into the current directory
+cnoreabbrev sav sav %:h/
+
 " searching_stuff
 set ignorecase " ignores case for searching
 set smartcase " doesn't ignore case when upper case used
