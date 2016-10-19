@@ -40,10 +40,13 @@ Plugin 'edkolev/tmuxline.vim'
 Plugin 'Yggdroot/indentLine'
 
 " language_stuff
-Plugin 'tpope/vim-rails'
 Plugin 'scrooloose/syntastic'
 Plugin 'tpope/vim-endwise'
 Plugin 'vim-ruby/vim-ruby'
+Plugin 'tpope/vim-rails'
+Plugin 'tpope/vim-bundler'
+Plugin 'tpope/gem-browse'
+Plugin 'tpope/vim-rake'
 Plugin 'alvan/vim-closetag' " close html tags
 Plugin 'elzr/vim-json' " json syntax and highlighting
 Plugin 'pangloss/vim-javascript' " js syntax highlighting
