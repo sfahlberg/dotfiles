@@ -52,6 +52,7 @@ Plugin 'elzr/vim-json' " json syntax and highlighting
 Plugin 'pangloss/vim-javascript' " js syntax highlighting
 Plugin 'mxw/vim-jsx' " javascript
 Plugin 'fatih/vim-go' " go plugin
+Plugin 'rizzatti/dash.vim'
 
 " testing
 Plugin 'tpope/vim-dispatch'
