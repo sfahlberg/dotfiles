@@ -56,6 +56,7 @@ Plugin 'rizzatti/dash.vim'
 
 " testing
 Plugin 'tpope/vim-dispatch'
+Plugin 'thoughtbot/vim-rspec'
 
 call vundle#end()            " required
 filetype plugin indent on    " required
@@ -225,11 +226,16 @@ let g:javascript_plugin_jsdoc = 1 " js syntax highlighting for plugin
 
 " testing
 autocmd FileType ruby let b:dispatch = 'bundle exec rspec %'
-nmap <leader>t :execute ':Dispatch bundle exec rspec %:' . line('.')<CR>
-nmap <leader>T :Dispatch<CR>
-
+nmap <leader>t :w<CR>:call RunNearestSpec()<CR>
+nmap <leader>T :w<CR>:call RunCurrentSpecFile()<CR>
+nmap <leader>tt :w<CR>:execute ':! bundle exec rspec %:' . line('.')<CR>
+nmap <leader>Tt :w<CR>:! bundle exec rspec %<CR>
+nmap <leader>tl :w<CR>:call RunLastSpec()<CR>
+nmap <leader>tm :w<CR>:Dispatch npm run mocha<CR>
 nmap <leader>ts :execute ':Dispatch JS_DRIVER=selenium bundle exec rspec %:' . line('.')<CR>
 nmap <leader>Ts :Dispatch JS_DRIVER=selenium bundle exec rspec %<CR>
+
+let g:rspec_command = "Dispatch bundle exec rspec {spec}"
 
 " shortcuts
 nmap <leader>e :Explore<CR> " switch to explorer V
@@ -254,3 +260,7 @@ imap <leader>x <ESC>:x<CR>
 
 map <leader>so :so ~/.vimrc<CR>
 
+map <leader>db :Dispatch bundle
+map <leader>dror :Dispatch bundle exec rake one_ring
+map <leader>drtp :Dispatch bundle exec rake db:test:prepare
+map <leader>drm :Dispatch bundle exec rake db:migrate
