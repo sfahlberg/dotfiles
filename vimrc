@@ -109,6 +109,9 @@ set complete+=kspell " word completion
                           " into the current directory
 cnoreabbrev sav sav %:h/
 
+au BufEnter *.rb syn match error contained "\<binding.pry\>" " show binding.pry
+au BufEnter *.js *.jsx syn match error contained "\<debugger\>" " highlight debugger
+
 " searching_stuff
 set ignorecase " ignores case for searching
 set smartcase " doesn't ignore case when upper case used
@@ -126,7 +129,7 @@ cnoreabbrev Ack Ack!
 nnoremap <Leader>a :Ack!<Space>
 vnoremap <Leader>a y:Ack! '<C-r>"'<CR>
 
-vnoremap / <ESC>*
+vnoremap / y:/'<C-r>"'<CR>
 
 nnoremap <C-p> :call PickFile()<CR> " pick shortcuts V
 nnoremap <leader>v :call PickBufferCommand('vsplit')<CR>
