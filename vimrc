@@ -15,6 +15,7 @@ Plugin 'tpope/vim-surround'
 Plugin 'chrisbra/Recover.vim' " so I get a diff when there's a swap file
 Plugin 'dyng/ctrlsf.vim' " find and replace in multiple files
 Plugin 'sickill/vim-pasta' " context aware pasting
+Plugin 'matze/vim-move'
 
 " searching_stuff
 Plugin 'thoughtbot/pick.vim' " for searching files
@@ -111,6 +112,8 @@ cnoreabbrev sav sav %:h/
 
 au BufEnter *.rb syn match error contained "\<binding.pry\>" " show binding.pry
 au BufEnter *.js *.jsx syn match error contained "\<debugger\>" " highlight debugger
+
+let g:move_key_modifier = 'C'
 
 " searching_stuff
 set ignorecase " ignores case for searching
