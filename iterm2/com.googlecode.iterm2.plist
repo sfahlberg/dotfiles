@@ -133,9 +133,9 @@
 	<key>NSWindow Frame SessionsPreferences</key>
 	<string>269 139 606 456 0 0 1440 900 </string>
 	<key>NSWindow Frame SharedPreferences</key>
-	<string>146 1231 937 512 -591 900 2560 1440 </string>
+	<string>110 1928 918 381 -591 900 2560 1440 </string>
 	<key>NSWindow Frame iTerm Window 0</key>
-	<string>-240 966 1428 867 -591 900 2560 1417 </string>
+	<string>-591 477 1830 872 -591 900 2560 1417 </string>
 	<key>NSWindow Frame iTerm Window 1</key>
 	<string>721 10 476 867 0 0 1440 877 </string>
 	<key>NSWindow Frame iTerm Window 2</key>
@@ -157,6 +157,18 @@
 		<dict>
 			<key>ASCII Anti Aliased</key>
 			<true/>
+			<key>AWDS Pane Directory</key>
+			<string></string>
+			<key>AWDS Pane Option</key>
+			<string>No</string>
+			<key>AWDS Tab Directory</key>
+			<string></string>
+			<key>AWDS Tab Option</key>
+			<string>No</string>
+			<key>AWDS Window Directory</key>
+			<string></string>
+			<key>AWDS Window Option</key>
+			<string>No</string>
 			<key>Allow Title Reporting</key>
 			<false/>
 			<key>Ambiguous Double Width</key>
@@ -311,16 +323,12 @@
 			<true/>
 			<key>Background Color</key>
 			<dict>
-				<key>Alpha Component</key>
-				<real>1</real>
 				<key>Blue Component</key>
-				<real>0.85098039215686272</real>
-				<key>Color Space</key>
-				<string>Calibrated</string>
+				<real>0.86405980587005615</real>
 				<key>Green Component</key>
-				<real>0.99215686274509807</real>
+				<real>0.95794391632080078</real>
 				<key>Red Component</key>
-				<real>1</real>
+				<real>0.98943418264389038</real>
 			</dict>
 			<key>Background Image Is Tiled</key>
 			<false/>
@@ -366,6 +374,8 @@
 			<integer>80</integer>
 			<key>Command</key>
 			<string></string>
+			<key>Cursor Boost</key>
+			<real>0.0</real>
 			<key>Cursor Color</key>
 			<dict>
 				<key>Blue Component</key>
@@ -402,7 +412,7 @@
 			<key>Custom Command</key>
 			<string>No</string>
 			<key>Custom Directory</key>
-			<string>No</string>
+			<string>Advanced</string>
 			<key>Default Bookmark</key>
 			<string>No</string>
 			<key>Disable Printing</key>
@@ -905,13 +915,13 @@
 			<array>
 				<dict>
 					<key>action</key>
-					<string>GrowlTrigger</string>
+					<string>HighlightTrigger</string>
 					<key>parameter</key>
-					<string>dunzo</string>
+					<string>{YnBsaXN0MDDUAQIDBAUGCAlYJHZlcnNpb25YJG9iamVjdHNZJGFyY2hpdmVyVCR0b3ASAAGGoKEHVSRudWxsXxAPTlNLZXllZEFyY2hpdmVy0goLDA1XTlNXaGl0ZVxOU0NvbG9yU3BhY2VCMQAQAwgRGiMtMjc5P1FWXmtuAAAAAAAAAQEAAAAAAAAADgAAAAAAAAAAAAAAAAAAAHA=,YnBsaXN0MDDUAQIDBAUGCAlYJHZlcnNpb25YJG9iamVjdHNZJGFyY2hpdmVyVCR0b3ASAAGGoKEHVSRudWxsXxAPTlNLZXllZEFyY2hpdmVy0goLDA1VTlNSR0JcTlNDb2xvclNwYWNlRjEgMCAwABABCBEaIy0yNzk/UVZcaXAAAAAAAAABAQAAAAAAAAAOAAAAAAAAAAAAAAAAAAAAcg==}</string>
 					<key>partial</key>
 					<true/>
 					<key>regex</key>
-					<string>special-done</string>
+					<string>bundle exec</string>
 				</dict>
 			</array>
 			<key>Unlimited Scrollback</key>
@@ -1090,16 +1100,12 @@
 			<true/>
 			<key>Background Color</key>
 			<dict>
-				<key>Alpha Component</key>
-				<real>1</real>
 				<key>Blue Component</key>
-				<real>0.85098039215686272</real>
-				<key>Color Space</key>
-				<string>Calibrated</string>
+				<real>0.86405980587005615</real>
 				<key>Green Component</key>
-				<real>0.99215686274509807</real>
+				<real>0.95794391632080078</real>
 				<key>Red Component</key>
-				<real>1</real>
+				<real>0.98943418264389038</real>
 			</dict>
 			<key>Background Image Is Tiled</key>
 			<false/>
@@ -1694,7 +1700,7 @@
 				</dict>
 			</array>
 			<key>Unlimited Scrollback</key>
-			<false/>
+			<true/>
 			<key>Use Bold Font</key>
 			<true/>
 			<key>Use Bright Bold</key>
@@ -1714,6 +1720,8 @@
 		</dict>
 	</array>
 	<key>NoSyncConfirmBeta</key>
+	<true/>
+	<key>NoSyncDoNotWarnBeforeMultilinePaste</key>
 	<true/>
 	<key>NoSyncDoNotWarnBeforeMultilinePaste_selection</key>
 	<integer>1</integer>
@@ -1813,7 +1821,7 @@
 	<key>SUHasLaunchedBefore</key>
 	<true/>
 	<key>SULastCheckTime</key>
-	<date>2016-10-18T21:03:48Z</date>
+	<date>2016-10-31T01:30:39Z</date>
 	<key>SavePasteHistory</key>
 	<false/>
 	<key>ShowBookmarkName</key>
@@ -1825,15 +1833,15 @@
 	<key>SmartPlacement</key>
 	<false/>
 	<key>SplitPaneDimmingAmount</key>
-	<real>0.26614834330020815</real>
+	<real>0.14442859169764405</real>
 	<key>SwitchTabModifier</key>
 	<integer>4</integer>
 	<key>SwitchWindowModifier</key>
 	<integer>6</integer>
 	<key>TabStyle</key>
-	<integer>2</integer>
+	<integer>3</integer>
 	<key>TabViewType</key>
-	<integer>0</integer>
+	<integer>1</integer>
 	<key>ThreeFingerEmulates</key>
 	<false/>
 	<key>TmuxDashboardLimit</key>

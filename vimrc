@@ -76,10 +76,7 @@ set splitbelow " open new splits below
 set textwidth=72 " set wrap width
 set formatoptions+=t " set format options to use textwidth
 
-augroup vimrc_autocmds " change color if you go over this limit
-  autocmd BufEnter * highlight OverLength ctermbg=darkgrey guibg=#592929
-  autocmd BufEnter * match OverLength /\%74v.*/
-augroup END
+set mouse=nicr " make it easier for other people to scroll on my machine
 
 " editing_stuff
 set tabstop=2 shiftwidth=2 expandtab " automatically set the shift width
@@ -177,6 +174,9 @@ map <leader>gws :Gstatus<CR>
 map <leader>gs :! git stash<CR>
 map <leader>gsp :! git stash pop<CR>
 
+map ]g :GitGutterNextHunk<CR>
+map [g :GitGutterPreviousHunk<CR>
+
 " make_it_look_pretty
 set nowrap " no wrapping
 set number " automatically turn line numbers on
@@ -202,6 +202,11 @@ else
   let g:airline_theme = 'distinguished'
   let g:tmuxline_theme = 'distinguished'
 endif
+
+augroup quickfix
+  autocmd!
+  autocmd FileType qf setlocal wrap
+augroup END
 
 " language_stuff
 set statusline+=%#warningmsg# " default syntastic settings from doc V
