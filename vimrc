@@ -13,7 +13,6 @@ Plugin 'jiangmiao/auto-pairs'
 Plugin 'terryma/vim-multiple-cursors'
 Plugin 'tpope/vim-surround'
 Plugin 'chrisbra/Recover.vim' " so I get a diff when there's a swap file
-Plugin 'dyng/ctrlsf.vim' " find and replace in multiple files
 Plugin 'sickill/vim-pasta' " context aware pasting
 Plugin 'matze/vim-move'
 
@@ -22,6 +21,7 @@ Plugin 'thoughtbot/pick.vim' " for searching files
 Plugin 'mileszs/ack.vim' " for searching files for words
 Plugin 'henrik/vim-indexed-search' " number for / search
 Plugin 'ervandew/supertab' " tab completion
+Plugin 'dyng/ctrlsf.vim' " find and replace in multiple files
 
 " navigation
 Plugin 'ton/vim-bufsurf' " recent buffer
@@ -129,6 +129,9 @@ cnoreabbrev Ack Ack!
 nnoremap <Leader>a :Ack!<Space>
 vnoremap <Leader>a y:Ack! '<C-r>"'<CR>
 
+vnoremap <C-F> y:w<CR>:CtrlSF '<C-r>"'<CR>:%s/<C-r>"/
+g:ctrlsf_confirm_save = 0
+
 vnoremap / y:/'<C-r>"'<CR>
 
 nnoremap <C-p> :call PickFile()<CR> " pick shortcuts V
@@ -174,8 +177,8 @@ map <leader>gws :Gstatus<CR>
 map <leader>gs :! git stash<CR>
 map <leader>gsp :! git stash pop<CR>
 
-map ]g :GitGutterNextHunk<CR>
-map [g :GitGutterPreviousHunk<CR>
+map [g <Plug>GitGutterPrevHunk
+map ]g <Plug>GitGutterNextHunk
 
 " make_it_look_pretty
 set nowrap " no wrapping
@@ -237,16 +240,25 @@ let g:javascript_plugin_jsdoc = 1 " js syntax highlighting for plugin
 
 " testing
 autocmd FileType ruby let b:dispatch = 'bundle exec rspec %'
-nmap <leader>t :w<CR>:call RunNearestSpec()<CR>
-nmap <leader>T :w<CR>:call RunCurrentSpecFile()<CR>
-nmap <leader>tt :w<CR>:execute ':! bundle exec rspec %:' . line('.')<CR>
-nmap <leader>Tt :w<CR>:! bundle exec rspec %<CR>
-nmap <leader>tl :w<CR>:call RunLastSpec()<CR>
+nmap <leader>z :w<CR>:call RunNearestSpec()<CR>
+nmap <leader>Z :w<CR>:call RunCurrentSpecFile()<CR>
+nmap <leader>zz :w<CR>:execute("!clear && zeus rspec " . expand("%p") . ":" . line(".")) <CR>
+nmap <leader>ZZ :w<CR>:! zeus rspec %<CR>
+nmap <leader>zl :w<CR>:call RunLastSpec()<CR>
+
+nmap <leader>t :w<CR>:execute("Dispatch bundle exec rspec " . expand("%p") . ":" . line(".")) <CR>
+nmap <leader>T :w<CR>:Dispatch date; bundle exec rspec %<CR>
+nmap <leader>tt :w<CR>:execute("!clear && zeus rspec " . expand("%p") . ":" . line(".")) <CR>
+nmap <leader>TT :w<CR>:! bundle exec rspec %<CR>
+
 nmap <leader>tm :w<CR>:Dispatch npm run mocha<CR>
+
 nmap <leader>ts :execute ':Dispatch JS_DRIVER=selenium bundle exec rspec %:' . line('.')<CR>
 nmap <leader>Ts :Dispatch JS_DRIVER=selenium bundle exec rspec %<CR>
 
-let g:rspec_command = "Dispatch bundle exec rspec {spec}"
+" let g:rspec_command = "Dispatch bundle exec rspec {spec}"
+let g:rspec_command = "compiler rspec | set makeprg=zeus | Make rspec {spec}"
+let g:rspec_runner = "os_x_iterm2"
 
 " shortcuts
 nmap <leader>e :Explore<CR> " switch to explorer V
