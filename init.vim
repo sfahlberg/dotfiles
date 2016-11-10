@@ -38,7 +38,6 @@ Plug 'edkolev/tmuxline.vim'
 Plug 'Yggdroot/indentLine'
 
 " language_stuff
-Plug 'scrooloose/syntastic'
 Plug 'neomake/neomake'
 Plug 'tpope/vim-endwise'
 Plug 'vim-ruby/vim-ruby', { 'for': 'ruby' }
@@ -216,37 +215,10 @@ augroup quickfix
 augroup END
 
 " language_stuff
-set statusline+=%#warningmsg# " default syntastic settings from doc V
-set statusline+=%{SyntasticStatuslineFlag()}
-set statusline+=%*
-
 autocmd! BufWritePost * Neomake
-
-" let g:syntastic_always_populate_loc_list = 1
-" let g:syntastic_auto_loc_list = 0
-" let g:syntastic_check_on_open = 1
-" let g:syntastic_check_on_wq = 1
-" let g:syntastic_loc_list_height= 3 " set  window height to 3 lines
-"
-" let g:syntastic_html_tidy_ignore_errors=["proprietary attribute", "is not recognized!", "discarding unexpected", "trimming empty <", "missing </a>", "attribute name"] " limit errors shown
-"
-" let g:syntastic_javascript_checkers = ['eslint']
-"
-" let g:syntastic_ruby_checkers = ['rubocop']
-" let g:syntastic_ruby_exec = '/Users/sam/.rbenv/shims/ruby'
-" let g:syntastic_ruby_rubocop_exec = '/Users/sam/.rbenv/shims/rubocop'
-
 set statusline+=\ %#ErrorMsg#%{neomake#statusline#QflistStatus('qf:\ ')}
-au BufWritePost *.rb Neomake rubocop
-let g:neomake_javascript_jshint_maker = {
-    \ 'args': ['--verbose'],
-    \ 'errorformat': '%A%f: line %l\, col %v\, %m \(%t%*\d\)',
-    \ }
+au BufWritePost,BufEnter Neomake
 let g:neomake_javascript_enabled_makers = ['eslint']
-
-let g:neomake_ruby_rubocop_maker = {
-    \ 'errorformat': '%A%f: line %l\, col %v\, %m \(%t%*\d\)',
-    \ }
 let g:neomake_ruby_enabled_makers = ['rubocop']
 
 runtime macros/matchit.vim " setup extended matching with %, eg html
@@ -308,7 +280,7 @@ nmap <leader>x :x<CR> " save & exit V
 vmap <leader>x <ESC>:x<CR>
 imap <leader>x <ESC>:x<CR>
 
-map <leader>so :so ~/.vimrc<CR>
+map <leader>so :so ~/.config/nvim/init.vim<CR>
 
 map <leader>db :Dispatch bundle
 map <leader>dror :Dispatch bundle exec rake one_ring
