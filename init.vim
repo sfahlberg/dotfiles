@@ -12,7 +12,6 @@ Plug 'tpope/vim-repeat'
 
 " searching_stuff
 Plug 'thoughtbot/pick.vim' " for searching files
-Plug 'mileszs/ack.vim' " for searching files for words
 Plug 'henrik/vim-indexed-search' " number for / search
 Plug 'ervandew/supertab' " tab completion
 Plug 'dyng/ctrlsf.vim' " find and replace in multiple files
@@ -113,15 +112,8 @@ set incsearch " automatically go to the word while searching
 set hlsearch " highlights all search matches
 nnoremap <silent> <Space> :nohlsearch<Bar>:echo<CR> " turn off highlight
 
-if executable('ag')
-  let g:ackprg = 'ag --vimgrep'
-endif
-
-set shellpipe=> " stop outputting ack search results to terminal
-
-cnoreabbrev Ack Ack!
-nnoremap <Leader>a :Ack!<Space>
-vnoremap <Leader>a y:Ack! '<C-r>"'<CR>
+nnoremap <Leader>a :Ag<Space>
+vnoremap <Leader>a y:Ag <C-r>"<CR>
 
 " map <C-F> :w<CR>:CtrlSF '<C-r>
 vnoremap <C-F> y:w<CR>:CtrlSF '<C-r>"'<CR>:%s/<C-r>"/
