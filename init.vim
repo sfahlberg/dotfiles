@@ -34,7 +34,6 @@ Plug 'idanarye/vim-merginal'
 Plug 'vim-airline/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
 Plug 'altercation/vim-colors-solarized'
-Plug 'edkolev/tmuxline.vim'
 Plug 'Yggdroot/indentLine'
 
 " language_stuff
@@ -55,6 +54,7 @@ Plug 'rizzatti/dash.vim'
 " testing
 Plug 'tpope/vim-dispatch'
 Plug 'thoughtbot/vim-rspec'
+Plug 'radenling/vim-dispatch-neovim'
 
 call plug#end()
 
@@ -130,17 +130,7 @@ let g:ctrlsf_confirm_save = 0
 
 vnoremap / y:/'<C-r>"'<CR>
 
-if has('nvim')
-  nnoremap <C-p> :FZF<CR>
-else
-  nnoremap <C-p> :call PickFile()<CR> " pick shortcuts V
-  nnoremap <leader>v :call PickBufferCommand('vsplit')<CR>
-  nnoremap <leader>V :call PickFileVerticalSplit()<CR>
-  nnoremap <leader>c :call PickBufferCommand('split')<CR>
-  nnoremap <leader>C :call PickFileSplit()<CR>
-  nnoremap <Leader>b :call PickBuffer()<CR>
-  let g:pick_height = 10
-endif
+nnoremap <C-p> :FZF<CR>
 
 " navigation
 nmap <BS> :BufSurfBack<CR>
@@ -170,7 +160,7 @@ map <leader>gpf :Gpush --force<CR>
 map <leader>gfr :Gpull<CR>
 map <leader>gri :Git rebase -i HEAD~
 
-map <leader>g :Gstatus<CR>
+map <leader>gg :Gstatus<CR>
 
 map <leader>gs :Start git stash<CR>
 map <leader>gsp :Start git stash pop<CR>
