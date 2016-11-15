@@ -11,11 +11,10 @@ Plug 'matze/vim-move'
 Plug 'tpope/vim-repeat'
 
 " searching_stuff
-Plug 'thoughtbot/pick.vim' " for searching files
 Plug 'henrik/vim-indexed-search' " number for / search
 Plug 'ervandew/supertab' " tab completion
 Plug 'dyng/ctrlsf.vim' " find and replace in multiple files
-Plug 'craigemery/vim-autotag' " automatically update ctags
+Plug 'soramugi/auto-ctags.vim' " automatically update ctags
 Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
 Plug 'junegunn/fzf.vim'
 
@@ -32,8 +31,7 @@ Plug 'idanarye/vim-merginal'
 " make_it_look_pretty
 Plug 'vim-airline/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
-Plug 'altercation/vim-colors-solarized'
-Plug 'Yggdroot/indentLine'
+Plug 'morhetz/gruvbox'
 
 " language_stuff
 Plug 'neomake/neomake'
@@ -104,7 +102,6 @@ au BufEnter *.js *.jsx syn match error contained "\<debugger\>" " highlight debu
 
 let g:move_key_modifier = 'C'
 
-
 " searching_stuff
 set ignorecase " ignores case for searching
 set smartcase " doesn't ignore case when upper case used
@@ -137,6 +134,8 @@ let g:netrw_bufsettings = 'numbers' " settings for netrw, add numbers
 " let g:netrw_liststyle=3     " tree view
 autocmd FileType netrw setl bufhidden=wipe " remove netrw buffers
 
+let g:auto_ctags = 1
+
 " git_stuff
 set diffopt+=vertical " fugitive make vertical
 
@@ -145,7 +144,7 @@ cnoreabbrev Gpull execute ':Gpull --rebase origin ' . fugitive#head(7)
 autocmd BufFilePost Merginal:* setlocal relativenumber " buffers #s V
 autocmd BufFilePost Merginal:* setlocal number
 
-map <leader>gm :Merginal<CR>
+map <leader>gm :MerginalToggle<CR>
 
 map <leader>gp :Gpush<CR>
 map <leader>gpf :Gpush --force<CR>
@@ -159,11 +158,17 @@ map <leader>gsp :Start git stash pop<CR>
 
 map <leader>gcp :Start git cherry-pick -n
 
+map <leader>gc :Start git commit<CR>
+map <leader>gcnv :Start git commit --no-verify<CR>
+map <leader>gca :Start git commit --amend
+
 map <Leader>ga <Plug>GitGutterStageHunk
 map <Leader>gco <Plug>GitGutterUndoHunk
 
 map [g <Plug>GitGutterPrevHunk
 map ]g <Plug>GitGutterNextHunk
+map [G G<Plug>GitGutterPrevHunk
+map ]G gg<Plug>GitGutterNextHunk
 
 " make_it_look_pretty
 set nowrap " no wrapping
@@ -198,7 +203,6 @@ augroup END
 
 " language_stuff
 autocmd! BufWritePost * Neomake
-set statusline+=\ %#ErrorMsg#%{neomake#statusline#QflistStatus('qf:\ ')}
 au BufWritePost,BufEnter Neomake
 let g:neomake_javascript_enabled_makers = ['eslint']
 let g:neomake_ruby_enabled_makers = ['rubocop']
@@ -246,9 +250,9 @@ nmap <leader>e :Explore<CR> " switch to explorer V
 vmap <leader>e <ESC>:Explore<CR>
 imap <leader>e <ESC>:Explore<CR>
 
-nmap <leader>s :w<CR>:shell<CR> " exit to shell V
-vmap <leader>s <ESC>:w<CR>:shell<CR>
-imap <leader>s <ESC>:w<CR>:shell<CR>
+nmap <leader>ss :w<CR>:terminal<CR>
+vmap <leader>ss <ESC>:w<CR>:terminal<CR>
+imap <leader>ss <ESC>:w<CR>:terminal<CR>
 
 nmap <leader>w :w<CR> " save V
 vmap <leader>w <ESC>:w<CR>v
@@ -264,7 +268,7 @@ imap <leader>x <ESC>:x<CR>
 
 map <leader>so :so ~/.config/nvim/init.vim<CR>
 
-map <leader>db :Dispatch bundle
+map <leader>db :Dispatch! bundle
 map <leader>dror :Dispatch bundle exec rake one_ring
 map <leader>drm :Dispatch bundle exec rake db:migrate
 map <leader>drtp :Dispatch bundle exec rake db:test:prepare
