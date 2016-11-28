@@ -153,8 +153,8 @@ map <leader>gri :Git rebase -i HEAD~
 
 map <leader>gg :Gstatus<CR>
 
-map <leader>gs :Start git stash<CR>
-map <leader>gsp :Start git stash pop<CR>
+map <leader>gs :Git stash<CR>
+map <leader>gsp :Git stash pop<CR>
 
 map <leader>gcp :Start git cherry-pick -n
 
@@ -165,10 +165,10 @@ map <leader>gca :Start git commit --amend
 map <Leader>ga <Plug>GitGutterStageHunk
 map <Leader>gco <Plug>GitGutterUndoHunk
 
-map [g <Plug>GitGutterPrevHunk
-map ]g <Plug>GitGutterNextHunk
-map [G G<Plug>GitGutterPrevHunk
-map ]G gg<Plug>GitGutterNextHunk
+map [g :w<CR><Plug>GitGutterPrevHunk
+map ]g :w<CR><Plug>GitGutterNextHunk
+map [G :w<CR>G<Plug>GitGutterPrevHunk
+map ]G :w<CR>gg<Plug>GitGutterNextHunk
 
 " make_it_look_pretty
 set nowrap " no wrapping
