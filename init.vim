@@ -1,7 +1,7 @@
 call plug#begin()
 
 " editing_stuff
-Plug 'vim-scripts/tComment'
+Plug 'tpope/vim-commentary'
 Plug 'jiangmiao/auto-pairs'
 Plug 'terryma/vim-multiple-cursors'
 Plug 'tpope/vim-surround'
@@ -22,6 +22,7 @@ Plug 'junegunn/fzf.vim'
 Plug 'ton/vim-bufsurf' " recent buffer
 Plug 'tpope/vim-vinegar' " for netrw
 Plug 'tpope/vim-unimpaired'
+Plug 'majutsushi/tagbar'
 
 " git_stuff
 Plug 'tpope/vim-fugitive'
@@ -179,22 +180,14 @@ set laststatus=2 " start up airplane
 let g:airline_powerline_fonts = 1 " use fonts
 let g:airline#extensions#tabline#enabled = 1 " airplane buffer tabs
 let g:airline#extensions#tabline#fnamemod=':t'
+let g:airline#extensions#whitespace#enabled = 1
+let g:airline#extensions#tagbar#enabled = 1
+let g:airline_section_c = ''
+let g:airline_section_x = airline#section#create_right(['tagbar'])
+let g:airline_section_y = airline#section#create_right(['filetype'])
 
-syntax on
-
-let g:solarized_termcolors=256
-colorscheme solarized
-
-let hour = strftime("%H")
-" if 6 <= hour && hour < 18 " set light during the day
-"   set background=light
-"   let g:airline_theme = 'zenburn'
-"   let g:tmuxline_theme = 'zenburn'
-" else
-  set background=dark
-  let g:airline_theme = 'distinguished'
-  let g:tmuxline_theme = 'distinguished'
-" endif
+colorscheme gruvbox
+set termguicolors
 
 augroup quickfix
   autocmd!
@@ -250,6 +243,8 @@ nmap <leader>e :Explore<CR> " switch to explorer V
 vmap <leader>e <ESC>:Explore<CR>
 imap <leader>e <ESC>:Explore<CR>
 
+nmap <leader>f :echo @%<CR>
+
 nmap <leader>ss :w<CR>:terminal<CR>
 vmap <leader>ss <ESC>:w<CR>:terminal<CR>
 imap <leader>ss <ESC>:w<CR>:terminal<CR>
@@ -266,7 +261,7 @@ nmap <leader>x :x<CR> " save & exit V
 vmap <leader>x <ESC>:x<CR>
 imap <leader>x <ESC>:x<CR>
 
-map <leader>so :so ~/.config/nvim/init.vim<CR>
+map <silent><leader>so :silent so ~/.config/nvim/init.vim<CR>:echo 'init.vim resourced'<CR>
 
 map <leader>db :Dispatch! bundle
 map <leader>dror :Dispatch bundle exec rake one_ring
@@ -275,3 +270,13 @@ map <leader>drtp :Dispatch bundle exec rake db:test:prepare
 
 map <leader>bi ibinding.pry<esc>:w<CR>
 map <leader>bo obinding.pry<esc>:w<CR>
+
+              " the following prevents the cursor from moving
+inoremap <ESC> <ESC>`^
+vnoremap <C-[> <ESC>:w<CR>
+inoremap <C-[> <ESC>:w<CR>
+nnoremap <C-[> :w<CR>
+
+noremap <C-h> :Helptags<CR>
+
+noremap = =:w<CR>
