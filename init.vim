@@ -123,11 +123,11 @@ vnoremap / y:/'<C-r>"'<CR>
 nnoremap <C-p> :FZF<CR>
 
 " navigation
-nmap <BS> :BufSurfBack<CR>
-nmap \ :BufSurfForward<CR>
+nmap <silent><BS> :silent BufSurfBack<CR>
+nmap <silent>\ :silent BufSurfForward<CR>
 
-nmap <S-Tab> :bp<CR>
-nmap <Tab> :bn<CR>
+nmap <silent><S-Tab> :silent bp<CR>
+nmap <silent><Tab> :silent bn<CR>
 
 let g:netrw_sort_by = 'time' " auto sort by last updated
 let g:netrw_sort_direction = 'reverse' " most recently updated at top
@@ -157,11 +157,17 @@ map <leader>gg :Gstatus<CR>
 map <leader>gs :Git stash<CR>
 map <leader>gsp :Git stash pop<CR>
 
-map <leader>gcp :Start git cherry-pick -n
+map <leader>gcp :Git cherry-pick -n
 
-map <leader>gc :Start git commit<CR>
-map <leader>gcnv :Start git commit --no-verify<CR>
-map <leader>gca :Start git commit --amend
+map <leader>gc :Gcommit --verbose<CR>
+map <leader>gca :Gcommit --verbose --all<CR>
+map <leader>gcnv :Gcommit --no-verify<CR>
+map <leader>gcF :Gcommit --amend<CR>
+
+map <leader>gd<SPACE> :Gdiff<SPACE>
+map <leader>gdm :Gdiff master<CR>
+
+map <leader>gb :Gblame<CR>
 
 map <Leader>ga <Plug>GitGutterStageHunk
 map <Leader>gco <Plug>GitGutterUndoHunk
@@ -225,7 +231,7 @@ nmap <leader>ZZ :w<CR>:Start zeus rspec %<CR>
 nmap <leader>Zs :w<CR>:Dispatch JS_DRIVER=selenium bundle exec rspec %<CR>
 
 nmap <leader>t :w<CR>:execute("Dispatch bundle exec rspec " . expand("%p") . ":" . line(".")) <CR>
-nmap <leader>tt :w<CR>:execute("!clear && zeus rspec " . expand("%p") . ":" . line(".")) <CR>
+nmap <leader>tt :w<CR>:execute("Dispatch bundle exec rspec " . expand("%p") . ":" . line(".")) <CR>
 nmap <leader>ts :w<CR>:execute ':Dispatch JS_DRIVER=selenium bundle exec rspec %:' . line('.')<CR>
 
 nmap <leader>T :w<CR>:Dispatch date; bundle exec rspec %<CR>
@@ -263,9 +269,10 @@ imap <leader>x <ESC>:x<CR>
 
 map <silent><leader>so :silent so ~/.config/nvim/init.vim<CR>:echo 'init.vim resourced'<CR>
 
-map <leader>db :Dispatch! bundle
-map <leader>dror :Dispatch bundle exec rake one_ring
+map <leader>db :Dispatch! bundle<CR>
+map <leader>dror :Dispatch bundle exec rake one_ring<CR>
 map <leader>drm :Dispatch bundle exec rake db:migrate
+map <leader>drr :Dispatch bundle exec rake db:rollback
 map <leader>drtp :Dispatch bundle exec rake db:test:prepare
 
 map <leader>bi ibinding.pry<esc>:w<CR>

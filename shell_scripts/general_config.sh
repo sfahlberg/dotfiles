@@ -1,7 +1,8 @@
 export PATH="$HOME/.rbenv/bin:$PATH"
 eval "$(rbenv init -)"
 
-alias vi="vim"
+alias vi="nvim"
+alias dv="cd ~/dotfiles; vi init.vim"
 
 export BROWSER=google-chrome-stable
 
