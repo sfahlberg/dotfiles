@@ -3,3 +3,5 @@
 *.byebug_history
 heroku_rsa
 heroku_rsa.pub
+tags.lock
+tags
