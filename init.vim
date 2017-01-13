@@ -123,11 +123,11 @@ vnoremap / y:/'<C-r>"'<CR>
 nnoremap <C-p> :FZF<CR>
 
 " navigation
-nmap <BS> :BufSurfBack<CR>
-nmap \ :BufSurfForward<CR>
+nmap <silent><BS> :silent BufSurfBack<CR>
+nmap <silent>\ :silent BufSurfForward<CR>
 
-nmap <S-Tab> :bp<CR>
-nmap <Tab> :bn<CR>
+nmap <silent><S-Tab> :silent bp<CR>
+nmap <silent><Tab> :silent bn<CR>
 
 let g:netrw_sort_by = 'time' " auto sort by last updated
 let g:netrw_sort_direction = 'reverse' " most recently updated at top
@@ -231,7 +231,7 @@ nmap <leader>ZZ :w<CR>:Start zeus rspec %<CR>
 nmap <leader>Zs :w<CR>:Dispatch JS_DRIVER=selenium bundle exec rspec %<CR>
 
 nmap <leader>t :w<CR>:execute("Dispatch bundle exec rspec " . expand("%p") . ":" . line(".")) <CR>
-nmap <leader>tt :w<CR>:execute("!clear && zeus rspec " . expand("%p") . ":" . line(".")) <CR>
+nmap <leader>tt :w<CR>:execute("Dispatch bundle exec rspec " . expand("%p") . ":" . line(".")) <CR>
 nmap <leader>ts :w<CR>:execute ':Dispatch JS_DRIVER=selenium bundle exec rspec %:' . line('.')<CR>
 
 nmap <leader>T :w<CR>:Dispatch date; bundle exec rspec %<CR>
