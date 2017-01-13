@@ -1,6 +1,6 @@
 #!/bin/bash
 
-files="zpreztorc vimrc gitconfig gitignore tmux.conf" # list of files/folders to symlink in homedir
+files="zpreztorc vimrc gitconfig gitignore tmux.conf pryrc" # list of files/folders to symlink in homedir
 packages_mac="vim tmux zsh pick the_silver_searcher" # packages for mac
 packages_linux="vim tmux zsh pick silversearcher-ag" # packages for linux
 
