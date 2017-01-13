@@ -157,11 +157,17 @@ map <leader>gg :Gstatus<CR>
 map <leader>gs :Git stash<CR>
 map <leader>gsp :Git stash pop<CR>
 
-map <leader>gcp :Start git cherry-pick -n
+map <leader>gcp :Git cherry-pick -n
 
-map <leader>gc :Start git commit<CR>
-map <leader>gcnv :Start git commit --no-verify<CR>
-map <leader>gca :Start git commit --amend
+map <leader>gc :Gcommit --verbose<CR>
+map <leader>gca :Gcommit --verbose --all<CR>
+map <leader>gcnv :Gcommit --no-verify<CR>
+map <leader>gcF :Gcommit --amend<CR>
+
+map <leader>gd<SPACE> :Gdiff<SPACE>
+map <leader>gdm :Gdiff master<CR>
+
+map <leader>gb :Gblame<CR>
 
 map <Leader>ga <Plug>GitGutterStageHunk
 map <Leader>gco <Plug>GitGutterUndoHunk
@@ -263,9 +269,10 @@ imap <leader>x <ESC>:x<CR>
 
 map <silent><leader>so :silent so ~/.config/nvim/init.vim<CR>:echo 'init.vim resourced'<CR>
 
-map <leader>db :Dispatch! bundle
-map <leader>dror :Dispatch bundle exec rake one_ring
+map <leader>db :Dispatch! bundle<CR>
+map <leader>dror :Dispatch bundle exec rake one_ring<CR>
 map <leader>drm :Dispatch bundle exec rake db:migrate
+map <leader>drr :Dispatch bundle exec rake db:rollback
 map <leader>drtp :Dispatch bundle exec rake db:test:prepare
 
 map <leader>bi ibinding.pry<esc>:w<CR>
