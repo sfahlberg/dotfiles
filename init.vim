@@ -110,17 +110,21 @@ set incsearch " automatically go to the word while searching
 set hlsearch " highlights all search matches
 nnoremap <silent> <Space> :nohlsearch<Bar>:echo<CR> " turn off highlight
 
-nnoremap <Leader>a :Ag<Space>
-vnoremap <Leader>a y:Ag <C-r>"<CR>
+nnoremap <Leader>aa :Ag<Space>
+vnoremap <Leader>aa y:Ag <C-r>"<CR>
+nnoremap <Leader>ad :Ag<Space>def<space>
+vnoremap <Leader>ad y:Ag<Space>def<space><C-r>"<CR>
 
 " map <C-F> :w<CR>:CtrlSF '<C-r>
 vnoremap <C-F> y:w<CR>:CtrlSF '<C-r>"'<CR>:%s/<C-r>"/
 " vnoremap <C-f> :%s/<C-r>"/
 let g:ctrlsf_confirm_save = 0
+noremap <silent><C-p> :silent FZF<CR>
+nnoremap <silent><C-b> :silent Buffers<CR>
+noremap <LEADER>/ :silent BLines<CR>
 
-vnoremap / y:/'<C-r>"'<CR>
-
-nnoremap <C-p> :FZF<CR>
+let g:fzf_history_dir = '~/.local/share/fzf-history' " sets up command history
+autocmd VimEnter * command! -nargs=* Ag call fzf#vim#ag(<q-args>, '--color-path 400 --color-line-number 400', fzf#vim#default_layout) " fixes ag colors
 
 " navigation
 nmap <silent><BS> :silent BufSurfBack<CR>
@@ -149,7 +153,7 @@ map <leader>gm :MerginalToggle<CR>
 
 map <leader>gp :Gpush<CR>
 map <leader>gpf :Gpush --force<CR>
-map <leader>gfr :Gpull<CR>
+map <leader>gfr :Gpull --rebase<CR>
 map <leader>gri :Git rebase -i HEAD~
 
 map <leader>gg :Gstatus<CR>
