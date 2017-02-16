@@ -20,9 +20,9 @@ Plug 'junegunn/fzf.vim'
 
 " navigation
 Plug 'ton/vim-bufsurf' " recent buffer
-Plug 'tpope/vim-vinegar' " for netrw
 Plug 'tpope/vim-unimpaired'
 Plug 'majutsushi/tagbar'
+Plug 'scrooloose/nerdtree'
 
 " git_stuff
 Plug 'tpope/vim-fugitive'
@@ -133,18 +133,22 @@ nmap <silent>\ :silent BufSurfForward<CR>
 nmap <silent><S-Tab> :silent bp<CR>
 nmap <silent><Tab> :silent bn<CR>
 
-let g:netrw_sort_by = 'time' " auto sort by last updated
-let g:netrw_sort_direction = 'reverse' " most recently updated at top
-let g:netrw_bufsettings = 'numbers' " settings for netrw, add numbers
-" let g:netrw_liststyle=3     " tree view
-autocmd FileType netrw setl bufhidden=wipe " remove netrw buffers
-
 let g:auto_ctags = 1
+set tags=tags " speeds up tags in neovim
+set path=. " speeds up tags in neovim
+
+map <leader>ee :NERDTreeToggle<CR>
+map <leader>ef :NERDTreeFind<CR>
+let g:NERDShutUp = 1
+let g:NERDDefaultNesting = 1
+let NERDTreeShowBookmarks=1
+let NERDTreeChDirMode=2
+let NERDTreeQuitOnOpen=0
+let NERDTreeKeepTreeInNewTab=0
+let NERDTreeMinimalUI=1
 
 " git_stuff
 set diffopt+=vertical " fugitive make vertical
-
-cnoreabbrev Gpull execute ':Gpull --rebase origin ' . fugitive#head(7)
 
 autocmd BufFilePost Merginal:* setlocal relativenumber " buffers #s V
 autocmd BufFilePost Merginal:* setlocal number
@@ -238,21 +242,17 @@ nmap <leader>t :w<CR>:execute("Dispatch bundle exec rspec " . expand("%p") . ":"
 nmap <leader>tt :w<CR>:execute("Dispatch bundle exec rspec " . expand("%p") . ":" . line(".")) <CR>
 nmap <leader>ts :w<CR>:execute ':Dispatch JS_DRIVER=selenium bundle exec rspec %:' . line('.')<CR>
 
-nmap <leader>T :w<CR>:Dispatch date; bundle exec rspec %<CR>
+nmap <leader>T :w<CR>:Dispatch bundle exec rspec %<CR>
 nmap <leader>TT :w<CR>:Start bundle exec rspec %<CR>
 nmap <leader>Ts :w<CR>:Dispatch JS_DRIVER=selenium bundle exec rspec %<CR>
 
 nmap <leader>tm :w<CR>:Dispatch npm run mocha<CR>
 
-" let g:rspec_command = "Dispatch bundle exec rspec {spec}"
+" let g:rspec_command = "Dispatch date; zeus rspec {spec}"
 let g:rspec_command = "compiler rspec | set makeprg=zeus | Make rspec {spec}"
 let g:rspec_runner = "os_x_iterm2"
 
 " shortcuts
-nmap <leader>e :Explore<CR> " switch to explorer V
-vmap <leader>e <ESC>:Explore<CR>
-imap <leader>e <ESC>:Explore<CR>
-
 nmap <leader>f :echo @%<CR>
 
 nmap <leader>ss :w<CR>:terminal<CR>
@@ -275,9 +275,11 @@ map <silent><leader>so :silent so ~/.config/nvim/init.vim<CR>:echo 'init.vim res
 
 map <leader>db :Dispatch! bundle<CR>
 map <leader>dror :Dispatch bundle exec rake one_ring<CR>
-map <leader>drm :Dispatch bundle exec rake db:migrate
-map <leader>drr :Dispatch bundle exec rake db:rollback
-map <leader>drtp :Dispatch bundle exec rake db:test:prepare
+map <leader>drm :Dispatch bundle exec rake db:migrate<CR>
+map <leader>drmr :Dispatch bundle exec rake db:migrate:reset<CR>
+map <leader>drr :Dispatch! bundle exec rake routes<CR>
+map <leader>drtp :Dispatch bundle exec rake db:test:prepare<CR>
+map <leader>da :Dispatch annotate -rp<CR>
 
 map <leader>bi ibinding.pry<esc>:w<CR>
 map <leader>bo obinding.pry<esc>:w<CR>
@@ -288,6 +290,6 @@ vnoremap <C-[> <ESC>:w<CR>
 inoremap <C-[> <ESC>:w<CR>
 nnoremap <C-[> :w<CR>
 
-noremap <C-h> :Helptags<CR>
+nmap <leader>h :Helptags<CR>
 
 noremap = =:w<CR>
