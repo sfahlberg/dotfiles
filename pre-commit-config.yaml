@@ -1,0 +1,31 @@
+-   repo: git://github.com/pre-commit/pre-commit-hooks
+    sha: 5bf6c09bfa1297d3692cadd621ef95f1284e33c0
+    hooks:
+    -   id: check-merge-conflict
+        stages:
+        - push
+    -   id: detect-aws-credentials
+        stages:
+        - push
+# -   repo: git://github.com/pricematch/mirrors-rubocop
+#     sha: empty
+#     hooks:
+#     -   id: rubocop
+#         stages:
+#         - push
+-   repo: local
+    hooks:
+    # -   id: mocha
+    #     name: mocha
+    #     entry: npm run mocha
+    #     language: system
+    #     files: (webpack\/app\/.*\.js|\.jsx)$
+    #     stages:
+    #     - push
+    -   id: eslint
+        name: eslint
+        entry: npm run lint
+        language: system
+        files: (webpack\/app\/.*\.js|\.jsx)$
+        stages:
+        - push

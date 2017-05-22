@@ -12,6 +12,9 @@ Plug 'chrisbra/Recover.vim' " so I get a diff when there's a swap file
 Plug 'sickill/vim-pasta' " context aware pasting
 Plug 'matze/vim-move'
 Plug 'tpope/vim-repeat'
+Plug 'tpope/vim-capslock'
+Plug 'junegunn/vim-peekaboo'
+Plug 'junegunn/rainbow_parentheses.vim'
 
 " ============================================================================
 " searching_stuff
@@ -41,6 +44,7 @@ Plug 'vim-scripts/BufOnly.vim'
 Plug 'tpope/vim-fugitive'
 Plug 'airblade/vim-gitgutter'
 Plug 'idanarye/vim-merginal'
+Plug 'jreybert/vimagit'
 
 " ============================================================================
 " make_it_look_pretty
@@ -301,8 +305,13 @@ set nowrap " no wrapping
 set number " automatically turn line numbers on
 set relativenumber " relative numbers
 
-colorscheme gruvbox
-set termguicolors
+if has('gui_running')
+  echo 'hello'
+  colorscheme gruvbox
+  set termguicolors
+else
+  echo 'goodbye'
+endif
 
 augroup quickfix
   autocmd!
@@ -411,7 +420,7 @@ function! SetCircleStatus(job_id, data, event) abort
   if a:event == 'stdout'
     let g:circle_last_status = join(a:data)
   elseif a:event == 'stderr'
-    let g:circle_last_status = 'ERROR!'
+    let g:circle_last_status = 'No internet'
   else
     let g:circle_last_status = 'ERROR'
   endif
