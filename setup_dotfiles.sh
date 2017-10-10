@@ -1,12 +1,14 @@
 #!/bin/bash
 
-files="zpreztorc vimrc gitconfig gitignore tmux.conf" # list of files/folders to symlink in homedir
-packages_mac="vim tmux zsh pick the_silver_searcher" # packages for mac
-packages_linux="vim tmux zsh pick silversearcher-ag" # packages for linux
+files="zpreztorc vimrc gitconfig gitignore tmux.conf agignore" # list of files/folders to symlink in homedir
+packages_mac="tmux zsh pick the_silver_searcher" # packages for mac
+packages_linux="tmux zsh pick silversearcher-ag" # packages for linux
 
 # create symlinks from the homedir to any files in the ~/dotfiles directory specified in $files
 create_symlinks () {
+  echo 'creating symlinks'
   for file in $files; do
+    echo $file
     ln -s ~/dotfiles/$file ~/.$file
   done
 }
@@ -15,6 +17,7 @@ install_homebrew () {
   if which brew &> /dev/null; then
     echo 'brew already installed'
   else
+    echo 'installing homebrew'
     /usr/bin/ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
   fi
 }

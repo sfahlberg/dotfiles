@@ -168,6 +168,14 @@ au BufEnter *.rb syn match error contained "\<binding.pry\>" " show binding.pry
 
 let g:move_key_modifier = 'C'
 
+noremap <leader>bo :BufOnly<CR>
+
+" snippets
+
+let g:UltiSnipsExpandTrigger="<leader><tab>"
+let g:UltiSnipsJumpForwardTrigger="<leader><tab>q"
+let g:UltiSnipsJumpBackwardTrigger="<leader><tab>Q"
+
 " ============================================================================
 " searching_stuff
 " ============================================================================
@@ -186,7 +194,8 @@ vnoremap <C-f> y:CtrlSF <C-r>"<CR>/<C-r>"<CR>
 
 " fzf
 
-noremap <silent><C-p> :silent FZF<CR>
+noremap <silent><C-p> :silent GFiles<CR>
+noremap <silent><C-a> :silent FZF<CR>
 nnoremap <silent><C-b> :silent Buffers<CR>
 noremap <LEADER>/ :silent BLines<CR>
 
@@ -305,12 +314,9 @@ set nowrap " no wrapping
 set number " automatically turn line numbers on
 set relativenumber " relative numbers
 
-if has('gui_running')
-  echo 'hello'
+if has('mac')
   colorscheme gruvbox
   set termguicolors
-else
-  echo 'goodbye'
 endif
 
 augroup quickfix
@@ -350,7 +356,9 @@ map [S :llast<CR>
 let g:neomake_ruby_enabled_makers = ['rubocop']
 let g:neomake_javascript_enabled_makers = ['eslint']
 
-nmap <leader>l :w<CR>:Dispatch npm run lint<CR>
+nmap <leader>l :w<CR>:Dispatch yarn run lint<CR>
+
+
 
 " html
 
@@ -387,8 +395,8 @@ nmap <leader>tm :w<CR>:Dispatch npm run mocha<CR>
 " ruby testing with zeus
 
 nmap <leader>z :w<CR>:call RunNearestSpec()<CR>
-nmap <leader>zz :w<CR>:execute("Start zeus rspec " . expand("%p") . ":" . line(".")) <CR>
-nmap <leader>zs :w<CR>:execute ':Dispatch JS_DRIVER=selenium bundle exec rspec %:' . line('.')<CR>
+nmap <leader>zz :w<CR>:execute("Start zeus rspec --format documentation" . expand("%p") . ":" . line(".")) <CR>
+nmap <leader>zs :w<CR>:execute ':Dispatch JS_DRIVER=selenium bundle exec rspec --format documentation %:' . line('.')<CR>
 nmap <leader>zl :w<CR>:call RunLastSpec()<CR>
 
 nmap <leader>Z :w<CR>:call RunCurrentSpecFile()<CR>
@@ -400,13 +408,13 @@ let g:rspec_runner = "os_x_iterm2"
 
 " ruby testing sans zeus
 
-nmap <leader>t :w<CR>:execute("Dispatch bundle exec rspec " . expand("%p") . ":" . line(".")) <CR>
-nmap <leader>tt :w<CR>:execute("Start bundle exec rspec " . expand("%p") . ":" . line(".")) <CR>
-nmap <leader>ts :w<CR>:execute ':Dispatch JS_DRIVER=selenium bundle exec rspec %:' . line('.')<CR>
+nmap <leader>t :w<CR>:execute("Dispatch bundle exec rspec --format documentation " . expand("%p") . ":" . line(".")) <CR>
+nmap <leader>tt :w<CR>:execute("Start bundle exec rspec --format documentation " . expand("%p") . ":" . line(".")) <CR>
+nmap <leader>ts :w<CR>:execute ':Dispatch JS_DRIVER=selenium bundle exec rspec --format documentation %:' . line('.')<CR>
 
-nmap <leader>T :w<CR>:Dispatch bundle exec rspec %<CR>
-nmap <leader>TT :w<CR>:Start bundle exec rspec %<CR>
-nmap <leader>Ts :w<CR>:Dispatch JS_DRIVER=selenium bundle exec rspec %<CR>
+nmap <leader>T :w<CR>:Dispatch bundle exec rspec --format documentation %<CR>
+nmap <leader>TT :w<CR>:Start bundle exec rspec --format documentation %<CR>
+nmap <leader>Ts :w<CR>:Dispatch JS_DRIVER=selenium bundle exec rspec --format documentation %<CR>
 
 " circle ci
 

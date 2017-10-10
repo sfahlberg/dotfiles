@@ -1,10 +1,9 @@
 [user]
 	name = Samuel Fahlberg
-	email = sam.fahlberg@gmail.com
-	initials = sf
+	email = sam@brightbytes.net
 [core]
 	editor = vim
-	excludesfile = ~/.gitignore
+	excludesfile = /Users/sam/.gitignore
 [push]
 	default = simple
 [filter "hawser"]
@@ -17,3 +16,5 @@
 	mergeoptions = --no-ff
 [remote "origin"]
 	push = HEAD
+[rerere]
+	enabled = 1
