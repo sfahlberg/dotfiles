@@ -1,6 +1,6 @@
 #!/bin/bash
 
-files="zpreztorc vimrc gitconfig gitignore tmux.conf agignore" # list of files/folders to symlink in homedir
+files="zpreztorc vimrc gitconfig gitignore tmux.conf agignore pryrc" # list of files/folders to symlink in homedir
 packages_mac="tmux zsh pick the_silver_searcher" # packages for mac
 packages_linux="tmux zsh pick silversearcher-ag" # packages for linux
 
@@ -99,8 +99,8 @@ install_linux_and_mac_packages () {
   fi
 }
 
-install_prezto
-set_zsh_as_default
-install_linux_and_mac_packages
-install_vundle # needs vim installed from packages above
+# install_prezto
+# set_zsh_as_default
+# install_linux_and_mac_packages
+# install_vundle # needs vim installed from packages above
 create_symlinks

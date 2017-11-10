@@ -5,3 +5,5 @@ heroku_rsa
 heroku_rsa.pub
 tags
 tags.lock
+.pre-commit-config.yaml
+.github

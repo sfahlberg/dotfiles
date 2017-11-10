@@ -15,6 +15,11 @@ Plug 'tpope/vim-repeat'
 Plug 'tpope/vim-capslock'
 Plug 'junegunn/vim-peekaboo'
 Plug 'junegunn/rainbow_parentheses.vim'
+Plug 'chrisbra/NrrwRgn'
+Plug 'sbdchd/neoformat'
+Plug 'SirVer/ultisnips'
+Plug 'honza/vim-snippets'
+Plug 'tpope/vim-sleuth'
 
 " ============================================================================
 " searching_stuff
@@ -54,6 +59,7 @@ Plug 'vim-airline/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
 Plug 'morhetz/gruvbox'
 Plug 'mhinz/vim-startify'
+Plug 'junegunn/goyo.vim'
 
 " ============================================================================
 " language_stuff
@@ -120,25 +126,19 @@ vnoremap <C-c> <ESC>:w<CR>
 nnoremap <C-c> <ESC>:w<CR>
 inoremap <C-c> <ESC>:w<CR>
 
-nmap <leader>w :w<CR> " save V
-vmap <leader>w <ESC>:w<CR>v
-imap <leader>w <ESC>:w<CR>
+nmap <leader>q :close<CR> " quit V
+vmap <leader>q <ESC>:close<CR>
+imap <leader>q <ESC>:close<CR>
 
-nmap <leader>q :q<CR> " quit V
-vmap <leader>q <ESC>:q<CR>
-imap <leader>q <ESC>:q<CR>
-
-nmap <leader>x :x<CR> " save & exit V
-vmap <leader>x <ESC>:x<CR>
-imap <leader>x <ESC>:x<CR>
+" nmap <leader>x :x<CR> " save & exit V
+" vmap <leader>x <ESC>:x<CR>
+" imap <leader>x <ESC>:x<CR>
 
 noremap = =:w<CR>
 
 " ============================================================================
 " editing_stuff
 " ============================================================================
-
-set tabstop=2 shiftwidth=2 expandtab " automatically set the shift width
 
 filetype plugin on " automatically close tags in various languages
 set omnifunc=syntaxcomplete#Complete " closes tags
@@ -169,12 +169,16 @@ au BufEnter *.rb syn match error contained "\<binding.pry\>" " show binding.pry
 let g:move_key_modifier = 'C'
 
 noremap <leader>bo :BufOnly<CR>
+noremap <leader>bb :only<CR>
 
 " snippets
 
-let g:UltiSnipsExpandTrigger="<leader><tab>"
+noremap <leader>s :Snippets<CR>
 let g:UltiSnipsJumpForwardTrigger="<leader><tab>q"
+let g:UltiSnipsExpandTrigger="<leader><tab>"
 let g:UltiSnipsJumpBackwardTrigger="<leader><tab>Q"
+let g:UltiSnipsEditSplit="vertical"
+let g:UltiSnipsSnippetsDir="~/.vim/UltiSnips"
 
 " ============================================================================
 " searching_stuff
@@ -200,7 +204,6 @@ nnoremap <silent><C-b> :silent Buffers<CR>
 noremap <LEADER>/ :silent BLines<CR>
 
 let g:fzf_history_dir = '~/.local/share/fzf-history' " sets up command history
-autocmd VimEnter * command! -nargs=* Ag call fzf#vim#ag(<q-args>, '--color-path 400 --color-line-number 400', fzf#vim#default_layout) " fixes ag colors
 
 nnoremap <Leader>aa :Ag<Space>
 vnoremap <Leader>aa y:Ag <C-r>"<CR>
@@ -236,6 +239,8 @@ let NERDTreeChDirMode=2
 let NERDTreeQuitOnOpen=0
 let NERDTreeKeepTreeInNewTab=0
 let NERDTreeMinimalUI=1
+let NERDTreeShowLineNumbers=1
+autocmd FileType nerdtree setlocal relativenumber
 
 " ============================================================================
 " git_stuff
@@ -356,9 +361,9 @@ map [S :llast<CR>
 let g:neomake_ruby_enabled_makers = ['rubocop']
 let g:neomake_javascript_enabled_makers = ['eslint']
 
-nmap <leader>l :w<CR>:Dispatch yarn run lint<CR>
-
-
+nmap <leader>la :w<CR>:Dispatch yarn run lint<CR>
+nmap <leader>ljs :w<CR>:Dispatch yarn run lint:fix %<CR>
+nmap <leader>lr :w<CR>:Dispatch rubocop --auto-correct %<CR>
 
 " html
 
@@ -381,8 +386,8 @@ map <leader>drr :Rake routes<CR>
 map <leader>drtp :Rake db:test:prepare<CR>
 map <leader>da :Dispatch bundle exec annotate -rp after<CR>
 map <leader>dgm :Rgenerate migration<space>
-map <leader>bi ibinding.pry<esc>:w<CR>
-map <leader>bo obinding.pry<esc>:w<CR>
+" map <leader>bi ibinding.pry<esc>:w<CR>
+" map <leader>bo obinding.pry<esc>:w<CR>
 
 " ============================================================================
 " testing
