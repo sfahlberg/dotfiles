@@ -1,0 +1,39 @@
+snippet de "debugger"
+debugger;
+endsnippet
+
+snippet clw "console.log(wrapper.debug())"
+console.log(wrapper.debug());
+endsnippet
+
+snippet cl! "console.log('!!!!!!!!!!!!!!!!!!!')"
+console.log('!!!!!!!!!!!!!!!!!!!');
+endsnippet
+
+snippet cl# "console.log('###################')"
+console.log('###################');
+endsnippet
+
+snippet "(\S+)\.for" "forEach" r
+`!p snip.rv=match.group(1)`.forEach((${1:iterator}) => {
+	$0
+});
+endsnippet
+
+snippet "(\S+)\.map" "map" r
+`!p snip.rv=match.group(1)`.map((${1:iterator}) => {
+  $0
+});
+endsnippet
+
+snippet it "it (js)"
+it('${1:description}', () => {
+	$0
+});
+endsnippet
+
+snippet des "describe (es6)"
+describe('${1:description}', () => {
+	$0
+});
+endsnippet

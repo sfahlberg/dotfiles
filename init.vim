@@ -178,7 +178,7 @@ let g:UltiSnipsJumpForwardTrigger="<leader><tab>q"
 let g:UltiSnipsExpandTrigger="<leader><tab>"
 let g:UltiSnipsJumpBackwardTrigger="<leader><tab>Q"
 let g:UltiSnipsEditSplit="vertical"
-let g:UltiSnipsSnippetsDir="~/.vim/UltiSnips"
+let g:UltiSnipsSnippetsDir="~/dotfiles/UltiSnips"
 
 " ============================================================================
 " searching_stuff
