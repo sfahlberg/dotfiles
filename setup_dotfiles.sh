@@ -8,9 +8,13 @@ packages_linux="tmux zsh pick silversearcher-ag" # packages for linux
 create_symlinks () {
   echo 'creating symlinks'
   for file in $files; do
-    echo $file
+    echo 'attempting to link' $file
     ln -s ~/dotfiles/$file ~/.$file
   done
+
+  echo 'attempting to link init.vim'
+  mkdir -p  ~/.config/nvim/
+  ln -s ~/dotfiles/init.vim ~/.config/nvim
 }
 
 install_homebrew () {
@@ -22,15 +26,10 @@ install_homebrew () {
   fi
 }
 
-install_vundle () {
-  if [ ! -d ~/.vim/bundle/ ]; then
-    echo 'cloning vundle'
-    mkdir ~/.vim/bundle
-    git clone https://github.com/VundleVim/Vundle.vim.git ~/.vim/bundle/Vundle.vim
-  else
-    echo 'vundle already installed'
-  fi
-  vim +PluginInstall +qall
+install_plug () {
+  echo 'cloning plug'
+  mkdir ~/.vim/bundle
+  curl -fLo ~/.local/share/nvim/site/autoload/plug.vim --create-dirs https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
 }
 
 install_prezto () {
@@ -102,5 +101,5 @@ install_linux_and_mac_packages () {
 # install_prezto
 # set_zsh_as_default
 # install_linux_and_mac_packages
-# install_vundle # needs vim installed from packages above
+# install_plug # needs vim installed from packages above
 create_symlinks

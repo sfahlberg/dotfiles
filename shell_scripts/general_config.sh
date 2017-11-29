@@ -7,7 +7,7 @@ eval "$(hub alias -s)"
 export GIT_EDITOR="nvim" # needed for hub
 
 # aliases
-alias vi="nvim"
+alias vi='nvim `git diff --name-only`'
 alias dot="cd ~/dotfiles"
 alias dotv="cd ~/dotfiles; vi init.vim"
 
