@@ -18,7 +18,6 @@ Plug 'junegunn/rainbow_parentheses.vim'
 Plug 'chrisbra/NrrwRgn'
 Plug 'sbdchd/neoformat'
 Plug 'SirVer/ultisnips'
-Plug 'honza/vim-snippets'
 Plug 'tpope/vim-sleuth'
 
 " ============================================================================
@@ -26,7 +25,7 @@ Plug 'tpope/vim-sleuth'
 " ============================================================================
 
 Plug 'henrik/vim-indexed-search' " number for / search
-Plug 'ervandew/supertab' " tab completion
+Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
 Plug 'dyng/ctrlsf.vim' " find and replace in multiple files
 Plug 'soramugi/auto-ctags.vim' " automatically update ctags
 Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
@@ -125,14 +124,16 @@ inoremap <ESC> <ESC>`^
 vnoremap <C-c> <ESC>:w<CR>
 nnoremap <C-c> <ESC>:w<CR>
 inoremap <C-c> <ESC>:w<CR>
+nnoremap <CR> <ESC>:w<CR>
+vnoremap <CR> <ESC>:w<CR>
 
 nmap <leader>q :close<CR> " quit V
 vmap <leader>q <ESC>:close<CR>
 imap <leader>q <ESC>:close<CR>
 
-" nmap <leader>x :x<CR> " save & exit V
-" vmap <leader>x <ESC>:x<CR>
-" imap <leader>x <ESC>:x<CR>
+nmap <leader>x :x<CR> " save & exit V
+vmap <leader>x <ESC>:x<CR>
+imap <leader>x <ESC>:x<CR>
 
 noremap = =:w<CR>
 
@@ -178,6 +179,7 @@ let g:UltiSnipsJumpForwardTrigger="<leader><tab>q"
 let g:UltiSnipsExpandTrigger="<leader><tab>"
 let g:UltiSnipsJumpBackwardTrigger="<leader><tab>Q"
 let g:UltiSnipsEditSplit="vertical"
+set runtimepath+=~/dotfiles " makes sure that I look for snippets in dotfiles
 let g:UltiSnipsSnippetsDir="~/dotfiles/UltiSnips"
 
 " ============================================================================
@@ -189,6 +191,13 @@ set smartcase " doesn't ignore case when upper case used
 set incsearch " automatically go to the word while searching
 set hlsearch " highlights all search matches
 nnoremap <silent> <Space> :nohlsearch<Bar>:echo<CR> " turn off highlight
+
+" deoplete
+let g:deoplete#enable_at_startup = 1
+" use tab to forward cycle
+inoremap <silent><expr><tab> pumvisible() ? "\<c-n>" : "\<tab>"
+" use tab to backward cycle
+inoremap <silent><expr><s-tab> pumvisible() ? "\<c-p>" : "\<s-tab>"
 
 " ctrlsf
 

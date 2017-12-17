@@ -1,6 +1,7 @@
 if [ $(hostname) = "sam-workbook.local" ]; then
   source ~/bb/clarity/.env
   source ~/bb/insights-cms/.env
+  test -s "$HOME/.kiex/scripts/kiex" && source "$HOME/.kiex/scripts/kiex"
 
   alias c="~/bb/clarity"
   alias cv="~/bb/clarity; vi"
