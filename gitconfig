@@ -1,6 +1,6 @@
 [user]
 	name = Samuel Fahlberg
-	email = sam@brightbytes.net
+	email = sam.fahlberg@gmail.com
 [core]
 	editor = vim
 	excludesfile = /Users/sam/.gitignore

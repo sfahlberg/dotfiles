@@ -141,6 +141,7 @@ noremap = =:w<CR>
 " editing_stuff
 " ============================================================================
 
+set tabstop=2 shiftwidth=2 expandtab " automatically set the shift width
 filetype plugin on " automatically close tags in various languages
 set omnifunc=syntaxcomplete#Complete " closes tags
 

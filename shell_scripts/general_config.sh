@@ -17,3 +17,9 @@ alias gci="hub ci-status -v"
 
 alias be="bundle exec"
 alias rake="bundle exec rake"
+
+alias stats="git shortlog -sn --since='10 weeks' --until='2 weeks'" # Leaderboards
+alias recent='git for-each-ref --count=10 --sort=-committerdate refs/heads/ --format="%(refname:short)"' # See Which Branches You Recently Worked On
+alias recap="git log --all --oneline --no-merges --author=sam.fahlberg@gmail.com" # Remind Yourself What You’ve Been Up To
+alias graph="git log --graph --all --decorate --stat --date=iso" # View Complex Logs
+alias worddiff="git diff --word-diff"
