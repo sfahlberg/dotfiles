@@ -2,6 +2,10 @@ snippet de "debugger"
 debugger;
 endsnippet
 
+snippet cl "console.log()"
+console.log($0);
+endsnippet
+
 snippet clw "console.log(wrapper.debug())"
 console.log(wrapper.debug());
 endsnippet
@@ -15,13 +19,19 @@ console.log('###################');
 endsnippet
 
 snippet "(\S+)\.for" "forEach" r
-`!p snip.rv=match.group(1)`.forEach((${1:iterator}) => {
+`!p snip.rv=match.group(1)`.forEach(${1:iterator} => {
+	$0
+});
+endsnippet
+
+snippet "(\S+)\.fil" "filter" r
+`!p snip.rv=match.group(1)`.filter(${1:iterator} => {
 	$0
 });
 endsnippet
 
 snippet "(\S+)\.map" "map" r
-`!p snip.rv=match.group(1)`.map((${1:iterator}) => {
+`!p snip.rv=match.group(1)`.map(${1:iterator} => {
   $0
 });
 endsnippet
@@ -39,7 +49,19 @@ describe('${1:description}', () => {
 endsnippet
 
 snippet fun "function (js)"
-function ${1:function-name} (${2}) {
+function ${1:function-name}(${2}) {
+	$0
+}
+endsnippet
+
+snippet if "if (js)"
+if (${1:condition}) {
+	$0
+}
+endsnippet
+
+snippet fune "function (es6)"
+const ${1:function-name} = ${2} => {
 	$0
 }
 endsnippet
