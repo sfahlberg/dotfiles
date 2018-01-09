@@ -7,3 +7,4 @@ tags
 tags.lock
 .pre-commit-config.yaml
 .github
+.webpack-cache
