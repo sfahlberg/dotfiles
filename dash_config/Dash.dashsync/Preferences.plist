@@ -181,11 +181,6 @@
 				<key>date</key>
 				<date>2017-11-29T13:58:13Z</date>
 			</dict>
-			<key>http://kapeli.com/feeds/Ruby_2.xml</key>
-			<dict>
-				<key>date</key>
-				<date>2016-10-13T17:34:30Z</date>
-			</dict>
 			<key>http://kapeli.com/feeds/Ruby_on_Rails_4.xml</key>
 			<dict>
 				<key>date</key>
@@ -198,7 +193,13 @@
 			</dict>
 		</dict>
 		<key>uninstalled</key>
-		<dict/>
+		<dict>
+			<key>http://kapeli.com/feeds/Ruby_2.xml</key>
+			<dict>
+				<key>date</key>
+				<date>2018-01-07T22:54:51Z</date>
+			</dict>
+		</dict>
 	</dict>
 	<key>isPinned</key>
 	<true/>
@@ -347,7 +348,16 @@
 	<key>versionedFeeds</key>
 	<dict>
 		<key>installed</key>
-		<dict/>
+		<dict>
+			<key>http://kapeli.com/feeds/Ruby_2.xml</key>
+			<dict>
+				<key>2.3.1</key>
+				<dict>
+					<key>date</key>
+					<date>2018-01-07T22:55:37Z</date>
+				</dict>
+			</dict>
+		</dict>
 		<key>uninstalled</key>
 		<dict/>
 	</dict>
