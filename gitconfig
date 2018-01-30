@@ -3,7 +3,7 @@
 	email = sam.fahlberg@gmail.com
 [core]
 	editor = vim
-	excludesfile = /Users/sam/.gitignore
+	excludesfile = ~/.gitignore
 [push]
 	default = simple
 [filter "hawser"]

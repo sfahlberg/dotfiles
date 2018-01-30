@@ -199,22 +199,13 @@ let g:deoplete#enable_at_startup = 1
 inoremap <silent><expr><tab> pumvisible() ? "\<c-n>" : "\<tab>"
 " use tab to backward cycle
 inoremap <silent><expr><s-tab> pumvisible() ? "\<c-p>" : "\<s-tab>"
-" Disable Deoplete when selecting multiple cursors starts
+
 function! Multiple_cursors_before()
-    if exists('*deoplete#disable')
-        exe 'call deoplete#disable()'
-    elseif exists(':NeoCompleteLock') == 2
-        exe 'NeoCompleteLock'
-    endif
+    let b:deoplete_disable_auto_complete = 1
 endfunction
 
-" Enable Deoplete when selecting multiple cursors ends
 function! Multiple_cursors_after()
-    if exists('*deoplete#enable')
-        exe 'call deoplete#enable()'
-    elseif exists(':NeoCompleteUnlock') == 2
-        exe 'NeoCompleteUnlock'
-    endif
+    let b:deoplete_disable_auto_complete = 0
 endfunction
 
 " ctrlsf
