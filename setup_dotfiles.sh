@@ -1,7 +1,7 @@
 #!/bin/bash
 
 files="zpreztorc gitconfig gitignore tmux.conf agignore pryrc ctags" # list of files/folders to symlink in homedir
-packages_mac="tmux zsh the_silver_searcher fzf" # packages for mac
+packages_mac="tmux zsh the_silver_searcher fzf hub" # packages for mac
 packages_linux="tmux zsh pick silversearcher-ag" # packages for linux
 
 # create symlinks from the homedir to any files in the ~/dotfiles directory specified in $files
@@ -15,6 +15,11 @@ create_symlinks () {
   echo 'attempting to link init.vim'
   mkdir -p  ~/.config/nvim/
   ln -s ~/dotfiles/init.vim ~/.config/nvim
+}
+
+install_neovim () {
+  brew install neovim
+  pip3 install neovim
 }
 
 install_homebrew () {
@@ -52,9 +57,9 @@ install_prezto () {
 }
 
 set_zsh_as_default () {
-  if [[ $(echo $SHELL) == $(which zsh) ]]; then
+  if [[ $(echo $SHELL) == '/bin/zsh' ]]; then
     echo 'making zsh the default'
-    chsh -s $(which zsh)
+    chsh -s /bin/zsh
   else
     echo 'zsh already the default'
   fi
@@ -98,8 +103,8 @@ install_linux_and_mac_packages () {
   fi
 }
 
-# install_prezto
-# set_zsh_as_default
-# install_linux_and_mac_packages
-# install_plug # needs vim installed from packages above
+install_prezto
+set_zsh_as_default
+install_linux_and_mac_packages
+install_plug # needs vim installed from packages above
 create_symlinks
