@@ -103,8 +103,15 @@ install_linux_and_mac_packages () {
   fi
 }
 
+change_screenshot_directory () {
+  mkdir ~/Screenshots
+  defaults write com.apple.screencapture location ~/Screenshots
+  killall SystemUIServer
+}
+
 install_prezto
 set_zsh_as_default
 install_linux_and_mac_packages
 install_plug # needs vim installed from packages above
 create_symlinks
+change_screenshot_directory
