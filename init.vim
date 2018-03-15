@@ -121,9 +121,9 @@ map <silent><leader>so :silent so ~/.config/nvim/init.vim<CR>:echo 'init.vim res
 " saving
 
 inoremap <ESC> <ESC>`^
-vnoremap <C-c> <ESC>:w<CR>
-nnoremap <C-c> <ESC>:w<CR>
-inoremap <C-c> <ESC>:w<CR>
+vnoremap <C-[> <ESC>:w<CR>
+nnoremap <C-[> <ESC>:w<CR>
+inoremap <C-[> <ESC>:w<CR>
 nnoremap <CR> <ESC>:w<CR>
 vnoremap <CR> <ESC>:w<CR>
 

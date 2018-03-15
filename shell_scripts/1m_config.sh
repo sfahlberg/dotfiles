@@ -1,4 +1,4 @@
-if [ $(hostname) = "M-6127.local" ]; then
+if [ $(hostname) = "m-6127.omg.lan" ]; then
   export ONELIFE_HOME=~/1m/onelife
   export AWS_REGION=us-east-1
   export AWS_DEFAULT_REGION=us-east-1
@@ -17,7 +17,7 @@ if [ $(hostname) = "M-6127.local" ]; then
   alias ui="~/1m/onelife-ui"
   alias uis="~/1m/onelife-ui; npm install; npm start"
   alias uiv="~/1m/onelife-ui; vi"
-  alias uideploy="gulp deploy --env=hk"
+  alias uideploy="~/1m/onelife-ui/; gulp deploy --env=hk"
 
   alias mw="~/1m/mobile-web"
   alias mws="~/1m/mobile-web; npm start"
