@@ -117,11 +117,3 @@ zstyle ':prezto:module:syntax-highlighting' styles \
 
 # Integrate with iTerm2.
 # zstyle ':prezto:module:tmux:iterm' integrate 'yes'
-
-# upload all shell scripts
-
-if ls ~/dotfiles/shell_scripts/* 1> /dev/null 2>&1; then
-  for f in ~/dotfiles/shell_scripts/*; do
-    source $f
-  done
-fi

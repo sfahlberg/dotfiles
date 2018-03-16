@@ -12,7 +12,7 @@ if command -v pyenv 1>/dev/null 2>&1; then
 fi
 
 # hub related things
-eval "$(hub alias -s)"
+alias git=hub
 export GIT_EDITOR="nvim" # needed for hub
 
 # aliases

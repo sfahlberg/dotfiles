@@ -19,6 +19,7 @@ Plug 'chrisbra/NrrwRgn'
 Plug 'sbdchd/neoformat'
 Plug 'SirVer/ultisnips'
 Plug 'tpope/vim-sleuth'
+Plug 'vim-scripts/vim-auto-save'
 
 " ============================================================================
 " searching_stuff
@@ -121,11 +122,11 @@ map <silent><leader>so :silent so ~/.config/nvim/init.vim<CR>:echo 'init.vim res
 " saving
 
 inoremap <ESC> <ESC>`^
-vnoremap <C-[> <ESC>:w<CR>
-nnoremap <C-[> <ESC>:w<CR>
-inoremap <C-[> <ESC>:w<CR>
-nnoremap <CR> <ESC>:w<CR>
-vnoremap <CR> <ESC>:w<CR>
+" vnoremap <C-[> <ESC>:w!<CR>
+" nnoremap <C-[> <ESC>:w!<CR>
+" inoremap <C-[> <ESC>:w!<CR>
+" nnoremap <CR> <ESC>:w!<CR>
+" vnoremap <CR> <ESC>:w!<CR>
 
 nmap <leader>q :close<CR> " quit V
 vmap <leader>q <ESC>:close<CR>
@@ -148,7 +149,9 @@ set omnifunc=syntaxcomplete#Complete " closes tags
 set hidden " keep edit history on hidden buffers
 set directory=~/.vimswap " define which directory to save swap files
 
-" au CursorHold * silent! update " save automatically when text is changed
+let g:auto_save = 1  " enable AutoSave on Vim startup
+let g:auto_save_silent = 1  " do not display the auto-save notification
+let g:auto_save_in_insert_mode = 0  " do not save while in insert mode
 
 set backspace=2 " make backspace work like most other apps
 
@@ -194,15 +197,33 @@ set hlsearch " highlights all search matches
 nnoremap <silent> <Space> :nohlsearch<Bar>:echo<CR> " turn off highlight
 
 " deoplete
-let g:deoplete#enable_at_startup = 1
-" use tab to forward cycle
-inoremap <silent><expr><tab> pumvisible() ? "\<c-n>" : "\<tab>"
-" use tab to backward cycle
-inoremap <silent><expr><s-tab> pumvisible() ? "\<c-p>" : "\<s-tab>"
-
+" Disable Deoplete when selecting multiple cursors starts
 function! Multiple_cursors_before()
-    let b:deoplete_disable_auto_complete = 1
+  if exists('*deoplete#disable')
+    exe 'call deoplete#toggle()'
+  elseif exists(':NeoCompleteLock') == 2
+    exe 'NeoCompleteLock'
+  endif
 endfunction
+
+" Enable Deoplete when selecting multiple cursors ends
+function! Multiple_cursors_after()
+  if exists('*deoplete#enable')
+    exe 'call deoplete#toggle()'
+  elseif exists(':NeoCompleteUnlock') == 2
+    exe 'NeoCompleteUnlock'
+  endif
+endfunction
+
+" let g:deoplete#enable_at_startup = 1
+" " use tab to forward cycle
+" inoremap <silent><expr><tab> pumvisible() ? "\<c-n>" : "\<tab>"
+" " use tab to backward cycle
+" inoremap <silent><expr><s-tab> pumvisible() ? "\<c-p>" : "\<s-tab>"
+
+" function! Multiple_cursors_before()
+"     let b:deoplete_disable_auto_complete = 1
+" endfunction
 
 function! Multiple_cursors_after()
     let b:deoplete_disable_auto_complete = 0
@@ -413,7 +434,7 @@ map <leader>dgm :Rgenerate migration<space>
 
 " javascript
 
-nmap <leader>tm :w<CR>:Dispatch npm run mocha<CR>
+nmap <leader>tm :w<CR>:Dispatch npm run test<CR>
 
 " ruby testing with zeus
 

@@ -1,6 +1,6 @@
 #!/bin/bash
 
-files="zpreztorc gitconfig gitignore tmux.conf agignore pryrc ctags" # list of files/folders to symlink in homedir
+files="zpreztorc gitconfig gitignore tmux.conf agignore pryrc ctags zshenv" # list of files/folders to symlink in homedir
 packages_mac="tmux zsh the_silver_searcher fzf hub" # packages for mac
 packages_linux="tmux zsh pick silversearcher-ag" # packages for linux
 
