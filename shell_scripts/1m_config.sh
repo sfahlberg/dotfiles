@@ -3,6 +3,11 @@ if [ $(hostname) = "m-6127.omg.lan" ]; then
   export AWS_REGION=us-east-1
   export AWS_DEFAULT_REGION=us-east-1
 
+  # qual stuff
+  alias hkrake="beans exec -a onelife-hk rake"
+  alias hkps="beans ps -a onelife-hk"
+  alias oldeploy="beans deploy -a onelife-hk"
+
   # docker stuff
   alias dps="docker ps -a"
   alias dbash="docker exec -it devkit bash"

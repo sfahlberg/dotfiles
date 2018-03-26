@@ -1,0 +1,41 @@
+
+   *----------------------------------------------------*
+   | Configure, don't integrate.                        |
+   |                                                    |
+   | Implement technology choices for an application as |
+   | configuration options, not through integration or  |
+   | engineering.                                       |
+   *----------------------------------------------------*
+          o
+           o   ^__^
+            o  (oo)\_______
+               (__)\       )\/\
+                   ||----w |
+                   ||     ||
+
+   [e]  <empty buffer>
+
+   MRU
+
+   [0]  ~/dotfiles/.git/index
+   [1]  ~/dotfiles/iterm2/com.googlecode.iterm2.plist
+   [2]  ~/dotfiles/init.vim
+   [3]  ~/1m/onelife-ui/spec/messaging/rich_text_editor.component.spec.js
+   [4]  ~/dotfiles/shell_scripts/1m_config.sh
+   [5]  ~/dotfiles/gitignore
+   [6]  ~/.config/nvim/plugged/vim-fugitive/plugin/fugitive.vim
+   [7]  ~/1m/onelife-ui/app/messaging/rich_text_editor.component.js
+   [8]  ~/1m/onelife-ui/app/messaging/rich_text_editor.html
+   [9]  ~/dotfiles/gitconfig
+
+   MRU /Users/sfahlberg/dotfiles
+
+   [10] .git/index
+   [11] iterm2/com.googlecode.iterm2.plist
+   [12] init.vim
+   [13] shell_scripts/1m_config.sh
+   [14] gitignore
+   [15] gitconfig
+   [16] setup_dotfiles.sh
+
+   [q]  <quit>
