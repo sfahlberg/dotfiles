@@ -121,12 +121,7 @@ map <silent><leader>so :silent so ~/.config/nvim/init.vim<CR>:echo 'init.vim res
 
 " saving
 
-inoremap <ESC> <ESC>`^
-" vnoremap <C-[> <ESC>:w!<CR>
-" nnoremap <C-[> <ESC>:w!<CR>
-" inoremap <C-[> <ESC>:w!<CR>
-" nnoremap <CR> <ESC>:w!<CR>
-" vnoremap <CR> <ESC>:w!<CR>
+inoremap <ESC> <ESC>`^<ESC>
 
 nmap <leader>q :close<CR> " quit V
 vmap <leader>q <ESC>:close<CR>
@@ -197,37 +192,20 @@ set hlsearch " highlights all search matches
 nnoremap <silent> <Space> :nohlsearch<Bar>:echo<CR> " turn off highlight
 
 " deoplete
-" Disable Deoplete when selecting multiple cursors starts
+let g:deoplete#enable_at_startup = 1
+
 function! Multiple_cursors_before()
-  if exists('*deoplete#disable')
-    exe 'call deoplete#toggle()'
-  elseif exists(':NeoCompleteLock') == 2
-    exe 'NeoCompleteLock'
-  endif
+  let b:deoplete_disable_auto_complete = 1
 endfunction
-
-" Enable Deoplete when selecting multiple cursors ends
-function! Multiple_cursors_after()
-  if exists('*deoplete#enable')
-    exe 'call deoplete#toggle()'
-  elseif exists(':NeoCompleteUnlock') == 2
-    exe 'NeoCompleteUnlock'
-  endif
-endfunction
-
-" let g:deoplete#enable_at_startup = 1
-" " use tab to forward cycle
-" inoremap <silent><expr><tab> pumvisible() ? "\<c-n>" : "\<tab>"
-" " use tab to backward cycle
-" inoremap <silent><expr><s-tab> pumvisible() ? "\<c-p>" : "\<s-tab>"
-
-" function! Multiple_cursors_before()
-"     let b:deoplete_disable_auto_complete = 1
-" endfunction
 
 function! Multiple_cursors_after()
-    let b:deoplete_disable_auto_complete = 0
+  let b:deoplete_disable_auto_complete = 0
 endfunction
+
+" use tab to forward cycle
+inoremap <silent><expr><tab> pumvisible() ? "\<c-n>" : "\<tab>"
+" use tab to backward cycle
+inoremap <silent><expr><s-tab> pumvisible() ? "\<c-p>" : "\<s-tab>"
 
 " ctrlsf
 

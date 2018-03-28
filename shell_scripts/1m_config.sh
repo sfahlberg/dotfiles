@@ -23,6 +23,7 @@ if [ $(hostname) = "m-6127.omg.lan" ]; then
   alias uis="~/1m/onelife-ui; npm install; npm start"
   alias uiv="~/1m/onelife-ui; vi"
   alias uideploy="~/1m/onelife-ui/; gulp deploy --env=hk"
+  alias uitdd="~/1m/onelife-ui/; npm run tdd"
 
   alias mw="~/1m/mobile-web"
   alias mws="~/1m/mobile-web; npm start"
