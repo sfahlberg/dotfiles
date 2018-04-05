@@ -119,6 +119,8 @@ imap <leader>ss <ESC>:w<CR>:terminal<CR>
 
 map <silent><leader>so :silent so ~/.config/nvim/init.vim<CR>:echo 'init.vim resourced'<CR>
 
+cnoreabbrev ! Dispatch
+
 " saving
 
 inoremap <ESC> <ESC>`^<ESC>

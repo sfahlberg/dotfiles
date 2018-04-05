@@ -18,7 +18,7 @@ export GIT_EDITOR="nvim" # needed for hub
 # aliases
 alias vi='nvim `git diff --name-only`'
 alias dot="cd ~/dotfiles"
-alias dotv="cd ~/dotfiles; vi init.vim"
+alias dotv="title dotfiles; cd ~/dotfiles; vi init.vim"
 
 alias gpr="hub pull-request --browse"
 alias gcm="hub compare"
