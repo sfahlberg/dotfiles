@@ -430,6 +430,7 @@ let g:rspec_runner = "os_x_iterm2"
 
 " ruby testing sans zeus
 
+nmap <leader>ta :w<CR>:execute("Dispatch bundle exec rspec --format documentation ") <CR>
 nmap <leader>t :w<CR>:execute("Dispatch bundle exec rspec --format documentation " . expand("%p") . ":" . line(".")) <CR>
 nmap <leader>tt :w<CR>:execute("Start bundle exec rspec --format documentation " . expand("%p") . ":" . line(".")) <CR>
 nmap <leader>ts :w<CR>:execute ':Dispatch JS_DRIVER=selenium bundle exec rspec --format documentation %:' . line('.')<CR>
