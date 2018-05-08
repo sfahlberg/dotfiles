@@ -9,7 +9,6 @@ Plug 'jiangmiao/auto-pairs'
 Plug 'terryma/vim-multiple-cursors'
 Plug 'tpope/vim-surround'
 Plug 'chrisbra/Recover.vim' " so I get a diff when there's a swap file
-Plug 'sickill/vim-pasta' " context aware pasting
 Plug 'matze/vim-move'
 Plug 'tpope/vim-repeat'
 Plug 'tpope/vim-capslock'
@@ -60,6 +59,7 @@ Plug 'vim-airline/vim-airline-themes'
 Plug 'morhetz/gruvbox'
 Plug 'mhinz/vim-startify'
 Plug 'junegunn/goyo.vim'
+Plug 'Yggdroot/indentLine'
 
 " ============================================================================
 " language_stuff
@@ -79,6 +79,7 @@ Plug 'mxw/vim-jsx' " javascript
 Plug 'fatih/vim-go', { 'for': 'go' }
 Plug 'rizzatti/dash.vim'
 Plug 'elixir-lang/vim-elixir'
+Plug 'kchmck/vim-coffee-script'
 
 " ============================================================================
 " testing
@@ -133,8 +134,6 @@ nmap <leader>x :x<CR> " save & exit V
 vmap <leader>x <ESC>:x<CR>
 imap <leader>x <ESC>:x<CR>
 
-noremap = =:w<CR>
-
 " ============================================================================
 " editing_stuff
 " ============================================================================
@@ -172,6 +171,9 @@ let g:move_key_modifier = 'C'
 
 noremap <leader>bo :BufOnly<CR>
 noremap <leader>bb :only<CR>
+
+" paste with indentation
+nnoremap p p=`]
 
 " snippets
 
@@ -470,3 +472,10 @@ function! UpdateCircleStatus() abort
 endfunction
 
 let g:airline_section_c = "%{UpdateCircleStatus()}"
+
+" ============================================================================
+" 1m_shortcuts
+" ============================================================================
+
+nmap <leader>uid :Dispatch! uideploy<CR>
+nmap <leader>old :Dispatch! oldeploy<CR>

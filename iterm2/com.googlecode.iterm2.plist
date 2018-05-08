@@ -962,9 +962,9 @@
 	<key>NSTableView Supports v2 KeyBingingTable</key>
 	<true/>
 	<key>NSWindow Frame SharedPreferences</key>
-	<string>201 1159 796 473 -140 1050 1920 1080 </string>
+	<string>200 1159 796 473 -140 1050 1920 1080 </string>
 	<key>NSWindow Frame iTerm Window 0</key>
-	<string>649 1060 732 478 -140 1050 1920 1080 </string>
+	<string>631 1574 732 478 -140 1050 1920 1080 </string>
 	<key>NSWindow Frame iTerm Window 1</key>
 	<string>520 154 570 452 0 0 1680 1027 </string>
 	<key>New Bookmarks</key>
@@ -2815,7 +2815,7 @@
 	<key>SUHasLaunchedBefore</key>
 	<true/>
 	<key>SULastCheckTime</key>
-	<date>2018-03-28T19:42:59Z</date>
+	<date>2018-04-17T21:47:51Z</date>
 	<key>SUSendProfileInfo</key>
 	<false/>
 	<key>SavePasteHistory</key>
@@ -2823,7 +2823,7 @@
 	<key>ShowBookmarkName</key>
 	<false/>
 	<key>ShowFullScreenTabBar</key>
-	<true/>
+	<false/>
 	<key>ShowNewOutputIndicator</key>
 	<false/>
 	<key>ShowPaneTitles</key>
@@ -2865,7 +2865,7 @@
 	<key>WindowStyle</key>
 	<integer>0</integer>
 	<key>WordCharacters</key>
-	<string>gco</string>
+	<string></string>
 	<key>findIgnoreCase_iTerm</key>
 	<true/>
 	<key>findMode_iTerm</key>
