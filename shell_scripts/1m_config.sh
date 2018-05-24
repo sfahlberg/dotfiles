@@ -1,4 +1,4 @@
-if [ $(hostname) = "M-6127.local" ]; then
+if [[ $(hostname) =~ '^.+6127.+$' ]]; then
   export ONELIFE_HOME=~/1m/onelife
   export AWS_DEFAULT_REGION=us-east-1
   alias chrome="/Applications/Google\ Chrome.app/Contents/MacOS/Google\ Chrome"
@@ -27,7 +27,7 @@ if [ $(hostname) = "M-6127.local" ]; then
   alias uiv="title ui; ~/1m/onelife-ui; vi"
   alias uit="~/1m/onelife-ui/; npm run tdd"
 
-  alias mw="~/1m/mobile-web"
-  alias mws="~/1m/mobile-web; npm start"
-  alias mwv="~/1m/mobile-web; vi"
+  alias mw="title mw; ~/1m/mobile-web"
+  alias mws="title mw; ~/1m/mobile-web; npm start"
+  alias mwv="title mw; ~/1m/mobile-web; vi"
 fi

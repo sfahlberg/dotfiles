@@ -26,6 +26,7 @@ alias gci="hub ci-status -v"
 
 alias be="bundle exec"
 alias rake="bundle exec rake"
+alias rspecdiff="git diff --name-only master | grep *spec* | xargs zeus rspec"
 
 alias stats="git shortlog -sn --since='10 weeks' --until='2 weeks'" # Leaderboards
 alias recent='git for-each-ref --count=10 --sort=-committerdate refs/heads/ --format="%(refname:short)"' # See Which Branches You Recently Worked On

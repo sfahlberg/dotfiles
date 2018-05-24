@@ -395,6 +395,10 @@ let g:closetag_filenames = "*.html,*.erb,*.jsx" " closetags for html, jsx and er
 
 let g:vim_json_syntax_conceal = 0 " stop auto concealing for json in vim
 let g:javascript_plugin_jsdoc = 1 " js syntax highlighting for plugin
+augroup javascript_folding
+  au!
+  au FileType javascript setlocal foldmethod=syntax
+augroup END
 
 " rails
 
