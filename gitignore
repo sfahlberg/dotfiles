@@ -12,3 +12,4 @@ config/database_for_docker.yml
 config/database_for_qual.yml
 .docker-sync/
 docker-sync.yml
+config/database_for_dev.yml
