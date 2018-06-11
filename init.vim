@@ -481,5 +481,5 @@ let g:airline_section_c = "%{UpdateCircleStatus()}"
 " 1m_shortcuts
 " ============================================================================
 
-nmap <leader>uid :Dispatch! uideploy<CR>
-nmap <leader>old :Dispatch! oldeploy<CR>
+nmap <leader>uid :Dispatch uideploy<CR>
+nmap <leader>old :Dispatch oldeploy<CR>
