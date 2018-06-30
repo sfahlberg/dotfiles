@@ -226,10 +226,12 @@ noremap <LEADER>/ :silent BLines<CR>
 
 let g:fzf_history_dir = '~/.local/share/fzf-history' " sets up command history
 
-nnoremap <Leader>aa :Ag<Space>
-vnoremap <Leader>aa y:Ag <C-r>"<CR>
-nnoremap <Leader>ad :Ag<Space>def<space>
-vnoremap <Leader>ad y:Ag<Space>def<space><C-r>"<CR>
+nnoremap <Leader>a yiw:Ag<Space><C-r>"<CR>
+vnoremap <Leader>a y:Ag <C-r>"<CR>
+cnoreabbrev AG Ag
+cnoreabbrev ag Ag
+cnoreabbrev a Ag
+cnoreabbrev A Ag
 
 " ============================================================================
 " navigation
@@ -418,10 +420,6 @@ map <leader>dgm :Rgenerate migration<space>
 " testing
 " ============================================================================
 
-" javascript
-
-nmap <leader>tm :w<CR>:Dispatch npm run test<CR>
-
 " ruby testing with zeus
 
 nmap <leader>z :w<CR>:call RunNearestSpec()<CR>
@@ -438,16 +436,16 @@ let g:rspec_runner = "os_x_iterm2"
 
 " ruby testing sans zeus
 
-nmap <leader>ta :w<CR>:execute("Dispatch bundle exec rspec --format documentation ") <CR>
-nmap <leader>t :w<CR>:execute("Dispatch bundle exec rspec --format documentation " . expand("%p") . ":" . line(".")) <CR>
-nmap <leader>tt :w<CR>:execute("Start bundle exec rspec --format documentation " . expand("%p") . ":" . line(".")) <CR>
-nmap <leader>ts :w<CR>:execute ':Dispatch JS_DRIVER=selenium bundle exec rspec --format documentation %:' . line('.')<CR>
+nmap <leader>ta :w<CR>:execute("Dispatch bundle exec rspec --format documentation --fail-fast ") <CR>
+nmap <leader>t :w<CR>:execute("Dispatch bundle exec rspec --format documentation --fail-fast " . expand("%p") . ":" . line(".")) <CR>
+nmap <leader>tt :w<CR>:execute("Start bundle exec rspec --format documentation --fail-fast " . expand("%p") . ":" . line(".")) <CR>
+nmap <leader>ts :w<CR>:execute ':Dispatch JS_DRIVER=selenium bundle exec rspec --format documentation --fail-fast %:' . line('.')<CR>
 
-nmap <leader>T :w<CR>:Dispatch bundle exec rspec --format documentation %<CR>
-nmap <leader>TT :w<CR>:Start bundle exec rspec --format documentation %<CR>
-nmap <leader>Ts :w<CR>:Dispatch JS_DRIVER=selenium bundle exec rspec --format documentation %<CR>
+nmap <leader>T :w<CR>:Dispatch bundle exec rspec --format documentation --fail-fast %<CR>
+nmap <leader>TT :w<CR>:Start bundle exec rspec --format documentation --fail-fast %<CR>
+nmap <leader>Ts :w<CR>:Dispatch JS_DRIVER=selenium bundle exec rspec --format documentation --fail-fast %<CR>
 
-" circle ci
+" circle ci should probably have `gem install circle-cli`
 
 map <leader>tci :!circle open<CR>
 
