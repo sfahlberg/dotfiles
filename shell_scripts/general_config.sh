@@ -33,3 +33,4 @@ alias recent='git for-each-ref --count=10 --sort=-committerdate refs/heads/ --fo
 alias recap="git log --all --oneline --no-merges --author=sam.fahlberg@gmail.com" # Remind Yourself What You’ve Been Up To
 alias graph="git log --graph --all --decorate --stat --date=iso" # View Complex Logs
 alias worddiff="git diff --word-diff"
+alias cleanup=" git branch --no-merged | ag -v hk | xargs git branch -D" # cleanup local branches
