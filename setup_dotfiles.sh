@@ -1,8 +1,8 @@
 #!/bin/bash
 
 files="zpreztorc gitconfig gitignore tmux.conf agignore pryrc ctags zshrc macos" # list of files/folders to symlink in homedir
-packages_mac="zsh the_silver_searcher fzf hub ctags" # packages for mac
-packages_linux="tmux zsh pick silversearcher-ag" # packages for linux
+packages_mac="zsh ripgrep fzf hub ctags" # packages for mac
+packages_linux="tmux zsh pick ripgrep" # packages for linux
 
 # create symlinks from the homedir to any files in the ~/dotfiles directory specified in $files
 create_symlinks () {

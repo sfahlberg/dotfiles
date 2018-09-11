@@ -1,4 +1,4 @@
-export FZF_DEFAULT_COMMAND='ag --hidden --skip-vcs-ignores --ignore .git -g ""' # displays all files in search
+export FZF_DEFAULT_COMMAND='rg --files --no-ignore --hidden --follow --glob "!.git/*"' # displays all files in search
 
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 
