@@ -6,7 +6,6 @@ call plug#begin()
 
 Plug 'tpope/vim-commentary'
 Plug 'jiangmiao/auto-pairs'
-Plug 'terryma/vim-multiple-cursors'
 Plug 'tpope/vim-surround'
 Plug 'chrisbra/Recover.vim' " so I get a diff when there's a swap file
 Plug 'matze/vim-move'
@@ -105,14 +104,13 @@ set wildmenu " see list for potential autocomplete options
 set splitright " open new splits on the right
 set splitbelow " open new splits below
 
-set textwidth=72 " set wrap width
 set formatoptions+=t " set format options to use textwidth
 
 set mouse=nicr " make it easier for other people to scroll on my machine
 
 nmap <leader>h :Helptags<CR>
 
-nmap <leader>f :echo @%<CR>
+nmap <leader>f :let @+=@% <bar> echo @%<CR>
 
 nmap <leader>ss :w<CR>:terminal<CR>
 vmap <leader>ss <ESC>:w<CR>:terminal<CR>
@@ -156,8 +154,8 @@ function! TrimWhiteSpace()
 endfunction
 autocmd BufWritePre * :call TrimWhiteSpace() " Removes trailing spaces
 
-nnoremap <Leader>/ :%s/
-vnoremap <Leader>/ y:%s/'<C-r>"'/
+nnoremap <Leader>ss :%s/
+vnoremap <Leader>ss y:%s/<C-r>"/
 
                           " the below abbreviation helps me remember
                           " the syntax is for copying the current file
@@ -174,6 +172,9 @@ noremap <leader>bb :only<CR>
 
 " paste with indentation
 nnoremap p p=`]
+
+"copy just the text on the line
+nnoremap yil ^yg_
 
 " snippets
 
@@ -231,7 +232,6 @@ vnoremap <Leader>a y:Ag <C-r>"<CR>
 cnoreabbrev AG Ag
 cnoreabbrev ag Ag
 cnoreabbrev a Ag
-cnoreabbrev A Ag
 
 " ============================================================================
 " navigation
@@ -405,14 +405,14 @@ augroup END
 " rails
 
 map <leader>db :Dispatch! bundle<CR>
-map <leader>dror :Rake one_ring<CR>
-map <leader>drmt :Rake db:migrate RAILS_ENV=test<CR>
-map <leader>drm :Rake db:migrate<CR>
-map <leader>drmr :Rake db:migrate:reset<CR>
-map <leader>drr :Rake routes<CR>
-map <leader>drtp :Rake db:test:prepare<CR>
-map <leader>da :Dispatch bundle exec annotate -rp after<CR>
-map <leader>dgm :Rgenerate migration<space>
+map <leader>rmt :Rake db:migrate RAILS_ENV=test<CR>
+map <leader>rm :Rake db:migrate<CR>
+map <leader>rb :Rake db:rollback<CR>
+map <leader>rmr :Rake db:migrate:reset<CR>
+map <leader>rr :Rake routes<CR>
+map <leader>rtp :Rake db:test:prepare<CR>
+" map <leader>da :Dispatch bundle exec annotate -rp after<CR>
+" map <leader>dgm :Rgenerate migration<space>
 " map <leader>bi ibinding.pry<esc>:w<CR>
 " map <leader>bo obinding.pry<esc>:w<CR>
 
@@ -436,14 +436,12 @@ let g:rspec_runner = "os_x_iterm2"
 
 " ruby testing sans zeus
 
-nmap <leader>ta :w<CR>:execute("Dispatch bundle exec rspec --format documentation --fail-fast ") <CR>
-nmap <leader>t :w<CR>:execute("Dispatch bundle exec rspec --format documentation --fail-fast " . expand("%p") . ":" . line(".")) <CR>
-nmap <leader>tt :w<CR>:execute("Start bundle exec rspec --format documentation --fail-fast " . expand("%p") . ":" . line(".")) <CR>
-nmap <leader>ts :w<CR>:execute ':Dispatch JS_DRIVER=selenium bundle exec rspec --format documentation --fail-fast %:' . line('.')<CR>
+nmap <leader>t :w<CR>:execute("Dispatch docker-compose run onelife rspec --format documentation --fail-fast " . expand("%p") . ":" . line(".")) <CR>
+nmap <leader>tt :w<CR>:execute("Start docker-compose run onelife rspec --format documentation --fail-fast " . expand("%p") . ":" . line(".")) <CR>
 
-nmap <leader>T :w<CR>:Dispatch bundle exec rspec --format documentation --fail-fast %<CR>
-nmap <leader>TT :w<CR>:Start bundle exec rspec --format documentation --fail-fast %<CR>
-nmap <leader>Ts :w<CR>:Dispatch JS_DRIVER=selenium bundle exec rspec --format documentation --fail-fast %<CR>
+nmap <leader>T :w<CR>:Dispatch docker-compose run onelife rspec --format documentation %<CR>
+nmap <leader>TT :w<CR>:Start docker-compose run onelife rspec --format documentation --fail-fast %<CR>
+nmap <leader>TA :w<CR>:Dispatch git diff --name-only master <bar> grep *spec* <bar> xargs docker-compose run onelife rspec<CR>
 
 " circle ci should probably have `gem install circle-cli`
 

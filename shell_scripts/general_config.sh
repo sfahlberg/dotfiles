@@ -11,6 +11,11 @@ if command -v pyenv 1>/dev/null 2>&1; then
    eval "$(pyenv init -)"
 fi
 
+
+function alert {
+  osascript -e 'display notification "Your command has finished!"'
+}
+
 # hub related things
 alias git=hub
 export GIT_EDITOR="nvim" # needed for hub
@@ -23,10 +28,12 @@ alias dotv="title dotfiles; cd ~/dotfiles; vi init.vim"
 alias gpr="hub pull-request --browse"
 alias gcm="hub compare"
 alias gci="hub ci-status -v"
+alias gcom="git checkout master; git pull --rebase"
 
 alias be="bundle exec"
 alias rake="bundle exec rake"
-alias rspecdiff="git diff --name-only master | grep *spec* | xargs zeus rspec"
+alias rspecdiff="git diff --name-only master | grep *spec* | xargs rspec"
+alias zeusdiff="git diff --name-only master | grep *spec* | xargs zeus rspec"
 
 alias stats="git shortlog -sn --since='10 weeks' --until='2 weeks'" # Leaderboards
 alias recent='git for-each-ref --count=10 --sort=-committerdate refs/heads/ --format="%(refname:short)"' # See Which Branches You Recently Worked On

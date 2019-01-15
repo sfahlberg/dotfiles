@@ -1,4 +1,4 @@
-if [[ $(hostname) =~ '^.+6127.+$' ]]; then
+if [[ $(hostname) =~ '^.+6127.*$' ]]; then
   eval "$(nodenv init -)"
 
   export ONELIFE_HOME=~/1m/onelife
@@ -14,14 +14,21 @@ if [[ $(hostname) =~ '^.+6127.+$' ]]; then
 
   # docker stuff
   alias dps="docker ps -a"
-  alias dstart="docker start  \`docker ps -q -l\`" # restart exited container
+  alias drc="docker-compose run onelife rails console"
+  alias d="docker-compose run onelife"
   alias from_docker="cp ~/1m/onelife/config/database_for_dev.yml ~/1m/onelife/config/database.yml; sed -i "" -e '/config.cache_store/s/# //' ~/1m/onelife/config/environments/development.rb; brew services start --all"
   alias to_docker="cp ~/1m/onelife/config/database_for_docker.yml ~/1m/onelife/config/database.yml; sed -i '' -e's/config.cache_store/# &/' ~/1m/onelife/config/environments/development.rb; brew services stop --all"
 
-  alias ol="title ol; ~/1m/onelife"
-  alias olv="title ol; ~/1m/onelife; vi"
-  alias ols="title ol; ~/1m/onelife; bundle; bundle exec rake db:migrate; rails s"
-  alias olt="title ol; ~/1m/onelife; bundle; bin/rails db:migrate RAILS_ENV=test; zeus start"
+  alias ol="title onelife; ~/1m/onelife"
+  alias olv="title onelife; ~/1m/onelife; vi"
+  alias ols="title onelife server; ~/1m/onelife; bundle; bundle exec rake db:migrate; rails s"
+  alias olt="title onelife; ~/1m/onelife; bundle; bin/rails db:migrate RAILS_ENV=test; zeus start"
+
+  alias dp="title doc-processing; ~/1m/document-processing"
+  alias dpv="title doc-processing; ~/1m/document-processing; vi"
+
+  alias pub="title pub-sub; ~/1m/pub-sub"
+  alias pubv="title pub-sub; ~/1m/pub-sub; vi"
 
   alias ui="title ui; ~/1m/onelife-ui"
   alias uis="title ui; ~/1m/onelife-ui; lsof -t -i tcp:4000 | xargs kill; gulp clean; npm install; npm start"

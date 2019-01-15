@@ -17,3 +17,5 @@ if ls ~/dotfiles/shell_scripts/* 1> /dev/null 2>&1; then
     source $f
   done
 fi
+
+[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
