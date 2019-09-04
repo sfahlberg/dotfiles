@@ -1,9 +1,11 @@
-if [[ $(hostname) =~ '^.+6127.*$' ]]; then
+# if [[ $(hostname) =~ '^.+6127.*$' ]]; then
   eval "$(nodenv init -)"
 
   export ONELIFE_HOME=~/1m/onelife
   export AWS_DEFAULT_REGION=us-east-1
   alias chrome="/Applications/Google\ Chrome.app/Contents/MacOS/Google\ Chrome"
+  export PATH="$HOME/.nodenv/bin:$PATH"
+  export PATH="$HOME/.rbenv/shims/2.5.1/bin:$PATH"
 
   # qual stuff
   alias hkrake="beans exec -a onelife-hk rake"
@@ -38,4 +40,4 @@ if [[ $(hostname) =~ '^.+6127.*$' ]]; then
   alias mw="title mw; ~/1m/mobile-web"
   alias mws="title mw; ~/1m/mobile-web; npm start"
   alias mwv="title mw; ~/1m/mobile-web; vi"
-fi
+# fi

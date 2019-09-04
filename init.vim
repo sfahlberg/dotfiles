@@ -74,6 +74,7 @@ Plug 'tpope/vim-rake', { 'for': 'ruby' }
 Plug 'alvan/vim-closetag' " close html tags
 Plug 'elzr/vim-json' " json syntax and highlighting
 Plug 'pangloss/vim-javascript' " js syntax highlighting
+Plug 'leafgarland/typescript-vim' " typescript highlighting
 Plug 'mxw/vim-jsx' " javascript
 Plug 'fatih/vim-go', { 'for': 'go' }
 Plug 'rizzatti/dash.vim'
@@ -199,13 +200,13 @@ nnoremap <silent> <Space> :nohlsearch<Bar>:echo<CR> " turn off highlight
 " deoplete
 let g:deoplete#enable_at_startup = 1
 
-function! Multiple_cursors_before()
-  let b:deoplete_disable_auto_complete = 1
-endfunction
+" function! Multiple_cursors_before()
+"   let b:deoplete_disable_auto_complete = 1
+" endfunction
 
-function! Multiple_cursors_after()
-  let b:deoplete_disable_auto_complete = 0
-endfunction
+" function! Multiple_cursors_after()
+"   let b:deoplete_disable_auto_complete = 0
+" endfunction
 
 " use tab to forward cycle
 inoremap <silent><expr><tab> pumvisible() ? "\<c-n>" : "\<tab>"
@@ -344,6 +345,7 @@ set relativenumber " relative numbers
 
 if has('mac')
   colorscheme gruvbox
+  set background=light
   set termguicolors
 endif
 
@@ -477,5 +479,3 @@ let g:airline_section_c = "%{UpdateCircleStatus()}"
 " 1m_shortcuts
 " ============================================================================
 
-nmap <leader>uid :Dispatch uideploy<CR>
-nmap <leader>old :Dispatch oldeploy<CR>

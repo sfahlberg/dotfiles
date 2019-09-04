@@ -18,3 +18,5 @@
 	push = HEAD
 [rerere]
 	enabled = 1
+[pull]
+	default = current

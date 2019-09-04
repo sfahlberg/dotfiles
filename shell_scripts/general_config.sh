@@ -3,6 +3,7 @@ export PATH="$HOME/.rbenv/bin:$PATH"
 if rbenv 1>/dev/null 2>&1; then
   eval "$(rbenv init -)"
 fi
+alias tmux="TERM=screen-256color-bce tmux"
 
 # pyenv related things
 export PYENV_ROOT="$HOME/.pyenv"
@@ -19,6 +20,9 @@ function alert {
 # hub related things
 alias git=hub
 export GIT_EDITOR="nvim" # needed for hub
+
+# avoid having to escape square brackets
+alias rake='noglob rake'
 
 # aliases
 alias vi='nvim `git diff --name-only`'
