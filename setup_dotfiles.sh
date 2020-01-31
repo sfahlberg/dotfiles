@@ -1,8 +1,8 @@
 #!/bin/bash
 
 files="zpreztorc gitconfig gitignore tmux.conf agignore pryrc ctags zshrc macos" # list of files/folders to symlink in homedir
-packages_mac="zsh ripgrep fzf hub ctags" # packages for mac
-packages_linux="tmux zsh pick ripgrep" # packages for linux
+packages_mac="the_silver_searcher ripgrep python fzf hub ctags nodenv" # packages for mac
+packages_linux="tmux pick ripgrep" # packages for linux
 
 # create symlinks from the homedir to any files in the ~/dotfiles directory specified in $files
 create_symlinks () {
@@ -57,11 +57,15 @@ install_prezto () {
 }
 
 set_zsh_as_default () {
-  if [[ $(echo $SHELL) == '/bin/zsh' ]]; then
-    echo 'making zsh the default'
-    chsh -s /bin/zsh
-  else
+  brew install zsh
+  if [[ $(echo $SHELL) == $(which zsh) ]]; then
     echo 'zsh already the default'
+  else
+    echo "adding zsh to possible shells"
+    sudo sh -c "echo $(which zsh) >> /etc/shells"
+    echo 'making zsh the default'
+    chsh -s $(which zsh)
+    zsh
   fi
 }
 
@@ -109,9 +113,10 @@ change_screenshot_directory () {
   killall SystemUIServer
 }
 
-install_prezto
-set_zsh_as_default
-install_linux_and_mac_packages
-install_plug # needs vim installed from packages above
-create_symlinks
-change_screenshot_directory
+install_neovim
+# install_prezto
+# set_zsh_as_default
+# install_linux_and_mac_packages
+# install_plug # needs vim installed from packages above
+# create_symlinks
+# change_screenshot_directory

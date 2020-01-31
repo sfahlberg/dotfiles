@@ -150,10 +150,17 @@ let g:auto_save_in_insert_mode = 0  " do not save while in insert mode
 
 set backspace=2 " make backspace work like most other apps
 
-function! TrimWhiteSpace()
+" function! TrimWhiteSpace()
+"   %s/\s\+$//e
+" endfunction
+" autocmd BufWritePre * :call TrimWhiteSpace() " Removes trailing spaces
+fun! <SID>StripTrailingWhitespaces()
+  let l = line(".")
+  let c = col(".")
   %s/\s\+$//e
-endfunction
-autocmd BufWritePre * :call TrimWhiteSpace() " Removes trailing spaces
+  call cursor(l, c)
+endfun
+autocmd BufWritePre * :call <SID>StripTrailingWhitespaces()
 
 nnoremap <Leader>ss :%s/
 vnoremap <Leader>ss y:%s/<C-r>"/
@@ -316,17 +323,21 @@ map <leader>gpr :terminal hub pull-request --browse<CR>
 map <leader>gcm :Dispatch! hub compare<CR>
 map <leader>gbr :Dispatch! hub browse<CR>
 
+" signify
+
+let g:signify_vcs_list = ['git']
+
 " gitgutter
 
 let g:gitgutter_map_keys = 0
 
-map [g :w<CR><Plug>GitGutterPrevHunk
-map ]g :w<CR><Plug>GitGutterNextHunk
-map [G :w<CR>G<Plug>GitGutterPrevHunk
-map ]G :w<CR>gg<Plug>GitGutterNextHunk
+map [g :w<CR><Plug>(GitGutterPrevHunk)
+map ]g :w<CR><Plug>(GitGutterNextHunk)
+map [G :w<CR>G<Plug>(GitGutterPrevHunk)
+map ]G :w<CR>gg<Plug>(GitGutterNextHunk)
 
-map <Leader>ga <Plug>GitGutterStageHunk
-map <Leader>gco <Plug>GitGutterUndoHunk
+map <Leader>ga <Plug>(GitGutterStageHunk)
+map <Leader>gco <Plug>(GitGutterUndoHunk)
 
 " merginal
 
@@ -383,7 +394,7 @@ map [s :lprevious<CR>
 map ]S :lfirst<CR>
 map [S :llast<CR>
 
-let g:neomake_ruby_enabled_makers = ['rubocop']
+" let g:neomake_ruby_enabled_makers = ['rubocop']
 let g:neomake_javascript_enabled_makers = ['eslint']
 
 nmap <leader>la :w<CR>:Dispatch yarn run lint<CR>
@@ -394,6 +405,8 @@ nmap <leader>lr :w<CR>:Dispatch rubocop --auto-correct %<CR>
 
 runtime macros/matchit.vim " setup extended matching with %, eg html
 let g:closetag_filenames = "*.html,*.erb,*.jsx" " closetags for html, jsx and erb
+" format htMl
+nmap <leader>m :%s/<[^>]*>/\r&\r/g<CR>:w<CR>:g/^$/d<CR>gg=G
 
 " javascript
 
@@ -438,12 +451,12 @@ let g:rspec_runner = "os_x_iterm2"
 
 " ruby testing sans zeus
 
-nmap <leader>t :w<CR>:execute("Dispatch docker-compose run onelife rspec --format documentation --fail-fast " . expand("%p") . ":" . line(".")) <CR>
-nmap <leader>tt :w<CR>:execute("Start docker-compose run onelife rspec --format documentation --fail-fast " . expand("%p") . ":" . line(".")) <CR>
+nmap <leader>t :w<CR>:execute("Dispatch bundle exec rspec --format documentation --fail-fast " . expand("%p") . ":" . line(".")) <CR>
+nmap <leader>tt :w<CR>:execute("Start bundle exec rspec --format documentation --fail-fast " . expand("%p") . ":" . line(".")) <CR>
 
-nmap <leader>T :w<CR>:Dispatch docker-compose run onelife rspec --format documentation %<CR>
-nmap <leader>TT :w<CR>:Start docker-compose run onelife rspec --format documentation --fail-fast %<CR>
-nmap <leader>TA :w<CR>:Dispatch git diff --name-only master <bar> grep *spec* <bar> xargs docker-compose run onelife rspec<CR>
+nmap <leader>T :w<CR>:Dispatch bundle exec rspec --format documentation %<CR>
+nmap <leader>TT :w<CR>:Start bundle exec rspec --format documentation --fail-fast %<CR>
+nmap <leader>TA :w<CR>:Dispatch git diff --name-only master <bar> grep *spec* <bar> xargs rspec<CR>
 
 " circle ci should probably have `gem install circle-cli`
 
@@ -453,27 +466,27 @@ let g:circle_update_frequencey_in_seconds = 3
 let g:circle_last_update = 0
 let g:circle_last_status = ""
 
-function! SetCircleStatus(job_id, data, event) abort
-  if a:event == 'stdout'
-    let g:circle_last_status = join(a:data)
-  elseif a:event == 'stderr'
-    let g:circle_last_status = 'No internet'
-  else
-    let g:circle_last_status = 'ERROR'
-  endif
-  let g:circle_last_update = localtime()
-endfunction
+" function! SetCircleStatus(job_id, data, event) abort
+"   if a:event == 'stdout'
+"     let g:circle_last_status = join(a:data)
+"   elseif a:event == 'stderr'
+"     let g:circle_last_status = 'No internet'
+"   else
+"     let g:circle_last_status = 'ERROR'
+"   endif
+"   let g:circle_last_update = localtime()
+" endfunction
 
-function! UpdateCircleStatus() abort
-  let current_time = localtime()
-  if current_time - g:circle_last_update > g:circle_update_frequencey_in_seconds
-    let g:circle_last_update = current_time
-    call jobstart('hub ci-status', {"on_stdout": function('SetCircleStatus'), "on_stderr": function('SetCircleStatus')})
-  endif
-  return g:circle_last_status
-endfunction
+" function! UpdateCircleStatus() abort
+"   let current_time = localtime()
+"   if current_time - g:circle_last_update > g:circle_update_frequencey_in_seconds
+"     let g:circle_last_update = current_time
+"     call jobstart('hub ci-status', {"on_stdout": function('SetCircleStatus'), "on_stderr": function('SetCircleStatus')})
+"   endif
+"   return g:circle_last_status
+" endfunction
 
-let g:airline_section_c = "%{UpdateCircleStatus()}"
+" let g:airline_section_c = "%{UpdateCircleStatus()}"
 
 " ============================================================================
 " 1m_shortcuts
