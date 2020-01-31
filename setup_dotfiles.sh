@@ -12,6 +12,8 @@ create_symlinks () {
     ln -sf ~/dotfiles/$file ~/.$file
   done
 
+  ln -sf ~/dotfiles/karabiner.json ~/.config/karabiner/karabiner.json
+
   echo 'attempting to link init.vim'
   mkdir -p  ~/.config/nvim/
   ln -sf ~/dotfiles/init.vim ~/.config/nvim
@@ -35,6 +37,7 @@ install_plug () {
   echo 'cloning plug'
   mkdir ~/.vim/bundle
   curl -fLo ~/.local/share/nvim/site/autoload/plug.vim --create-dirs https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
+  vim +PlugInstall +qall
 }
 
 install_prezto () {
@@ -113,10 +116,10 @@ change_screenshot_directory () {
   killall SystemUIServer
 }
 
+install_linux_and_mac_packages
 install_neovim
-# install_prezto
-# set_zsh_as_default
-# install_linux_and_mac_packages
-# install_plug # needs vim installed from packages above
-# create_symlinks
-# change_screenshot_directory
+install_prezto
+set_zsh_as_default
+install_plug # needs vim installed from packages above
+create_symlinks
+change_screenshot_directory
