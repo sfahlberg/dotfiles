@@ -1,7 +1,5 @@
 # dotfiles
 
-cd ~
-
 git clone https://github.com/sfahlberg/dotfiles.git
 
 bash setup_dotfiles.sh
@@ -18,3 +16,7 @@ store config for karabiner
 ```
 cp ~/dotfiles/karabiner.json ~/.config/karabiner
 ```
+
+### setup touchbar
+
+![touchbar](images/touchbar.png)
