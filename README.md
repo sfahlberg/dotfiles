@@ -20,3 +20,7 @@ cp ~/dotfiles/karabiner.json ~/.config/karabiner
 ### setup touchbar
 
 ![touchbar](images/touchbar.png)
+
+### setup headphones so music doesn't play when you plug and unplug
+
+![audio output](images/audio_output.png)
