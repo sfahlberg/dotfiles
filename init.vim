@@ -207,14 +207,6 @@ nnoremap <silent> <Space> :nohlsearch<Bar>:echo<CR> " turn off highlight
 " deoplete
 let g:deoplete#enable_at_startup = 1
 
-" function! Multiple_cursors_before()
-"   let b:deoplete_disable_auto_complete = 1
-" endfunction
-
-" function! Multiple_cursors_after()
-"   let b:deoplete_disable_auto_complete = 0
-" endfunction
-
 " use tab to forward cycle
 inoremap <silent><expr><tab> pumvisible() ? "\<c-n>" : "\<tab>"
 " use tab to backward cycle
