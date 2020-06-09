@@ -17,6 +17,10 @@ function alert {
   osascript -e 'display notification "Your command has finished!"'
 }
 
+# nvm
+export NVM_DIR="/Users/fahlberg/.nvm"
+[ -s "$NVM_DIR/nvm.sh" ] && . "$NVM_DIR/nvm.sh"
+
 # hub related things
 alias git=hub
 export GIT_EDITOR="nvim" # needed for hub
