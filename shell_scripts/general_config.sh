@@ -12,14 +12,12 @@ if command -v pyenv 1>/dev/null 2>&1; then
    eval "$(pyenv init -)"
 fi
 
-
 function alert {
   osascript -e 'display notification "Your command has finished!"'
 }
 
-# nvm
-export NVM_DIR="/Users/fahlberg/.nvm"
-[ -s "$NVM_DIR/nvm.sh" ] && . "$NVM_DIR/nvm.sh"
+#  rvm
+export PATH="$PATH:$HOME/.rvm/bin" # Add RVM to PATH for scripting. Make sure this is the last PATH variable change.
 
 # hub related things
 alias git=hub
