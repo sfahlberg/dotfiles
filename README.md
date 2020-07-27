@@ -8,7 +8,7 @@
 
 in terminal:
 ```
-`git clone https://github.com/sfahlberg/dotfiles.git
+git clone git@github.com:sfahlberg/dotfiles.git # not https
 bash setup_dotfiles.sh
 ```
 
