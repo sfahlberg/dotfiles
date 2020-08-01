@@ -8,14 +8,12 @@
   export PATH="$HOME/.rbenv/shims/2.5.1/bin:$PATH"
 
   # qual stuff
-  alias hkrake="beans exec -a onelife-hk rake"
-  alias hkconsole="echo '\n ========= \n are you connected to VPN? \n ========= \n'; beans exec rails console --interactive -a onelife-hk -i ~/.ssh/1life-core.pem"
-  alias hkps="beans ps -a onelife-hk"
-  alias oldeploy="cd ~/1m/onelife/; beans deploy -a onelife-hk"
-  alias uideploy="~/1m/onelife-ui/; gulp deploy --env=hk; chrome 'hk-ui.1life.com/#/patients/100/chart/summaries/new'"
+  alias newtowndeploy="git rev-parse --abbrev-ref HEAD | xargs crane deploy -e alpha -c newtown --onelife-rails; alert"
+  alias hkdeploy="git rev-parse --abbrev-ref HEAD | xargs crane deploy -e alpha -c hk-ecs --onelife-rails; alert"
+  alias marindeploy="git rev-parse --abbrev-ref HEAD | xargs crane deploy -e alpha -c marin --onelife-rails; alert"
 
   # docker stuff
-  alias dps="docker ps -a"
+  alias dattach='docker attach $(docker ps | grep "onelife_onelife_1" | awk '"'"'{print $1;}'"'"')'
   alias drc="docker-compose run onelife rails console"
   alias d="docker-compose run onelife"
   alias from_docker="cp ~/1m/onelife/config/database_for_dev.yml ~/1m/onelife/config/database.yml; sed -i "" -e '/config.cache_store/s/# //' ~/1m/onelife/config/environments/development.rb; brew services start --all"
@@ -23,8 +21,6 @@
 
   alias ol="title onelife; ~/1m/onelife"
   alias olv="title onelife; ~/1m/onelife; vi"
-  alias ols="title onelife server; ~/1m/onelife; bundle; bundle exec rake db:migrate; rails s"
-  alias olt="title onelife; ~/1m/onelife; bundle; bin/rails db:migrate RAILS_ENV=test; zeus start"
 
   alias dp="title doc-processing; ~/1m/document-processing"
   alias dpv="title doc-processing; ~/1m/document-processing; vi"
