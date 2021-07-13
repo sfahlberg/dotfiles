@@ -1,6 +1,8 @@
 # if [[ $(hostname) =~ '^.+6127.*$' ]]; then
   eval "$(nodenv init -)"
 
+  export CDPATH=~/1m
+
   export ONELIFE_HOME=~/1m/onelife
   export AWS_DEFAULT_REGION=us-east-1
   alias chrome="/Applications/Google\ Chrome.app/Contents/MacOS/Google\ Chrome"

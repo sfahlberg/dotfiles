@@ -26,7 +26,7 @@ Plug 'vim-scripts/vim-auto-save'
 Plug 'henrik/vim-indexed-search' " number for / search
 Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
 Plug 'dyng/ctrlsf.vim' " find and replace in multiple files
-Plug 'soramugi/auto-ctags.vim' " automatically update ctags
+Plug 'ludovicchabant/vim-gutentags' " automatically update ctags
 Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
 Plug 'junegunn/fzf.vim'
 
@@ -45,7 +45,7 @@ Plug 'vim-scripts/BufOnly.vim'
 " ============================================================================
 
 Plug 'tpope/vim-fugitive'
-Plug 'airblade/vim-gitgutter'
+Plug 'mhinz/vim-signify'
 Plug 'idanarye/vim-merginal'
 Plug 'jreybert/vimagit'
 
@@ -245,12 +245,6 @@ nmap <silent><Tab> :silent bn<CR>
 nmap <silent><BS> :silent BufSurfBack<CR>
 nmap <silent>\ :silent BufSurfForward<CR>
 
-" tags
-
-let g:auto_ctags = 1
-set tags=tags " speeds up tags in neovim
-set path=. " speeds up tags in neovim
-
 " NERD
 
 map <leader>ee :NERDTreeToggle<CR>
@@ -276,7 +270,7 @@ autocmd FileType nerdtree setlocal relativenumber
 
 set diffopt+=vertical " fugitive make vertical
 
-map <leader>gg :Gstatus<CR>
+map <leader>gg :Git<CR>
 
 map <leader>gs :Git stash<CR>
 map <leader>gsp :Git stash pop<CR>
@@ -305,31 +299,19 @@ map <leader>gcF :Gcommit --amend<CR>
 
 " github
 
-map <leader>gp :Gpush<CR>
-map <leader>gpf :Gpush --force<CR>
-map <leader>gfr :Gpull --rebase<CR>
-map <leader>gfm :Gfetch origin master:master<CR>
-map <leader>grom :Git rebase origin/master<CR>
+function! GitBranch()
+  return system("git rev-parse --abbrev-ref HEAD 2>/dev/null | tr -d '\n'")
+endfunction
 
-map <leader>gpr :terminal hub pull-request --browse<CR>
-map <leader>gcm :Dispatch! hub compare<CR>
-map <leader>gbr :Dispatch! hub browse<CR>
+map <leader>gp :Git push<CR>
+map <leader>gpf :Git push --force<CR>
+map <leader>gfr :Start git pull --rebase origin $(git branch --show-current)<CR>
+map <leader>gfm :Git fetch origin master:master<CR>
+map <leader>grom :Git rebase origin/master<CR>
 
 " signify
 
 let g:signify_vcs_list = ['git']
-
-" gitgutter
-
-let g:gitgutter_map_keys = 0
-
-map [g :w<CR><Plug>(GitGutterPrevHunk)
-map ]g :w<CR><Plug>(GitGutterNextHunk)
-map [G :w<CR>G<Plug>(GitGutterPrevHunk)
-map ]G :w<CR>gg<Plug>(GitGutterNextHunk)
-
-map <Leader>ga <Plug>(GitGutterStageHunk)
-map <Leader>gco <Plug>(GitGutterUndoHunk)
 
 " merginal
 
@@ -386,7 +368,7 @@ map [s :lprevious<CR>
 map ]S :lfirst<CR>
 map [S :llast<CR>
 
-" let g:neomake_ruby_enabled_makers = ['rubocop']
+let g:neomake_ruby_enabled_makers = ['rubocop']
 let g:neomake_javascript_enabled_makers = ['eslint']
 
 nmap <leader>la :w<CR>:Dispatch yarn run lint<CR>

@@ -14,3 +14,4 @@ config/database_for_qual.yml
 docker-sync.yml
 config/database_for_dev.yml
 cypress/plugins/index.js
+lib/prometheus.rb
