@@ -110,8 +110,7 @@ set formatoptions+=t " set format options to use textwidth
 set mouse=nicr " make it easier for other people to scroll on my machine
 
 nmap <leader>h :Helptags<CR>
-
-nmap <leader>f :let @+=@% <bar> echo @%<CR>
+nmap <leader>f :let @+ = 'https://github.com/onemedical/onelife/blob/master/' . @% <bar> echo @%<CR>
 
 nmap <leader>ss :w<CR>:terminal<CR>
 vmap <leader>ss <ESC>:w<CR>:terminal<CR>
@@ -283,7 +282,7 @@ let g:magit_discard_untracked_do_delete=1
 map <leader>gd<SPACE> :Gdiff<SPACE>
 map <leader>gdm :Gdiff master<CR>
 
-map <leader>gb :Gblame<CR>
+map <leader>gb :Git blame<CR>
 
 " rewriting_history
 
