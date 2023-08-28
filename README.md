@@ -3,6 +3,7 @@
 * [Generate a new SSH key and add it to the ssh-agent](https://help.github.com/en/articles/generating-a-new-ssh-key-and-adding-it-to-the-ssh-agent#generating-a-new-ssh-key)
 * [Add your SSH key to your github account](https://help.github.com/en/articles/adding-a-new-ssh-key-to-your-github-account)
 * [Enable SSO for your SSH keys ](https://help.github.com/en/articles/authorizing-an-ssh-key-for-use-with-a-saml-single-sign-on-organization)
+* [Setup homebrew](https://brew.sh/)
 
 ### setup dotfiles
 
@@ -33,7 +34,3 @@ cp ~/dotfiles/karabiner.json ~/.config/karabiner
 ### setup touchbar
 
 ![touchbar](images/touchbar.png)
-
-### setup headphones so music doesn't play when you plug and unplug
-
-![audio output](images/audio_output.png)
